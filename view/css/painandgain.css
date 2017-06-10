@@ -1,1 +1,30 @@
 @CHARSET "ISO-8859-1";
+textarea.form-control{
+	resize:  none;
+}
+#example1 td,th{
+	text-align: center;
+}
+#activity{
+	position: relative;
+}
+.suggest{
+	position: absolute;
+    background: white;
+    width: 100%;
+    display: none;    
+}
+.fa-custom{
+	margin-right: 10px;
+}
+.suggest-col{
+    margin: 8px 0px;
+    cursor: pointer;
+}
+.list-suggest{
+	padding: 0px;
+    list-style-type: none;
+}
+.delproc{
+	font-size: 24px;
+}

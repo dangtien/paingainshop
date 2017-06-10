@@ -18,8 +18,8 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="${pageContext.request.contextPath}/templates/bootstrap/js/bootstrap.min.js"></script>
 <!-- Morris.js charts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="${pageContext.request.contextPath}/templates/plugins/morris/morris.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+<script src="${pageContext.request.contextPath}/templates/plugins/morris/morris.min.js"></script> -->
 <!-- Sparkline -->
 <script src="${pageContext.request.contextPath}/templates/plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -41,23 +41,21 @@
 <!-- AdminLTE App -->
 <script src="${pageContext.request.contextPath}/templates/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="${pageContext.request.contextPath}/templates/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="${pageContext.request.contextPath}/templates/dist/js/demo.js"></script>
-<script src="${pageContext.request.contextPath}/templates/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="${pageContext.request.contextPath}/templates/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- <script src="${pageContext.request.contextPath}/templates/dist/js/pages/dashboard.js"></script>
+ --><!-- AdminLTE for demo purposes -->
+<!-- <script src="${pageContext.request.contextPath}/templates/dist/js/demo.js"></script> -->
+<!-- datatable-->
+<script src="${pageContext.request.contextPath}/templates/plugins/datatables/jquery.dataTables.js"></script>
+<script src="${pageContext.request.contextPath}/templates/plugins/datatables/dataTables.bootstrap.js"></script>
+<!-- painandgain js-->
+<script src="${pageContext.request.contextPath}/js/painandgain.js"></script>
+<!-- Select2 -->
+<script src="${pageContext.request.contextPath}/templates/plugins/select2/select2.full.min.js"></script>
 <!-- page script -->
 <script>
   $(function () {
     $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
+     $(".select2").select2();
   });
 </script>
 	</body>

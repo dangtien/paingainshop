@@ -5,9 +5,7 @@
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>
-			Trang chủ <small>Tổng quan</small>
-		</h1>
+		<h1>Tổng quan</h1>
 		<ol class="breadcrumb">
 			<li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
 			<li class="active">Tổng quan</li>

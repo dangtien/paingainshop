@@ -48,6 +48,8 @@
   <![endif]-->
 <!--  dataTables.bootstrap.css -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/plugins/datatables/dataTables.bootstrap.css">
+<!-- css for paingain -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/painandgain.css">
 <!-- Google Font -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">

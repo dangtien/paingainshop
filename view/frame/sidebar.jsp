@@ -25,7 +25,7 @@
 							class="fa fa-circle-o"></i>Nhập hàng</a></li>
 					<li><a href="listproducts.jsp"><i
 							class="fa fa-circle-o"></i>Quản lí thông tin</a></li>
-					<li><a href="listproducts.jsp"><i
+					<li><a href="createbill.jsp"><i
 							class="fa fa-circle-o"></i>Bán hàng</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i>

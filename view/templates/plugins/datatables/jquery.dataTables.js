@@ -10975,7 +10975,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sSortAscending": ": activate to sort column ascending",
+				"sSortAscending": ": Kích hoạt để sắp xếp cột tăng dần",
 	
 				/**
 				 * ARIA label that is added to the table headers when the column may be
@@ -10998,7 +10998,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sSortDescending": ": activate to sort column descending"
+				"sSortDescending": ": Kích hoạt để sắp xếp cột giảm dần"
 			},
 	
 			/**
@@ -11028,7 +11028,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sFirst": "First",
+				"sFirst": "đầu",
 	
 	
 				/**
@@ -11051,7 +11051,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sLast": "Last",
+				"sLast": "cuối",
 	
 	
 				/**
@@ -11074,7 +11074,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "Tiếp",
 	
 	
 				/**
@@ -11097,7 +11097,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "Trước"
 			},
 	
 			/**
@@ -11120,7 +11120,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "Không có dữ liệu hiển thị",
 	
 	
 			/**
@@ -11152,7 +11152,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "Hiển thị _START_ đến _END_ trong tổng _TOTAL_ sản phẩm",
 	
 	
 			/**
@@ -11173,7 +11173,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": "Hiển thị 0 đến 0 trong tổng 0 sản phẩm",
 	
 	
 			/**
@@ -11195,7 +11195,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(filtered from _MAX_ total entries)",
+			"sInfoFiltered": "(lọc từ _MAX_ sản phẩm)",
 	
 	
 			/**
@@ -11313,7 +11313,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ entries",
+			"sLengthMenu": "Hiển thị cho _MENU_ sản phẩm",
 	
 	
 			/**
@@ -11337,7 +11337,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLoadingRecords": "Loading...",
+			"sLoadingRecords": "Đang tải...",
 	
 	
 			/**
@@ -11358,7 +11358,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sProcessing": "Processing...",
+			"sProcessing": "Đang xử lý...",
 	
 	
 			/**
@@ -11393,7 +11393,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sSearch": "Search:",
+			"sSearch": "Tìm kiếm:",
 	
 	
 			/**
@@ -11404,7 +11404,7 @@
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.searchPlaceholder
 			 */
-			"sSearchPlaceholder": "",
+			"sSearchPlaceholder": "Nhập tìm kiếm...",
 	
 	
 			/**
@@ -11451,7 +11451,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sZeroRecords": "No matching records found"
+			"sZeroRecords": "Không tìm thấy kết quả"
 		},
 	
 	
