@@ -54,8 +54,15 @@
 <!-- page script -->
 <script>
   $(function () {
-    $("#example1").DataTable();
      $(".select2").select2();
+     $('#example1').DataTable({
+      "paging": true,
+      "lengthChange": true,
+      "searching": true,
+      "ordering": false,
+      "info": true,
+      "autoWidth": false
+    });
   });
 </script>
 	</body>
