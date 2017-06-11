@@ -184,15 +184,41 @@
               <div class="modal-header with-border">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Default Modal</h4>
+                <h4 class="modal-title">Thêm khách hàng</h4>
               </div>
+                <form class="form-horizontal">
               <div class="modal-body">
-                <p>One fine body&hellip;</p>
+        
+                 <div class="form-group">
+                  <label for="inputText1" class="col-sm-2 control-label">Tên khách hàng</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputText1" placeholder="Tên khách hàng" name="Tenkh">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputText2" class="col-sm-2 control-label">Địa chỉ</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputText2" placeholder="Địa chỉ" name="Diachi">
+                  </div>
+                </div>
+                  <div class="form-group">
+                  <label for="inputText3" class="col-sm-2 control-label">Số điện thoại</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputText3" placeholder="Số điện thoại" name="Sodt">
+                  </div>
+                </div>
+                  <div class="form-group">
+                  <label for="inputText4" class="col-sm-2 control-label">Email</label>
+                  <div class="col-sm-10">
+                    <input type="email" class="form-control" id="inputText4" placeholder="Email" name="Email">
+                  </div>
+                </div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary">Lưu</button>
               </div>
+            </form>
             </div>
             <!-- /.modal-content -->
           </div>
