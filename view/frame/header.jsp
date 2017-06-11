@@ -17,6 +17,11 @@
 <!-- Ionicons -->
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<!-- DataTables -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/plugins/datatables/dataTables.bootstrap.css">
+ <!-- fullCalendar 2.2.5-->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/plugins/fullcalendar/fullcalendar.min.css">
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/plugins/fullcalendar/fullcalendar.print.css" media="print">	
 <!-- Theme style -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/templates/dist/css/AdminLTE.min.css">
@@ -53,6 +58,37 @@
 <!-- Google Font -->
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<style>
+    .color-palette {
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+    }
+
+    .color-palette-set {
+      margin-bottom: 15px;
+    }
+
+    .color-palette span {
+      display: none;
+      font-size: 12px;
+    }
+
+    .color-palette:hover span {
+      display: block;
+    }
+
+    .color-palette-box h4 {
+      position: absolute;
+      top: 100%;
+      left: 25px;
+      margin-top: -40px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 12px;
+      display: block;
+      z-index: 7;
+    }
+  </style>
 </head>
 <body class="sidebar-mini wysihtml5-supported skin-black-light">
 	<div class="wrapper">
