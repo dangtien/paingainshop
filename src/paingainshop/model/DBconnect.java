@@ -104,8 +104,8 @@ public class DBconnect {
 		PreparedStatement pst = openConnect().prepareStatement(sql);
 		pst.setString(1, kh.getMaKH());
 		pst.setString(2, kh.getTenHK());
-		pst.setString(3, kh.getSoDT());
-		pst.setString(4, kh.getDiaChi());
+		pst.setString(3, kh.getDiaChi());
+		pst.setString(4, kh.getSoDT());
 		pst.setString(5, kh.getEmail());
 		
 		return pst.executeUpdate()>0;
