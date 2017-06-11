@@ -101,7 +101,7 @@
 	                  </td>
 	                  <td>Win 95+</td>
 	                  <td>A</td>
-	                  <td>  <a href="#"><span class="fa fa-edit">Sửa</span></a>
+	                  <td>  <a href="nhacc.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
                        </td>
@@ -113,7 +113,7 @@
 	                  <td>PSP</td>
 	                  <td>-</td>
 	                  <td > 
-	                  	 <a href="#"><span class="fa fa-edit">Sửa</span></a>
+	                  	 <a href="nhacc.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
 	                  </td>
@@ -124,7 +124,7 @@
 	                  <td>-</td>
 	                  <td>-</td>
 	                  <td> 
-	                  	 <a href="#"><span class="fa fa-edit">Sửa</span></a>
+	                  	 <a href="nhacc.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
 	                  </td>

@@ -92,7 +92,7 @@
 	                  <td>Win 95+</td>
 	                  <td>A</td>
 	                  <td>35000</td>
-	                  <td>  <a href="#"><span class="fa fa-edit">Sửa</span></a>
+	                  <td>  <a href="editcustomer.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
                        </td>
@@ -105,7 +105,7 @@
 	                  <td>-</td>
 	                  <td>35000</td>
 	                  <td > 
-	                  	 <a href="#"><span class="fa fa-edit">Sửa</span></a>
+	                  	 <a href="editcustomer.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
 	                  </td>
@@ -117,7 +117,7 @@
 	                  <td>-</td>
 	                  <td>35000</td>
 	                  <td> 
-	                  	 <a href="#"><span class="fa fa-edit">Sửa</span></a>
+	                  	 <a href="editcustomer.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
 	                  </td>

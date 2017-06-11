@@ -1,9 +1,3 @@
-<%-- 
-    Document   : editEmployee
-    Created on : Jun 11, 2017, 3:19:56 PM
-    Author     : dangt
---%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@include file="frame/header.jsp" %>
@@ -11,13 +5,13 @@
 <div class="content-wrapper">
     <div class="content-header">
         <h1>
-            Nhân viên
+            Nhà cung cấp
             <small>Chỉnh sửa</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="home.jsp"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li><a href="#">Nhân viên</a></li>
-            <li><a href="employee.jsp">Quản lý thông tin</a></li>
+            <li><a href="#">Nhà cung cấp</a></li>
+            <li><a href="customer.jsp">Quản lý thông tin</a></li>
             <li class="active">Chỉnh sửa</li>
         </ol>
     </div>
@@ -27,27 +21,21 @@
                 <form class="form-horizontal">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="inputText1" class="col-sm-2 control-label">Tên nhân viên</label>
+                            <label for="inputText1" class="col-sm-2 control-label">Tên nhà cung cấp</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputText1" placeholder="Tên nhân viên" name="Tennv">
+                                <input type="text" class="form-control" id="inputText1" placeholder="Tên nhà cung cấp" name="Tenncc">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputText2" class="col-sm-2 control-label">Username</label>
+                            <label for="inputText2" class="col-sm-2 control-label">Mã số thuế</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputText2" placeholder="username" name="Username">
+                                <input type="text" class="form-control" id="inputText2" placeholder="Mã số thuế" name="Mã số thuế">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="inputText3" class="col-sm-2 control-label">Email</label>
                             <div class="col-sm-10">
                                 <input type="email" class="form-control" id="inputText3" placeholder="Email" name="Email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputText4" class="col-sm-2 control-label">Password</label>
-                            <div class="col-sm-10">
-                                <input type="password" class="form-control" id="inputText4" placeholder="Mật khẩu" name="Password">
                             </div>
                         </div>
                     </div>
@@ -62,12 +50,6 @@
                             <label for="inputText6" class="col-sm-2 control-label">Số điện thoại</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="inputText6" placeholder="Số điện thoại" name="Sodt">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputText7" class="col-sm-2 control-label">Lương</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputText7" placeholder="Lương" name="Luong">
                             </div>
                         </div>
                         <div class="form-group">
