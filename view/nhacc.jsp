@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
 <div class="content-wrapper">
@@ -85,61 +83,60 @@
 	            </div>
 	            <!-- /.box-header -->
 	            <div class="box-body">
-	              <table id="example2" class="table table-bordered table-hover">
+	              <table id="example1" class="table table-striped table-bordered  table-hover">
 	                <thead>
 	                <tr>
 	                  <th>Mã nhà cung cấp</th>
 	                  <th>Tên nhà cung cấp</th>
 	                  <th>Địa chỉ</th>
 	                  <th>Số điện thoại</th>
-	                  <th>Email</th>
-	                  <th>Tác vụ</th>
+	                  <th>Action</th>
 	                </tr>
 	                </thead>
 	                <tbody>
 	                <tr>
-	                  <td>Trident</td>
+	                  <td><a href="#" title="click vào để xem chi tiết nhà cung cấp">Trident</a></td>
 	                  <td>Internet
 	                    Explorer 5.5
 	                  </td>
 	                  <td>Win 95+</td>
-	                  <td>5.5</td>
 	                  <td>A</td>
-	                  <td> <a href="#" style="float: left; margin-left: 20px">Sửa</a>
-	                  		<a href="#" style="float: right; margin-right: 20px">Xóa</a>
-	                  </td>
+	                  <td>  <a href="#"><span class="fa fa-edit">Sửa</span></a>
+                      <span class="fa" style="margin: 0px 5px;"></span>
+                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
+                       </td>
 	                </tr>
 	                
 	                <tr>
-	                  <td>Misc</td>
+	                  <td><a href="#" title="click vào để xem chi tiết nhà cung cấp">Trident</a></td>
 	                  <td>PSP browser</td>
 	                  <td>PSP</td>
 	                  <td>-</td>
-	                  <td>C</td>
-	                  <td > <a href="#" style="float: left; margin-left: 20px">Sửa</a>
-	                  		<a href="#" style="float: right; margin-right: 20px">Xóa</a>
+	                  <td > 
+	                  	 <a href="#"><span class="fa fa-edit">Sửa</span></a>
+                      <span class="fa" style="margin: 0px 5px;"></span>
+                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
 	                  </td>
 	                </tr> 
 	                <tr>
-	                  <td>Other browsers</td>
+	                  <td><a href="#" title="click vào để xem chi tiết nhà cung cấp">Trident</a></td>
 	                  <td>All others</td>
 	                  <td>-</td>
 	                  <td>-</td>
-	                  <td>U</td>
-	                  <td> <a href="#" style="float: left; margin-left: 20px">Sửa</a>
-	                  		<a href="#" style="float: right; margin-right: 20px">Xóa</a>
+	                  <td> 
+	                  	 <a href="#"><span class="fa fa-edit">Sửa</span></a>
+                      <span class="fa" style="margin: 0px 5px;"></span>
+                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
 	                  </td>
 	                </tr>
 	                </tbody>
 	                <tfoot>
 	                <tr>
-	                
 	                  <th>Mã nhà cung cấp</th>
 	                  <th>Tên nhà cung cấp</th>
 	                  <th>Địa chỉ</th>
 	                  <th>Số điện thoại</th>
-	                  <th>Email</th>
-	                  <th>Tác vụ</th>
+	                  <th>Action</th>
 	                </tr>
 	                </tfoot>
 	              </table>
@@ -150,7 +147,7 @@
          </div>
         	
        
-        
+   
 	</section>
 	
 </div>
