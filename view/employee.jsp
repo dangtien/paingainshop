@@ -40,7 +40,7 @@
                     <td>1</td>
                     <td>20.000</td>
                     <td>
-                      <a href="#"><span class="fa fa-edit">Sửa</span></a>
+                      <a href="editEmployee.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
                     </td>
@@ -51,7 +51,7 @@
                     <td>1</td>
                     <td>20.000</td>
                     <td>
-                      <a href="#"><span class="fa fa-edit">Sửa</span></a>
+                      <a href="editEmployee.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
                     </td>
@@ -62,7 +62,7 @@
                     <td>1</td>
                     <td>20.000</td>
                     <td>
-                      <a href="#"><span class="fa fa-edit">Sửa</span></a>
+                      <a href="editEmployee.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
                     </td>
@@ -73,7 +73,7 @@
                     <td>1</td>
                     <td>20.000</td>
                     <td>
-                      <a href="#"><span class="fa fa-edit">Sửa</span></a>
+                      <a href="editEmployee.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
                     </td>
@@ -84,7 +84,7 @@
                     <td>1</td>
                     <td>20.000</td>
                     <td>
-                      <a href="#"><span class="fa fa-edit">Sửa</span></a>
+                      <a href="editEmployee.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
                     </td>

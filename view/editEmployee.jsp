@@ -15,8 +15,10 @@
             <small>Chỉnh sửa</small>
         </h1>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li class="active">Nhân viên</li>
+            <li><a href="home.jsp"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="#">Nhân viên</a></li>
+            <li><a href="employee.jsp">Quản lý thông tin</a></li>
+            <li class="active">Chỉnh sửa</li>
         </ol>
     </div>
     <div class="content">
