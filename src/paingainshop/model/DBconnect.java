@@ -3,6 +3,7 @@ import java.sql.*;
 import java.util.*;
 
 
+
 public class DBconnect {
 
 	Connection conn =null;
@@ -142,6 +143,40 @@ public class DBconnect {
 		
 		return pst.executeUpdate()>0;
 	}
+	public ArrayList<KhachHang> getAllCustomer() throws Exception{
+		 ArrayList<KhachHang> lst = new ArrayList<KhachHang>();
+		 String strSQL = "select * from KhachHang order by MaKH";
+		 try {
+			 rs = getStatement().executeQuery(strSQL);
+			 while(rs.next()){
+			 
+			 String ID = rs.getString("MaKH");
+			 String Name = rs.getString("TenKH");
+			 String Address = rs.getString("DiaChi");
+			 String SDT = rs.getString("SoDT");
+			 String Email = rs.getString("Email");
+			
+			 KhachHang pq = new KhachHang(ID,Name,Address,SDT,Email);
+			 lst.add(pq);
+		 }
+		 } catch (Exception e) 
+		 {
+			 System.out.println("Loi truy van CSDL.");
+		 }
+		 closeConnet();
+		 return lst;
+		 }
+	public boolean UpdateUser(String ID,KhachHang newkh) throws Exception
+	 {
+		 String sql = "update KhachHang set TenKH=? , DiaChi=? , SoDT=? , Email=? where MaKH =?";
+		 PreparedStatement pst = openConnect().prepareStatement(sql);
+		 pst.setString(1, newkh.getTenHK());
+		 pst.setString(2, newkh.getDiaChi());
+		 pst.setString(3, newkh.getSoDT());
+		 pst.setString(4, newkh.getEmail());
+		 pst.setString(5, newkh.getMaKH());
+		 return pst.executeUpdate()>0;
+		 
+	 }
 }
-
 

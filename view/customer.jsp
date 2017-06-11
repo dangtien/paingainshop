@@ -15,6 +15,8 @@
 		</ol>
 	</section>
 	<section class="content">
+	<span style="color:red"><i>${msg}</i></span>
+	<form action="addcustomer" method="post">
 		<div class="box box-default" >
             <div class="box-header with-border">
           <h3 class="box-title">Thêm khách hàng</h3>
@@ -28,15 +30,15 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Mã khách hàng</label>
-                    <input type="text" class="form-control" id="inputText0" style="width:100%" placeholder="KHxxxx" disabled name="MaKH">
+                    <input type="text" class="form-control" id="inputText0" style="width:100%" placeholder="KHxxxx" disable name="MaKH">
               </div>
               <div class="form-group">
                 <label>Tên khách hàng</label>
-                <input type="text" class="form-control" id="inputText1" style="width:100%" placeholder="Tên khách hàng">
+                <input type="text" class="form-control" id="inputText1" style="width:100%" placeholder="Tên khách hàng" name="TenKH">
               </div>
               <div class="form-group">
                 <label>Số điện thoại</label>
-                <input type="text" class="form-control" id="inputText3" style="width:100%" placeholder="Số điện thoại khách hàng">
+                <input type="text" class="form-control" id="inputText3" style="width:100%" placeholder="Số điện thoại khách hàng" name="SDT">
               </div>
               <!-- /.form-group -->
               <!-- /.form-group -->
@@ -46,11 +48,11 @@
             <!-- /.form-group -->
               <div class="form-group">
                 <label>Địa chỉ</label>
-                <input type="text" class="form-control" id="inputText2" style="width:100%" placeholder="Địa chỉ khách hàng">
+                <input type="text" class="form-control" id="inputText2" style="width:100%" placeholder="Địa chỉ khách hàng" name="Address">
               </div>
               <div class="form-group">
                 <label>Địa chỉ email</label>
-                <input type="email" class="form-control" id="inputText4" style="width:100%" placeholder="Email khách hàng">
+                <input type="email" class="form-control" id="inputText4" style="width:100%" placeholder="Email khách hàng" name="Email">
               </div>
               <!-- /.form-group -->
             </div>
@@ -60,10 +62,11 @@
         </div>
         <div class="box-footer">
           <div class="input-group-btn">
-                  <button id="add-new-event" type="button" style="float: right; margin-right: 20px; " class="btn btn-primary btn-flat">Thêm</button>
+                  <button id="add-new-event" type="submit" style="float: right; margin-right: 20px; " class="btn btn-primary btn-flat">Thêm</button>
                 </div>
         </div>
         </div>
+        </form>
 		<div class="row">
 	        <div class="col-xs-12">
 	          <div class="box">
@@ -92,7 +95,7 @@
 	                  <td>Win 95+</td>
 	                  <td>A</td>
 	                  <td>35000</td>
-	                  <td>  <a href="editcustomer.jsp"><span class="fa fa-edit">Sửa</span></a>
+	                  <td>  <a href="#"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
                        </td>
@@ -105,7 +108,7 @@
 	                  <td>-</td>
 	                  <td>35000</td>
 	                  <td > 
-	                  	 <a href="editcustomer.jsp"><span class="fa fa-edit">Sửa</span></a>
+	                  	 <a href="#"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
 	                  </td>
@@ -117,7 +120,7 @@
 	                  <td>-</td>
 	                  <td>35000</td>
 	                  <td> 
-	                  	 <a href="editcustomer.jsp"><span class="fa fa-edit">Sửa</span></a>
+	                  	 <a href="#"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
 	                  </td>
