@@ -13,11 +13,12 @@
 	</section>
 	    <section class="content">
     	<!-- đây là nội dung -->
-    	<form class="form-horizontal">
+    	<span style="color:red">${msg}</span>
+    	<form class="form-horizontal" action="addnewproduct" method="post">
     	<div class="col-md-6">
     		<div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Điền thông tin</h3>
+              <h3 class="box-title">Điền thông tin </h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -25,31 +26,52 @@
                 <div class="form-group">
                   <label for="inputText0" class="col-sm-2 control-label">Mã Hàng</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText0" placeholder="HHxxxxxx" disabled name="primproduct" name="txtMahang">
+                    <input type="text" class="form-control" id="inputText0" placeholder="SPxxxxxx"  name="primproduct">
                   </div>
                 </div>
                  <div class="form-group">
-                  <label for="inputText1" class="col-sm-2 control-label">Tên hàng</label>
+                  <label for="inputText1" class="col-sm-2 control-label">Tên hàng <span style="color:red"><i>*</i></span></label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText1" placeholder="Tên hàng hóa" name="productname" name="txtTenhang">
+                    <input type="text" class="form-control" id="inputText1" placeholder="Tên hàng hóa" name="productname">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputText2" class="col-sm-2 control-label">Nhóm hàng</label>
+                  <label for="inputText2" class="col-sm-2 control-label">Nhóm hàng <span style="color:red"><i>*</i></span></label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText2" placeholder="Nhóm hàng hóa" name="category" name="txtNhomhang">
+                    
+                    <select class="form-control" id="inputText2"  name="category" >
+						<option value="Áo ba lỗ">Áo ba lỗ</option>
+						<option value="Áo thun">Áo thun</option>
+						<option value="Quần short">Quần short</option>
+						<option value="Găng tay">Găng tay</option>
+						<option value="Cuốn sổ">Cuốn sổ</option>
+						<option value="Túi xách">Túi xách</option>
+						<option value="Phụ kiện khác">Phụ kiện khác</option>
+					</select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputText3" class="col-sm-2 control-label">Nhà cung cấp</label>
+                  <label for="inputText2" class="col-sm-2 control-label">Mã nhà cung cấp <span style="color:red"><i>*</i></span></label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText3" placeholder="Nhà cung cấp" name="vendor" name="txtNhacc">
+                    
+                    <select class="form-control" id="inputText2" name="vendor" >
+						<option value="Sony" selected>Sony</option>
+						<option value="DMX">Điện máy xanh</option>
+						<option value="TGDD">Thế giới di động</option>
+						<option value="NKE">Nike</option>
+						<option value="ADD">Adidas</option>
+						<option value="MST">Muscltech</option>
+						<option value="PWT">PowerTrain</option>
+						<option value="SamSung">SamSung </option>
+						<option value="LTR">Little Rock</option>
+						
+					</select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputText4" class="col-sm-2 control-label">Thuộc tính</label>
+                  <label for="inputText3" class="col-sm-2 control-label">Thuộc tính</label>
                   <div class="col-md-10">
-                  	<textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute" id="inputText4" name="txtThuoctinh"></textarea>
+                  	<textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute1" id="inputText3"></textarea>
                   </div>
                 </div>
               </div>
@@ -62,37 +84,42 @@
             </div>
               <div class="box-body">
                 <div class="form-group">
-                  <label for="inputText5" class="col-sm-2 control-label">Giá nhập</label>
+                  <label for="inputText0" class="col-sm-2 control-label">Số lượng <span style="color:red"><i>*</i></span></label>
                   <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputText5" placeholder="Giá nhập vào" name="txtGianhap">
+                    <input type="text" class="form-control" id="inputText0" placeholder="Số lượng" name="sl">
                   </div>
                 </div>
                  <div class="form-group">
-                  <label for="inputText6" class="col-sm-2 control-label">Giá bán</label>
+                  <label for="inputText1" class="col-sm-2 control-label">Đơn vị tính <span style="color:red"><i>*</i></span></label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText6" placeholder="Giá bán ra" name="txtGiaban">
+                    
+                    <select class="form-control" id="inputText1" name="dvt">
+						<option value="cái" selected>Cái</option>
+						<option value="chiếc">Chiếc</option>
+						<option value="kg">Kg</option>
+					</select>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputText7" class="col-sm-2 control-label">Số lương</label>
+                  <label for="inputText2" class="col-sm-2 control-label">Giá bán <span style="color:red"><i>*</i></span></label>
                   <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputText7" placeholder="SỐ lượng" name="txtSoluong">
+                    <input type="text" class="form-control" id="inputText2" placeholder="Giá bán" name="outprice">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputText8" class="col-sm-2 control-label">Đơn vị</label>
+                  <label for="inputText2" class="col-sm-2 control-label">Giá nhập <span style="color:red"><i>*</i></span></label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText8" placeholder="Đơn vị" name="txtDonvi">
+                    <input type="text" class="form-control" id="inputText2" placeholder="Giá Nhập" name="inprice">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputText9" class="col-sm-2 control-label">Ghi chú</label>
+                  <label for="inputText3" class="col-sm-2 control-label">Ghi chú</label>
                   <div class="col-md-10">
-                  	<textarea class="form-control" rows="3" placeholder="Thêm ghi chú" name="attribute" id="inputText9" name="txtGhichu"></textarea>
+                  	<textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute2" id="inputText3"></textarea>
                   </div>
                 </div>
                 <div class="box-footer">
-                <button type="submit" class="btn btn-default">Hủy</button>
+                <button type="reset" class="btn btn-default">Hủy</button>
                 <button type="submit" class="btn btn-info pull-right">Lưu</button>
               </div>
               </div>
