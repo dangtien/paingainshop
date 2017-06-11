@@ -10,7 +10,8 @@
 		</h1>
 		<ol class="breadcrumb">
 			<li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-			<li class="active">Quản lí hàng hóa</li>
+			<li><a href="#">Quản lí hàng hóa</a></li>
+			<li class="active">Quản lí thông tin</li>
 		</ol>
 	</section>
 	<section class="content">
