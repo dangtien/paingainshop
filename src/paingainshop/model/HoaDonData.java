@@ -2,22 +2,22 @@ package paingainshop.model;
 import java.util.ArrayList;
 import java.util.Date;
 public class HoaDonData extends HoaDon{
-    private  ArrayList<HangHoa> items;
-
-    public HoaDonData(String maHD, Date ngay, String maKH, String maNV) {
+    private  ArrayList<CTHoaDon> items;
+    
+    public HoaDonData(String maHD, String ngay, String maKH, String maNV) {
         super(maHD, ngay, maKH, maNV);
         items = new ArrayList<>();
     }
-    public void addItem(HangHoa item){
+    public void addItem(CTHoaDon item){
         int index = isDuplicate(item);
         if(index !=-1){
-            HangHoa tmp = items.get(index);
+            CTHoaDon tmp = items.get(index);
             items.get(index).setSoLuong(tmp.getSoLuong() + item.getSoLuong());
         }else{
             items.add(item);
         }
     }
-    public int isDuplicate(HangHoa sp){
+    public int isDuplicate(CTHoaDon sp){
         for(int i=0; i<items.size();i++){
 			if(items.get(i).equals(sp)){
 				return i;
@@ -25,15 +25,17 @@ public class HoaDonData extends HoaDon{
 		}
 	return -1;
     }
-    public void remove(HangHoa item){
+    public void remove(CTHoaDon item){
         if(this.items !=null){
             items.remove(item);
         }
     }
-    public void update(HangHoa item){
+    public void update(CTHoaDon item){
         int index = isDuplicate(item);
         if(index != -1){
             items.get(index).setSoLuong(item.getSoLuong());
+            items.get(index).setDonGia(item.getDonGia());
+            items.get(index).setGiamGia(item.getGiamGia());
         }
     }
 }

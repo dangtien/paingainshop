@@ -6,10 +6,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 public class HoaDon {
 	private String MaHD;
-	private Date Ngay;
+	private String Ngay;
 	private String MaKH;
 	private String MaNV;
-	public HoaDon(String maHD, Date ngay, String maKH, String maNV) {
+	public HoaDon(String maHD, String ngay, String maKH, String maNV) {
 		
 		this.MaHD = maHD;
 		this.Ngay = ngay;
@@ -22,10 +22,10 @@ public class HoaDon {
 	public void setMaHD(String maHD) {
 		MaHD = maHD;
 	}
-	public Date getNgay() {
+	public String getNgay() {
 		return Ngay;
 	}
-	public void setNgay(Date ngay) {
+	public void setNgay(String ngay) {
 		Ngay = ngay;
 	}
 	public String getMaKH() {

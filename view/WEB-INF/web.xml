@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app id="WebApp_ID" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <display-name>paingainshop</display-name>
+    <servlet>
+        <servlet-name>addHoaDon</servlet-name>
+        <servlet-class>paingainshop.controller.addHoaDon</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoadDanhSachHangHoa</servlet-name>
         <url-pattern>/danhsach</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addHoaDon</servlet-name>
+        <url-pattern>/createhoadon</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
