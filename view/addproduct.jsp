@@ -24,9 +24,9 @@
             <!-- form start -->
               <div class="box-body">
                 <div class="form-group">
-                  <label for="inputText0" class="col-sm-2 control-label">Mã Hàng</label>
+                    <label for="inputText0" class="col-sm-2 control-label">Mã Hàng</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText0" placeholder="SPxxxxxx"  name="primproduct">
+                      <input type="text" class="form-control" id="inputText0" placeholder="Tự động sinh mã"  name="primproduct" disabled="disabled">
                   </div>
                 </div>
                  <div class="form-group">
@@ -86,7 +86,7 @@
                 <div class="form-group">
                   <label for="inputText0" class="col-sm-2 control-label">Số lượng <span style="color:red"><i>*</i></span></label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText0" placeholder="Số lượng" name="sl">
+                    <input type="number" class="form-control" id="inputText0" placeholder="Số lượng" name="sl">
                   </div>
                 </div>
                  <div class="form-group">
