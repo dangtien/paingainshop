@@ -23,8 +23,7 @@ public class PainAndGainService {
      * @throws Exception 
      */
     public static String CreatePKey(String prefix ,String lastPkey) throws Exception{
-        HangHoaDAO hh = new HangHoaDAO();
-       
+
         if(!lastPkey.isEmpty()){
             int i;
             for (i=2;i<lastPkey.length();i++){
