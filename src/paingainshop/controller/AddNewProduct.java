@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import paingainshop.model.*;
+import paingainshop.model.DAO.HangHoaDAO;
+import paingainshop.model.service.PainAndGainService;
 
 /**
  * Servlet implementation class AddNewProduct
@@ -31,7 +33,7 @@ public class AddNewProduct extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 try
 		 {
-			 String MaHH = request.getParameter("primproduct");
+			 String MaHH = PainAndGainService.CreatePKey("SP", new HangHoaDAO().getLastPkey());
 			 String TenHH = request.getParameter("productname");
 			 String NhomHH= request.getParameter("category");
 			 int GiaBan = Integer.parseInt(request.getParameter("outprice"));
@@ -43,16 +45,17 @@ public class AddNewProduct extends HttpServlet {
 			 String GhiChu = request.getParameter("attribute2");
 			 
 			 HangHoa hh = new HangHoa( MaHH, TenHH, NhomHH, GiaBan, GiaNhap, ThuocTinh, SoLuong, DonViTinh, MaNCC, GhiChu);
-			 DBconnect db = new DBconnect();
+			 HangHoaDAO db = new HangHoaDAO();
 			 String message = "";
 			 try 
 			 {
-				 if(db.addHangHoa(hh))
+				 if(db.insertHangHoa(hh))
 				 {
-					 message = "Thêm hàng hóa thành công.";
+					 message = "Thêm sản phẩm thành công.";
 					 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
 					 request.setAttribute("msg", message );
 					 xxx.forward(request, response);
+					 System.out.println(MaHH);
 				 }
 				 else
 				 {
@@ -60,19 +63,19 @@ public class AddNewProduct extends HttpServlet {
 					 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
 					 request.setAttribute("msg", message );
 					 xxx.forward(request, response);
-					 System.out.println("Lỗi.");
+					 System.out.println("lỗi.");
 				 }
 			 } catch (Exception e) {
 				 message = "Không thành công.";
 				 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
 				 request.setAttribute("msg", message );
 				 xxx.forward(request, response);
-				 System.out.println("Lỗi.");
+				 System.out.println("Lỗi."+ e);
 			 }
 		 }
 		 catch (Exception e)
 		 {
-			 String message = "Bạn đã nhập sai định dạng. Mời nhập lại!";
+			 String message = "Bạn đã nhập sai định dạng. Mời bạn nhập lại!";
 			 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
 			 request.setAttribute("msg", message );
 			 xxx.forward(request, response);

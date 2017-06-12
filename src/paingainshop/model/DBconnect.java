@@ -3,6 +3,7 @@ import java.sql.*;
 import java.util.*;
 
 
+
 public class DBconnect {
 
 	Connection conn =null;
@@ -15,9 +16,9 @@ public class DBconnect {
 				 Class.forName("com.mysql.jdbc.Driver");
 				 String DB_url = "jdbc:mysql://localhost:3306/da_qlbh";
 				 this.conn = DriverManager.getConnection(DB_url,"root","root");
-				 System.out.println("Kết nối MySQL thành công!");
+				 System.out.println("Ket noi Mysql thanh cong.");
 			 } 
-		catch (ClassNotFoundException e) {System.out.println("Ket noi Driver that bai!....");}
+		catch (ClassNotFoundException e) {System.out.println("Ket noi Driver that bai!...." + e.getMessage());}
 		catch (SQLException e) {System.out.println("Khong ket noi duoc CSDL.... ");}
 		 
 		 return conn;
@@ -58,7 +59,7 @@ public class DBconnect {
 		 return result;
 		 
 	}
-	//dùng để đăng nhập
+	//dÃ¹ng Ä‘á»ƒ Ä‘Äƒng nháº­p
 	 public NhanVien getUserByUserName(String UserName)throws Exception
 	 {
 		 String sql = "select * from NhanVien where UserName=?";
@@ -98,18 +99,7 @@ public class DBconnect {
 		 
 		 return pst.executeUpdate()>0;
 	 }
-	public boolean addKhachHang(KhachHang kh) throws Exception
-	{
-		String sql = "insert into KhachHang values (?,?,?,?,?)";
-		PreparedStatement pst = openConnect().prepareStatement(sql);
-		pst.setString(1, kh.getMaKH());
-		pst.setString(2, kh.getTenHK());
-		pst.setString(3, kh.getDiaChi());
-		pst.setString(4, kh.getSoDT());
-		pst.setString(5, kh.getEmail());
-		
-		return pst.executeUpdate()>0;
-	}
+	
 	public boolean addNhanVien(NhanVien nv) throws Exception
 	{
 		String sql = "insert into NhanVien values (?,?,?,?,?,?,?,?,?)";
@@ -142,6 +132,7 @@ public class DBconnect {
 		
 		return pst.executeUpdate()>0;
 	}
+	
+	
 }
-
 
