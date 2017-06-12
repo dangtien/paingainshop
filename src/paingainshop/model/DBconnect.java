@@ -16,7 +16,7 @@ public class DBconnect {
 				 Class.forName("com.mysql.jdbc.Driver");
 				 String DB_url = "jdbc:mysql://localhost:3306/da_qlbh";
 				 this.conn = DriverManager.getConnection(DB_url,"root","a38511967@");
-				 System.out.println("Kết nối MySQL thành công!");
+				 System.out.println("Káº¿t ná»‘i MySQL thÃ nh cÃ´ng!");
 			 } 
 		catch (ClassNotFoundException e) {System.out.println("Ket noi Driver that bai!...." + e.getMessage());}
 		catch (SQLException e) {System.out.println("Khong ket noi duoc CSDL.... ");}
@@ -59,7 +59,7 @@ public class DBconnect {
 		 return result;
 		 
 	}
-	//dùng để đăng nhập
+	//dÃ¹ng Ä‘á»ƒ Ä‘Äƒng nháº­p
 	 public NhanVien getUserByUserName(String UserName)throws Exception
 	 {
 		 String sql = "select * from NhanVien where UserName=?";
