@@ -21,11 +21,6 @@ public class PainAndGainService {
      * @throws Exception 
      */
     public static String CreatePKey(String prefix ,String lastPkey) throws Exception{
-<<<<<<< HEAD
-
-=======
-      
->>>>>>> refs/remotes/origin/master
         if(!lastPkey.isEmpty()){
             int i;
             for (i=2;i<lastPkey.length();i++){
