@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="paingainshop.model.HangHoa"%>
+<%@page import="java.util.ArrayList"%>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
 <div class="content-wrapper">
@@ -29,61 +31,22 @@
                 </tr>
                 </thead>
                 <tbody>
+                    <% ArrayList<HangHoa> list = (ArrayList<HangHoa>)request.getAttribute("result");%>
+                    <% if(list !=null){
+                        for(HangHoa h:list){
+                    %>
                   <tr>
-                    <td><a href="#" title="click vào để xem chi tiết sản phẩm">HH000001</a></td>
-                    <td>Khánh Chi Vũ</td>
-                    <td>1</td>
-                    <td>20.000</td>
+                    <td><a href="#" title="click vào để xem chi tiết sản phẩm"><%= h.getMaHH()%></a></td>
+                    <td><%= h.getTenHH()%></td>
+                    <td><%= h.getSoLuong()%></td>
+                    <td><%= h.getGiaBan()%></td>
                     <td>
                       <a href="#"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
                     </td>
                   </tr>
-                   <tr>
-                    <td><a href="#" title="click vào để xem chi tiết sản phẩm">HH000001</a></td>
-                    <td>Khánh Chi Vũ</td>
-                    <td>1</td>
-                    <td>20.000</td>
-                    <td>
-                      <a href="#"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-                    </td>
-                  </tr>
-                   <tr>
-                    <td><a href="#" title="click vào để xem chi tiết sản phẩm">HH000001</a></td>
-                    <td>Khánh Chi Vũ</td>
-                    <td>1</td>
-                    <td>20.000</td>
-                    <td>
-                      <a href="#"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-                    </td>
-                  </tr>
-                   <tr>
-                    <td><a href="#" title="click vào để xem chi tiết sản phẩm">HH000001</a></td>
-                    <td>Khánh Chi Vũ</td>
-                    <td>1</td>
-                    <td>20.000</td>
-                    <td>
-                      <a href="#"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-                    </td>
-                  </tr>
-                   <tr>
-                    <td><a href="#" title="click vào để xem chi tiết sản phẩm">HH000001</a></td>
-                    <td>Khánh Chi Vũ</td>
-                    <td>1</td>
-                    <td>20.000</td>
-                    <td>
-                      <a href="#"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-                    </td>
-                  </tr>
+                  <%}}%>
                 </tbody>
                 <tfoot>
                 <tr>
