@@ -30,7 +30,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label>Mã khách hàng</label>
-                    <input type="text" class="form-control" id="inputText0" style="width:100%" placeholder="KHxxxxxx" disabled name="MaKH">
+                    <input type="text" class="form-control" id="inputText0" style="width:100%" placeholder="Sinh mã tự động" disabled name="MaKH">
               </div>
               <div class="form-group">
                 <label>Tên khách hàng</label>

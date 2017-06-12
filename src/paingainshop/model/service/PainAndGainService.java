@@ -5,9 +5,7 @@
  */
 package paingainshop.model.service;
 
-import paingainshop.model.DAO.HangHoaDAO;
-import paingainshop.model.DAO.NhaCungCapDAO;
-import paingainshop.model.DAO.PhieuChiDAO;
+import paingainshop.model.DAO.*;
 
 /**
  *
@@ -23,8 +21,7 @@ public class PainAndGainService {
      * @throws Exception 
      */
     public static String CreatePKey(String prefix ,String lastPkey) throws Exception{
-        HangHoaDAO hh = new HangHoaDAO();
-       
+      
         if(!lastPkey.isEmpty()){
             int i;
             for (i=2;i<lastPkey.length();i++){

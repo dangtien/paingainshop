@@ -15,8 +15,8 @@ public class DBconnect {
 		try {
 				 Class.forName("com.mysql.jdbc.Driver");
 				 String DB_url = "jdbc:mysql://localhost:3306/da_qlbh";
-				 this.conn = DriverManager.getConnection(DB_url,"root","a38511967@");
-				 System.out.println("Káº¿t ná»‘i MySQL thÃ nh cÃ´ng!");
+				 this.conn = DriverManager.getConnection(DB_url,"root","root");
+				 System.out.println("Ket noi Mysql thanh cong.");
 			 } 
 		catch (ClassNotFoundException e) {System.out.println("Ket noi Driver that bai!...." + e.getMessage());}
 		catch (SQLException e) {System.out.println("Khong ket noi duoc CSDL.... ");}
@@ -99,18 +99,7 @@ public class DBconnect {
 		 
 		 return pst.executeUpdate()>0;
 	 }
-	public boolean addKhachHang(KhachHang kh) throws Exception
-	{
-		String sql = "insert into KhachHang values (?,?,?,?,?)";
-		PreparedStatement pst = openConnect().prepareStatement(sql);
-		pst.setString(1, kh.getMaKH());
-		pst.setString(2, kh.getTenHK());
-		pst.setString(3, kh.getDiaChi());
-		pst.setString(4, kh.getSoDT());
-		pst.setString(5, kh.getEmail());
-		
-		return pst.executeUpdate()>0;
-	}
+	
 	public boolean addNhanVien(NhanVien nv) throws Exception
 	{
 		String sql = "insert into NhanVien values (?,?,?,?,?,?,?,?,?)";
@@ -143,40 +132,7 @@ public class DBconnect {
 		
 		return pst.executeUpdate()>0;
 	}
-	public ArrayList<KhachHang> getAllCustomer() throws Exception{
-		 ArrayList<KhachHang> lst = new ArrayList<KhachHang>();
-		 String strSQL = "select * from KhachHang order by MaKH";
-		 try {
-			 rs = getStatement().executeQuery(strSQL);
-			 while(rs.next()){
-			 
-			 String ID = rs.getString("MaKH");
-			 String Name = rs.getString("TenKH");
-			 String Address = rs.getString("DiaChi");
-			 String SDT = rs.getString("SoDT");
-			 String Email = rs.getString("Email");
-			
-			 KhachHang pq = new KhachHang(ID,Name,Address,SDT,Email);
-			 lst.add(pq);
-		 }
-		 } catch (Exception e) 
-		 {
-			 System.out.println("Loi truy van CSDL.");
-		 }
-		 closeConnet();
-		 return lst;
-		 }
-	public boolean UpdateUser(String ID,KhachHang newkh) throws Exception
-	 {
-		 String sql = "update KhachHang set TenKH=? , DiaChi=? , SoDT=? , Email=? where MaKH =?";
-		 PreparedStatement pst = openConnect().prepareStatement(sql);
-		 pst.setString(1, newkh.getTenHK());
-		 pst.setString(2, newkh.getDiaChi());
-		 pst.setString(3, newkh.getSoDT());
-		 pst.setString(4, newkh.getEmail());
-		 pst.setString(5, newkh.getMaKH());
-		 return pst.executeUpdate()>0;
-		 
-	 }
+	
+	
 }
 

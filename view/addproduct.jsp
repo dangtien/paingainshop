@@ -55,15 +55,15 @@
                   <div class="col-sm-10">
                     
                     <select class="form-control" id="inputText2" name="vendor" >
-						<option value="Sony" selected>Sony</option>
-						<option value="DMX">Điện máy xanh</option>
-						<option value="TGDD">Thế giới di động</option>
-						<option value="NKE">Nike</option>
-						<option value="ADD">Adidas</option>
-						<option value="MST">Muscltech</option>
-						<option value="PWT">PowerTrain</option>
-						<option value="SamSung">SamSung </option>
-						<option value="LTR">Little Rock</option>
+						<option value="NC000001" selected>Sony</option>
+						<option value="NC000002">Điện máy xanh</option>
+						<option value="NC000003">Thế giới di động</option>
+						<option value="NC000006">Nike</option>
+						<option value="NC000007">Adidas</option>
+						<option value="NC000008">Muscltech</option>
+						<option value="NC000009">PowerTrain</option>
+						<option value="SNC000004">SamSung </option>
+						<option value="NC000005">Little Rock</option>
 						
 					</select>
                   </div>
