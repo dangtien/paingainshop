@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import paingainshop.model.*;
+import paingainshop.model.DAO.HangHoaDAO;
+import paingainshop.model.DAO.KhachHangDAO;
+import paingainshop.model.service.PainAndGainService;
 
 /**
  * Servlet implementation class AddNewKhachHang
@@ -32,19 +35,20 @@ public class AddNewKhachHang extends HttpServlet {
 		
 		 try
 		 {
-			 String MaKH =request.getParameter("MaKH");
+			 //String MaHH = PainAndGainService.CreatePKey("SP", new HangHoaDAO().getLastPkey());
+			 String MaKH =PainAndGainService.CreatePKey("KH", new KhachHangDAO().getLastPkey());
 			 String TenHK =request.getParameter("TenKH");
 			 String DiaChi =request.getParameter("Address");
 			 String SoDT =request.getParameter("SDT");
 			 String Email =request.getParameter("Email");
 			 
 			 KhachHang kh = new KhachHang( MaKH, TenHK, DiaChi, SoDT, Email);
-			 DBconnect db = new DBconnect();
+			 KhachHangDAO db = new KhachHangDAO();
 			 
 			 String message = "";
 			 try 
 			 {
-				 if(db.addKhachHang(kh))
+				 if(db.insertKhachHang(kh))
 				 {
 					 message = "Thêm khách hàng thành công.";
 					 RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
@@ -57,7 +61,7 @@ public class AddNewKhachHang extends HttpServlet {
 					 RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
 					 request.setAttribute("msg", message );
 					 xxx.forward(request, response);
-					 System.out.println("Lỗi.");
+					 System.out.println("lỗi.");
 				 }
 			 } catch (Exception e) {
 				 message = "Không thành công.";

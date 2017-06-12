@@ -55,6 +55,7 @@ public class AddNewProduct extends HttpServlet {
 					 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
 					 request.setAttribute("msg", message );
 					 xxx.forward(request, response);
+					 System.out.println(MaHH);
 				 }
 				 else
 				 {
@@ -69,7 +70,7 @@ public class AddNewProduct extends HttpServlet {
 				 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
 				 request.setAttribute("msg", message );
 				 xxx.forward(request, response);
-				 System.out.println("Lỗi.");
+				 System.out.println("Lỗi."+ e);
 			 }
 		 }
 		 catch (Exception e)
