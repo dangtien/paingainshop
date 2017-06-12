@@ -11,7 +11,7 @@
         <ol class="breadcrumb">
             <li><a href="home.jsp"><i class="fa fa-dashboard"></i>Home</a></li>
             <li><a href="#">Nhà cung cấp</a></li>
-            <li><a href="customer.jsp">Quản lý thông tin</a></li>
+            <li><a href="nhacc.jsp">Quản lý thông tin</a></li>
             <li class="active">Chỉnh sửa</li>
         </ol>
     </div>
