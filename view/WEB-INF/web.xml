@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+<web-app id="WebApp_ID" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <display-name>paingainshop</display-name>
+    <servlet-mapping>
+        <servlet-name>SearchProduct</servlet-name>
+        <url-pattern>/searchproduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddBillDetail</servlet-name>
+        <url-pattern>/addchitiethoadon</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>
@@ -9,7 +17,23 @@
         <welcome-file>default.htm</welcome-file>
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
-<!-- servlet-->
+    <!-- servlet-->
+    <filter>
+        <filter-name>loginFilter</filter-name>
+        <filter-class>paingainshop.filter.loginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>loginFilter</filter-name>
+        <url-pattern>/index</url-pattern>
+        <url-pattern>/danhsach</url-pattern>
+        <url-pattern>/searchproduct</url-pattern>
+        <url-pattern>/addchitiethoadon</url-pattern>
+        <url-pattern>/createhoadon</url-pattern>
+        <url-pattern>/addcustomer</url-pattern>
+        <url-pattern>/customer.jsp</url-pattern>
+        <url-pattern>/nhacc.jsp</url-pattern>
+        <url-pattern>/employee.jsp</url-pattern>
+    </filter-mapping>
     <servlet>
         <servlet-name>Index</servlet-name>
         <servlet-class>paingainshop.controller.LoadIndex</servlet-class>
@@ -26,7 +50,15 @@
         <servlet-name>Login</servlet-name>
         <servlet-class>paingainshop.controller.Login</servlet-class>
     </servlet>
-<!--  servlet manpping-->
+    <!--  servlet manpping-->
+    <servlet>
+        <servlet-name>SearchProduct</servlet-name>
+        <servlet-class>paingainshop.controller.SearchProduct</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddBillDetail</servlet-name>
+        <servlet-class>paingainshop.controller.AddBillDetail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index</servlet-name>
         <url-pattern>/index</url-pattern>

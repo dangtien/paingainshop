@@ -1,5 +1,7 @@
 package paingainshop.model;
 
+import java.util.Objects;
+
 
 
 public class CTHoaDon {
@@ -47,5 +49,26 @@ public class CTHoaDon {
 	public void setGiamGia(int giamGia) {
 		GiamGia = giamGia;
 	}
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+       if(obj instanceof CTHoaDon){
+           CTHoaDon ct = (CTHoaDon)obj;
+           if(this.getMaHD().equals(ct.getMaHD()) && this.getMaHH().equals(ct.getMaHH())){
+               return true;
+           }else
+           {
+               return false;
+           }
+       }else{
+           return false;
+       }
+    }
 	
 }

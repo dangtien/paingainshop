@@ -109,4 +109,25 @@ public class HangHoaDAO {
     	pst.setString(1,MaHH);
     	return pst.executeUpdate()>0;
     }
+    public ArrayList<HangHoa> getLikeString(String str) throws Exception{
+        ArrayList<HangHoa> list;
+        list = new ArrayList<HangHoa>();
+        String sql = "Select * from HangHoa where TenHH like '%"+str+"%'";
+        ResultSet rs = db.getStatement().executeQuery(sql);
+        while(rs.next()){
+            String MaHH = rs.getString("MaHH");
+            String TenHH = rs.getString("TenHH");
+            String NhomHH = rs.getString("NhomHH");
+            int SoLuong = rs.getInt("SoLuong");
+            int GiaBan = rs.getInt("GiaBan");
+            int GiaNhap = rs.getInt("GiaNhap");
+            String ThuocTinh = rs.getString("ThuocTinh");
+            String DonViTinh = rs.getString("DonViTinh");
+            String MaNCC = rs.getString("MaNCC");
+            String GhiChu = rs.getString("GhiChu");
+            HangHoa sp = new HangHoa(MaHH, TenHH, NhomHH, GiaBan, GiaNhap, ThuocTinh, SoLuong, DonViTinh, MaNCC, GhiChu);
+            list.add(sp);
+        }
+        return list;
+    } 
 }

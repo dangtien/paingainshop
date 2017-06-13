@@ -18,25 +18,10 @@
         <div class="col-md-9">
           <div class="box box-primary">
               <div class="box-header with-border">
-                <input type="text" name="txtsearchproc" class="form-control" placeholder="Tìm kiếm sản phẩm">
+                <input type="text" name="txtsearchproc" class="form-control" placeholder="Tìm kiếm sản phẩm" id="txtsearch1" onkeyup ="showHint(this.value);">
               </div>
-              <div class="box-body suggest">
-                    <ul class="list-suggest">
-                        <li class="suggest-col">
-                          <span class="fa fa-tags fa-custom"></span>
-                          <span class="fa-custom text-muted">HH000001</span>
-                          <span class="fa-custom text-muted">Hoa gi do di</span>
-                          <span class="fa-custom text-muted">Đơn giá: <b>100.000.000</b> VND</span>
-                          <span class="text-muted">Số lương hiện có: <b>10</b></span>
-                        </li>
-                        <li class="suggest-col">
-                          <span class="fa fa-tags fa-custom"></span>
-                          <span class="fa-custom text-muted">HH000001</span>
-                          <span class="text-muted fa-custom">Hoa gi do di</span>
-                          <span class="fa-custom text-muted">Đơn giá: <b>100.000.000</b> VND</span>
-                          <span class="text-muted">Số lương hiện có: <b>10</b></span>
-                        </li>
-                    </ul>
+              <div class="box-body suggest" id="sugges1">
+                    <ul class="list-suggest" id="result1"></ul>
               </div>
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
@@ -50,17 +35,7 @@
                   <th>Thành tiền</th>
                   <th>Action</th>
                 </tr>
-                <tr>
-                  <th>1</th>
-                  <th>HH000001</th>
-                  <th>Khánh chi vũ</th>
-                  <th><input type="text" class="form-control dongia"></th>
-                  <th><input type="number" class="form-control soluong"></th>
-                  <th><input type="number" class="form-control giamgia"></th>
-                  <th>1000</th>
-                  <th><a href="#"><span  class=" fa fa-times-circle delproc"></span></a></th>
-                </tr>
-                
+                <tbody id="hoadondetail"></tbody>
               </table>
             </div>               
           </div>
@@ -77,17 +52,13 @@
               <div class="active tab-pane" id="activity">
                   <!-- The khach hang -->
                  <div class="input-group input-group-sm">
-                   <input type="text" name="txtsearchcustomer" class="form-control" placeholder="Tìm kiếm hoặc thêm mới">
+                   <input type="text" name="txtsearchcustomer" class="form-control" placeholder="Tìm kiếm hoặc thêm mới" id="txtsearch2">
                    <span class="input-group-btn">
                      <button  type="button" class="btn btn-info btn-flat" id="btnaddcustomer" data-toggle="modal" data-target="#modal-addcustomer">Thêm</button>
                    </span>
                  </div>
-                 <div class="box-body suggest">
-                    <ul class="list-suggest">
-                        <li class="suggest-col">
-                          <span class="fa  fa-user fa-custom"></span>
-                          <span class="text-muted">Đặng Tiến Chiêu</span>
-                        </li>
+                 <div class="box-body suggest" id="suggest2">
+                    <ul class="list-suggest" id="result2">
                         <li class="suggest-col">
                           <span class="fa  fa-user fa-custom"></span>
                           <span class="text-muted">Đặng Tiến Chiêu</span>

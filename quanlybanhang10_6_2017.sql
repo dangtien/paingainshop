@@ -1,7 +1,6 @@
 
 create database da_qlbh default character set utf8;
 use da_qlbh;
-
 create table NhanVien(
 MaNV varchar(8) not null primary key,
 HoTen nvarchar(100) not null,
