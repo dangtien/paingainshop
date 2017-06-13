@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ page import="paingainshop.model.KhachHang" %>
+<%@ page import="java.util.ArrayList" %>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
 <div class="content-wrapper">
@@ -66,6 +68,7 @@
                 </div>
         </div>
         </div>
+        <span style="color:red"><i>${msg1}</i></span>
         </form>
 		<div class="row">
 	        <div class="col-xs-12">
@@ -83,48 +86,35 @@
 	                  <th>Địa chỉ</th>
 	                  <th>Tổng số hóa đơn</th>
 	                  <th>Tổng tiền</th>
-	                  <th>Action</th>
+	                  <th></th>
 	                </tr>
 	                </thead>
 	                <tbody>
-	                <tr>
-	                  <td><a href="#" title="click vào để xem chi tiết nhà cung cấp">Trident</a></td>
-	                  <td>Internet
-	                    Explorer 5.5
-	                  </td>
-	                  <td>Win 95+</td>
-	                  <td>A</td>
-	                  <td>35000</td>
-	                  <td>  <a href="#"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-                       </td>
-	                </tr>
+	                <% ArrayList<KhachHang> list = (ArrayList<KhachHang>)request.getAttribute("result");%>
+	                <%
+	                	if(list!=null){
+	                		for(KhachHang kh : list){
+	                			
+	                	
+	                %>
+			                <tr>
+			                  <td><%=kh.getMaKH()%></td>
+			                  <td><%=kh.getTenHK() %></td>
+			                  <td><%=kh.getDiaChi() %></td>
+			                  <td></td>
+			                  <td></td>
+			                  <td>  <a href="editcustomer.jsp?MaKH=<%=kh.getMaKH()%>"><span class="fa fa-edit">Sửa</span></a>
+		                      <span class="fa" style="margin: 0px 5px;"></span>
+		                      
+		                       </td>
+			                </tr>
+	                <%
+	                		}
+	                	}
+	                %>
 	                
-	                <tr>
-	                  <td><a href="#" title="click vào để xem chi tiết nhà cung cấp">Trident</a></td>
-	                  <td>PSP browser</td>
-	                  <td>PSP</td>
-	                  <td>-</td>
-	                  <td>35000</td>
-	                  <td > 
-	                  	 <a href="#"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-	                  </td>
-	                </tr> 
-	                <tr>
-	                  <td><a href="#" title="click vào để xem chi tiết nhà cung cấp">Trident</a></td>
-	                  <td>All others</td>
-	                  <td>-</td>
-	                  <td>-</td>
-	                  <td>35000</td>
-	                  <td> 
-	                  	 <a href="#"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-	                  </td>
-	                </tr>
+	                
+	                
 	                </tbody>
 	                <tfoot>
 	                 <tr>
@@ -133,7 +123,7 @@
 	                  <th>Địa chỉ</th>
 	                  <th>Tổng số hóa đơn</th>
 	                  <th>Tổng tiền</th>
-	                  <th>Action</th>
+	                  <th></th>
 	                </tr>
 	                </tfoot>
 	              </table>

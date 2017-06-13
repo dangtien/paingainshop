@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ page import="paingainshop.model.DAO.* "%>
+<%@ page import="paingainshop.model.KhachHang"%>
+<%@ page import="java.util.ArrayList" %>
 <%@include file="frame/header.jsp" %>
 <%@include file="frame/sidebar.jsp" %>
 <div class="content-wrapper">
@@ -18,15 +21,19 @@
     <div class="content">
         <div class="box">
             <div class="box-body">
-                <form class="form-horizontal">
+            <% 
+            KhachHang kh= new KhachHangDAO().getByID(request.getParameter("MaKH"));
+            %>
+			<span style="color:red">"${msg}</span>
+                <form class="form-horizontal" action="editcustomer" method="post">
                     <div class="col-md-6">
 		              <div class="form-group">
 		                <label>Tên khách hàng</label>
-		                <input type="text" class="form-control" id="inputText1" style="width:95%" placeholder="Tên khách hàng">
+		                <input type="text" class="form-control" id="inputText1" name ="TenKH" value="<%=kh.getTenHK() %>" style="width:95%" placeholder="Tên khách hàng">
 		              </div>
 		              <div class="form-group">
 		                <label>Số điện thoại</label>
-		                <input type="text" class="form-control" id="inputText3" style="width:95%" placeholder="Số điện thoại khách hàng">
+		                <input type="text" class="form-control" id="inputText3" name ="SDT" value="<%=kh.getSoDT() %>" style="width:95%" placeholder="Số điện thoại khách hàng">
 		              </div>
               <!-- /.form-group -->
               <!-- /.form-group -->
@@ -35,11 +42,11 @@
             <!-- /.form-group -->
 		              <div class="form-group">
 		                <label>Địa chỉ</label>
-		                <input type="text" class="form-control" id="inputText2" style="width:95%" placeholder="Địa chỉ khách hàng">
+		                <input type="text" class="form-control" id="inputText2" name="Address" value="<%=kh.getDiaChi() %>" style="width:95%" placeholder="Địa chỉ khách hàng">
 		              </div>
 		              <div class="form-group">
-		                <label>Địa chỉ email</label>
-		                <input type="email" class="form-control" id="inputText4" style="width:95%" placeholder="Email khách hàng">
+		                <label>email</label>
+		                <input type="email" class="form-control" id="inputText4" name="Email" value="<%=kh.getEmail() %>" style="width:95%" placeholder="Email khách hàng">
 		              </div>
 		              <!-- /.form-group -->
 		            </div>
