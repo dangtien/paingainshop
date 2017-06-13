@@ -5,6 +5,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import paingainshop.model.NhanVien;
 
 /**
  * Servlet implementation class LoadIndex
@@ -29,7 +31,13 @@ public class LoadIndex extends HttpServlet {
 	 */
         @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("home.jsp");
+            HttpSession session = request.getSession();
+            NhanVien nv = (NhanVien) session.getAttribute("login");
+            if(nv == null){
+                response.sendRedirect("login.jsp");
+            }else{
+                response.sendRedirect("home.jsp");
+            }
 	}
 
 	/**

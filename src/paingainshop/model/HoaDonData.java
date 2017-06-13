@@ -1,6 +1,5 @@
 package paingainshop.model;
 import java.util.ArrayList;
-import java.util.Date;
 public class HoaDonData extends HoaDon{
     private  ArrayList<CTHoaDon> items;
     

@@ -47,5 +47,5 @@ public class NhanVienDAO {
 				 nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu);
 			 }
 			 return nv;
-}
+                }
 }

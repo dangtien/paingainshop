@@ -75,7 +75,7 @@ public class KhachHangDAO {
     
     public KhachHang getByID(String MaKH) throws Exception
     {
-    	String sql = "select * from KhachHang wwhere MaKH=?";
+    	String sql = "select * from KhachHang where MaKH=?";
     	PreparedStatement pst = db.openConnect().prepareStatement(sql);
     	pst.setString(1, MaKH);
     	rs = pst.executeQuery();
@@ -105,4 +105,6 @@ public class KhachHangDAO {
 		 return pst.executeUpdate()>0;
 		 
 	 }
+    
+   
 }

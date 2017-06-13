@@ -60,46 +60,7 @@
                   <th>1000</th>
                   <th><a href="#"><span  class=" fa fa-times-circle delproc"></span></a></th>
                 </tr>
-                <tr>
-                  <th>1</th>
-                  <th>HH000001</th>
-                  <th>Khánh chi vũ</th>
-                  <th><input type="text" class="form-control dongia"></th>
-                  <th><input type="number" class="form-control soluong"></th>
-                  <th><input type="number" class="form-control giamgia"></th>
-                  <th>1000</th>
-                  <th><a href="#"><span  class=" fa fa-times-circle delproc"></span></a></th>
-                </tr>
-                <tr>
-                  <th>1</th>
-                  <th>HH000001</th>
-                  <th>Khánh chi vũ</th>
-                  <th><input type="text" class="form-control dongia"></th>
-                  <th><input type="number" class="form-control soluong"></th>
-                  <th><input type="number" class="form-control giamgia"></th>
-                  <th>1000</th>
-                  <th><a href="#"><span  class=" fa fa-times-circle delproc"></span></a></th>
-                </tr>
-                <tr>
-                  <th>1</th>
-                  <th>HH000001</th>
-                  <th>Khánh chi vũ</th>
-                  <th><input type="text" class="form-control dongia"></th>
-                  <th><input type="number" class="form-control soluong"></th>
-                  <th><input type="number" class="form-control giamgia"></th>
-                  <th>1000</th>
-                  <th><a href="#"><span  class=" fa fa-times-circle delproc"></span></a></th>
-                </tr>
-                <tr>
-                  <th>1</th>
-                  <th>HH000001</th>
-                  <th>Khánh chi vũ</th>
-                  <th><input type="text" class="form-control dongia"></th>
-                  <th><input type="number" class="form-control soluong"></th>
-                  <th><input type="number" class="form-control giamgia"></th>
-                  <th>1000</th>
-                  <th><a href="#"><span  class=" fa fa-times-circle delproc"></span></a></th>
-                </tr>
+                
               </table>
             </div>               
           </div>
@@ -154,11 +115,11 @@
                 <!-- Don hang -->
                 <div class="box-body">
                    <strong>Mã hóa đơn:</strong>
-                   <p class="text-muted">HD000010</p>
+                   <p class="text-muted"><%= request.getAttribute("MaHD")%></p>
                    <strong>Nhân viên lập: </strong>
-                   <p class="text-muted">Đặng Tiến Chiêu</p>
+                   <p class="text-muted"><%=request.getAttribute("Nhanvien")%></p>
                    <strong>Ngày lập:</strong>
-                   <p class="text-muted">20/2/2017</p>
+                   <p class="text-muted"><%=request.getAttribute("Ngay")%></p>
                   </div>
               </div>
             </div>
