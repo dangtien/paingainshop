@@ -48,9 +48,7 @@ public class editcustomer extends HttpServlet {
 					RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp?MaKH="+MaKH);
 					request.setAttribute("msg1", message1 );
 					xxx.forward(request, response);
-					//request.setAttribute("Makh", ma );
-					//xxx.forward(request, response);
-					//"editcustomer.jsp?MaKH="+MaKH
+					
 				}
 				
 				
@@ -58,7 +56,7 @@ public class editcustomer extends HttpServlet {
 			catch (Exception e)
 			{
 				 message1 = "Cập nhật không thành công.";
-				 RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp");
+				 RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp?MaKH="+MaKH);
 				 request.setAttribute("msg1", message1 );
 				 xxx.forward(request, response);
 				 System.out.println("Lỗi.");
@@ -66,9 +64,9 @@ public class editcustomer extends HttpServlet {
 		}
 		catch (Exception e)
 		{
-			
+			 String MaKH = request.getParameter("MaKH");
 			 String message1 = "Cập nhật không thành công.";
-			 RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp");
+			 RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp?MaKH="+MaKH);
 			 request.setAttribute("msg1", message1 );
 			 xxx.forward(request, response);
 			 System.out.println("Lỗi.");
