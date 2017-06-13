@@ -6,25 +6,20 @@
 package paingainshop.controller;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import paingainshop.model.DAO.HoaDonDAO;
-import paingainshop.model.HoaDonData;
+import paingainshop.model.DAO.NhanVienDAO;
 import paingainshop.model.NhanVien;
-import paingainshop.model.service.PainAndGainService;
 
 /**
  *
  * @author dangt
  */
-public class addHoaDon extends HttpServlet {
+public class Login extends HttpServlet {
 
-   
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -38,22 +33,6 @@ public class addHoaDon extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try{
-            String MaHD = PainAndGainService.CreatePKey("HD",new HoaDonDAO().getLastPkey());
-            Date date = new Date();
-            SimpleDateFormat datefrmat = new SimpleDateFormat("yyyy-MM-dd");
-            String datestr = datefrmat.format(date);
-            HttpSession session = request.getSession();
-            NhanVien nv = (NhanVien)session.getAttribute("login");
-             HoaDonData hoadon = new HoaDonData(MaHD, datestr, "", nv.getMaNV());
-            session.setAttribute("hoadon", hoadon);
-            request.setAttribute("MaHD", MaHD);
-            request.setAttribute("Ngay", datestr);
-            request.setAttribute("Nhanvien", nv.getHoTen());
-            request.getRequestDispatcher("createbill.jsp").forward(request, response);
-       } catch (Exception ex) {
-                response.getWriter().print("loi: "+ ex.getMessage());
-       }
         
     }
 
@@ -68,8 +47,23 @@ public class addHoaDon extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
-        
+       String username = request.getParameter("username");
+       String password = request.getParameter("password");
+       NhanVienDAO nvacess = new NhanVienDAO();
+       NhanVien nv;
+        try {
+            nv = nvacess.getUserByUserName(username);
+            if(nv == null){
+                response.sendRedirect("login.jsp");
+             }else{
+                HttpSession session = request.getSession();
+                session.setAttribute("login", nv);
+                request.getRequestDispatcher("index").forward(request, response);
+            }
+        } catch (Exception ex) {
+            response.sendRedirect("login.jsp");
+        }
+       
     }
 
     /**
