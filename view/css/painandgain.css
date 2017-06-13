@@ -9,7 +9,7 @@ textarea.form-control{
 	position: relative;
 }
 .suggest{
-	position: absolute;
+    position: absolute;
     background: white;
     width: 100%;
     display: none;    

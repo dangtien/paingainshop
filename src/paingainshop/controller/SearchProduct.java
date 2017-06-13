@@ -6,20 +6,22 @@
 package paingainshop.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import paingainshop.model.DAO.NhanVienDAO;
-import paingainshop.model.NhanVien;
+import paingainshop.model.DAO.HangHoaDAO;
+import paingainshop.model.HangHoa;
 
 /**
  *
  * @author dangt
  */
-public class Login extends HttpServlet {
-
+public class SearchProduct extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -33,7 +35,25 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        String str = request.getParameter("txtsearch");
+        HangHoaDAO db = new HangHoaDAO();
+        try {
+            ArrayList<HangHoa> rs = db.getLikeString(str);
+            String strtext = "";
+            for (HangHoa hh : rs) {
+                strtext += "<li class=\"suggest-col\" value=\"" + hh.getMaHH() + "\" onclick=\"addDetail(\'" + hh.getMaHH() + "\');\">"
+                        + "<span class=\"fa fa-tags fa-custom\"></span>"
+                        + "<span class=\"fa-custom text-muted\">" + hh.getMaHH() + "</span>"
+                        + "<span class=\"fa-custom text-muted\">" + hh.getTenHH() + "</span>"
+                        + "<span class=\"fa-custom text-muted\">Đơn giá: <b>" + hh.getGiaBan() + "</b> VND</span>"
+                        + "<span class=\"text-muted\">Số lương hiện có: <b>" + hh.getSoLuong() + "</b></span>"
+                        + "</li>";
+            }
+            response.getWriter().print(strtext);
+        } catch (Exception ex) {
+            response.getWriter().print("loi co so du lieu" + ex.getMessage());
+        }
     }
 
     /**
@@ -47,23 +67,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String username = request.getParameter("username");
-       String password = request.getParameter("password");
-       NhanVienDAO nvacess = new NhanVienDAO();
-       NhanVien nv;
-        try {
-            nv = nvacess.getUserByUserName(username);
-            if(nv == null){
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-             }else{
-                HttpSession session = request.getSession();
-                session.setAttribute("login", nv);
-                response.sendRedirect("index");
-            }
-        } catch (Exception ex) {
-            request.getRequestDispatcher("login.jsp").forward(request, response);
-        }
-       
+        doGet(request, response);
     }
 
     /**

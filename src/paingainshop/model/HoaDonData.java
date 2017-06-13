@@ -7,6 +7,9 @@ public class HoaDonData extends HoaDon{
         super(maHD, ngay, maKH, maNV);
         items = new ArrayList<>();
     }
+    public ArrayList<CTHoaDon> getItems(){
+        return items;
+    }
     public void addItem(CTHoaDon item){
         int index = isDuplicate(item);
         if(index !=-1){
