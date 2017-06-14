@@ -46,7 +46,7 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li class=""><a href="customer.jsp"><i
+					<li class=""><a href="danhsachkhachhang"><i
 							class="fa fa-circle-o"></i>Quản lí</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i>

@@ -35,6 +35,7 @@ public class KhachHangDAO {
         }
         return value;
     }
+<<<<<<< HEAD
 
     public boolean insertKhachHang(KhachHang kh) throws Exception {
         String sql = "insert into KhachHang values (?,?,?,?,?)";
@@ -122,4 +123,81 @@ public class KhachHangDAO {
     public void close() throws SQLException{
     db.closeConnet();
     }
+=======
+    
+    public boolean insertKhachHang(KhachHang kh) throws Exception
+	{
+		String sql = "insert into KhachHang values (?,?,?,?,?)";
+		PreparedStatement pst = db.openConnect().prepareStatement(sql);
+		pst.setString(1, kh.getMaKH());
+		pst.setString(2, kh.getTenHK());
+		pst.setString(3, kh.getDiaChi());
+		pst.setString(4, kh.getSoDT());
+		pst.setString(5, kh.getEmail());
+		
+		return pst.executeUpdate()>0;
+	}
+    
+    
+    public ArrayList<KhachHang> getAllCustomer() throws Exception{
+		 ArrayList<KhachHang> lst = new ArrayList<KhachHang>();
+		 String strSQL = "select * from KhachHang order by MaKH";
+		 
+		 try {
+			 rs = db.getStatement().executeQuery(strSQL);
+			 while(rs.next()){
+			 
+			 String ID = rs.getString("MaKH");
+			 String Name = rs.getString("TenKH");
+			 String Address = rs.getString("DiaChi");
+			 String SDT = rs.getString("SoDT");
+			 String Email = rs.getString("Email");
+			
+			 KhachHang kh = new KhachHang(ID,Name,Address,SDT,Email);
+			 lst.add(kh);
+		 }
+		 } catch (Exception e) 
+		 {
+			 System.out.println("Loi truy van CSDL.");
+		 }
+		 db.closeConnet();
+		 return lst;
+		 }
+    
+    
+    public KhachHang getByID(String MaKH) throws Exception
+    {
+    	String sql = "select * from KhachHang where MaKH=?";
+    	PreparedStatement pst = db.openConnect().prepareStatement(sql);
+    	pst.setString(1, MaKH);
+    	rs = pst.executeQuery();
+    	KhachHang kh = null;
+    	while (rs.next())
+    	{
+    		 String ID = rs.getString("MaKH");
+			 String Name = rs.getString("TenKH");
+			 String Address = rs.getString("DiaChi");
+			 String SDT = rs.getString("SoDT");
+			 String Email = rs.getString("Email");
+			
+			 kh = new KhachHang(ID,Name,Address,SDT,Email);
+    	}
+    	return kh;
+    }
+    
+    public boolean updateKhachHang(String ID,KhachHang newkh) throws Exception
+	 {
+		 String sql = "update KhachHang set TenKH=? , DiaChi=? , SoDT=? , Email=? where MaKH =?";
+		 PreparedStatement pst = db.openConnect().prepareStatement(sql);
+		 pst.setString(1, newkh.getTenHK());
+		 pst.setString(2, newkh.getDiaChi());
+		 pst.setString(3, newkh.getSoDT());
+		 pst.setString(4, newkh.getEmail());
+		 pst.setString(5, newkh.getMaKH());
+		 return pst.executeUpdate()>0;
+		 
+	 }
+    
+   
+>>>>>>> refs/remotes/origin/master
 }

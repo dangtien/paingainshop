@@ -35,26 +35,28 @@ public class editcustomer extends HttpServlet {
 			String sdt = request.getParameter("SDT");
 			String diachi = request.getParameter("Address");
 			String email= request.getParameter("Email");
-			String ma = request.getParameter("MaKH");
+			String MaKH = request.getParameter("MaKH");
 			String message1 = "";
 			
-			KhachHang kh = new KhachHang(ma,ten,diachi,sdt,email);
+			KhachHang kh = new KhachHang(MaKH,ten,diachi,sdt,email);
 			KhachHangDAO db = new KhachHangDAO();
 			try 
 			{
-				if (db.updateKhachHang(ma, kh));
+				if (db.updateKhachHang(MaKH, kh));
 				{
 					message1 = "Sửa thông tin thành công.";
-					RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
+					RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp?MaKH="+MaKH);
 					request.setAttribute("msg1", message1 );
 					xxx.forward(request, response);
 					
 				}
+				
+				
 			}
 			catch (Exception e)
 			{
 				 message1 = "Cập nhật không thành công.";
-				 RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
+				 RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp?MaKH="+MaKH);
 				 request.setAttribute("msg1", message1 );
 				 xxx.forward(request, response);
 				 System.out.println("Lỗi.");
@@ -62,9 +64,9 @@ public class editcustomer extends HttpServlet {
 		}
 		catch (Exception e)
 		{
-			
+			 String MaKH = request.getParameter("MaKH");
 			 String message1 = "Cập nhật không thành công.";
-			 RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
+			 RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp?MaKH="+MaKH);
 			 request.setAttribute("msg1", message1 );
 			 xxx.forward(request, response);
 			 System.out.println("Lỗi.");
