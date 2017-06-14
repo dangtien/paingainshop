@@ -24,3 +24,26 @@ function showHint(str) {
         );
     }
 }
+function showHintkh(str) {
+    if (str.length == 0) {
+        $('#result2').html("");
+        $("#suggest2").hide();
+    } else {
+        $.get("searchkhachhang",
+                {txtsearch: str},
+                function (data) {
+                    $('#result2').html(data);
+                    $("#suggest2").show();
+                }
+        );
+    }
+}
+function addinfobill(value) {
+    $("#suggest2").hide();
+    $.get("addcustomerbill",
+            {maKH: value},
+            function (data) {
+                $('#infocustomer').html(data);
+            }
+    );
+}

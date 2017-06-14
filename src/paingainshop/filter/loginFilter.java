@@ -102,7 +102,7 @@ public class loginFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest)request;
         HttpServletResponse resp = (HttpServletResponse)response;
-        HttpSession session = req.getSession(false);
+        HttpSession session = req.getSession();
         String loginURI = req.getContextPath() + "/login";
         if(session.getAttribute("login") !=null){
             chain.doFilter(req, resp);

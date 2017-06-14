@@ -52,32 +52,27 @@
               <div class="active tab-pane" id="activity">
                   <!-- The khach hang -->
                  <div class="input-group input-group-sm">
-                   <input type="text" name="txtsearchcustomer" class="form-control" placeholder="Tìm kiếm hoặc thêm mới" id="txtsearch2">
+                     <input type="text" name="txtsearchcustomer" class="form-control" placeholder="Tìm kiếm hoặc thêm mới" id="txtsearch2" onkeyup="showHintkh(this.value);">
                    <span class="input-group-btn">
                      <button  type="button" class="btn btn-info btn-flat" id="btnaddcustomer" data-toggle="modal" data-target="#modal-addcustomer">Thêm</button>
                    </span>
                  </div>
                  <div class="box-body suggest" id="suggest2">
-                    <ul class="list-suggest" id="result2">
-                        <li class="suggest-col">
-                          <span class="fa  fa-user fa-custom"></span>
-                          <span class="text-muted">Đặng Tiến Chiêu</span>
-                        </li>
-                    </ul>
+                    <ul class="list-suggest" id="result2"></ul>
                  </div> 
                  <hr/>
-                 <div class="box-body">
+                 <div class="box-body" id="infocustomer">
                    <strong>Họ tên</strong>
                    <p class="text-muted">
-                     Đặng Tiến Chiêu  
+                       
                    </p>
                    <strong>Địa chỉ</strong>
                    <p class="text-muted">
-                     Hoàng Mai-Hà Nội
+                     
                    </p>
                    <strong>Email</strong>
                    <p class="text-muted">
-                     Dangtienchieu@gmail.com
+                     
                    </p>
                   </div>
               </div>
