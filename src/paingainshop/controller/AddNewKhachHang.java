@@ -58,14 +58,14 @@ public class AddNewKhachHang extends HttpServlet {
 				 else
 				 {
 					 message = "Không thành công.";
-					 RequestDispatcher xxx = request.getRequestDispatcher("danhsachkhachhang");
+					 RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
 					 request.setAttribute("msg", message );
 					 xxx.forward(request, response);
 					 System.out.println("lỗi.");
 				 }
 			 } catch (Exception e) {
 				 message = "Không thành công.";
-				 RequestDispatcher xxx = request.getRequestDispatcher("danhsachkhachhang");
+				 RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
 				 request.setAttribute("msg", message );
 				 xxx.forward(request, response);
 				 System.out.println("Lỗi.");

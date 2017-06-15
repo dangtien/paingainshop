@@ -19,7 +19,7 @@
         <ol class="breadcrumb">
             <li><a href="home.jsp"><i class="fa fa-dashboard"></i>Home</a></li>
             <li><a href="danhsachnhanvien">Nhân viên</a></li>
-            <li><a href="employee.jsp">Quản lý thông tin</a></li>
+            <li><a href="#">Quản lý thông tin</a></li>
             <li class="active">Chỉnh sửa</li>
         </ol>
     </div>
