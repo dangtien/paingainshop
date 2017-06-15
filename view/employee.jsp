@@ -6,7 +6,14 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="paingainshop.model.NhanVien" %>
 <%@include file="frame/header.jsp" %>
+<script language="javascript">
+              function confirmAction() {
+      		return confirm("Xác nhận xóa:")
+	}
+</script>
 <%@include file="frame/sidebar.jsp" %>
 <div class="content-wrapper">
     <section class="content-header">
@@ -14,12 +21,14 @@
             Nhân viên
             <small>Quản lí</small>
         </h1>
+        <span style="color:red"><i>${msg}</i></span>
         <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="home.jsp"><i class="fa fa-dashboard"></i>Home</a></li>
             <li class="active">Nhân viên</li>
         </ol>
     </section>
     <section class="content">
+    	<span style="color:red"><i>${msg1}</i></span>
           <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
@@ -34,61 +43,31 @@
                 </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td><a href="#" title="click vào để xem chi tiết sản phẩm">HH000001</a></td>
-                    <td>Khánh Chi Vũ</td>
-                    <td>1</td>
-                    <td>20.000</td>
+                <%
+                	ArrayList<NhanVien> list =(ArrayList<NhanVien>)request.getAttribute("result");
+                	if (list != null) 
+                	{
+                		for (NhanVien nv : list)
+                		{
+                			
+                %>
+                <tr>
+                    <td><a href="#" title="click vào để xem chi tiết sản phẩm"><%=nv.getMaNV() %></a></td>
+                    <td><%=nv.getHoTen() %></td>
+                    <td><%=nv.getDiaChi() %></td>
+                    <td><%=nv.getSoDT() %></td>
                     <td>
-                      <a href="editEmployee.jsp"><span class="fa fa-edit">Sửa</span></a>
+                      <a href="editEmployee.jsp?MaNV=<%=nv.getMaNV()%>"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
+                      <a onclick="return confirmAction()" href="deletenhanvien?MaNV=<%=nv.getMaNV() %>"><span class="fa fa-remove">Xóa</span></a>
                     </td>
                   </tr>
-                   <tr>
-                    <td><a href="#" title="click vào để xem chi tiết sản phẩm">HH000001</a></td>
-                    <td>Khánh Chi Vũ</td>
-                    <td>1</td>
-                    <td>20.000</td>
-                    <td>
-                      <a href="editEmployee.jsp"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-                    </td>
-                  </tr>
-                   <tr>
-                    <td><a href="#" title="click vào để xem chi tiết sản phẩm">HH000001</a></td>
-                    <td>Khánh Chi Vũ</td>
-                    <td>1</td>
-                    <td>20.000</td>
-                    <td>
-                      <a href="editEmployee.jsp"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-                    </td>
-                  </tr>
-                   <tr>
-                    <td><a href="#" title="click vào để xem chi tiết sản phẩm">HH000001</a></td>
-                    <td>Khánh Chi Vũ</td>
-                    <td>1</td>
-                    <td>20.000</td>
-                    <td>
-                      <a href="editEmployee.jsp"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-                    </td>
-                  </tr>
-                   <tr>
-                    <td><a href="#" title="click vào để xem chi tiết sản phẩm">HH000001</a></td>
-                    <td>Khánh Chi Vũ</td>
-                    <td>1</td>
-                    <td>20.000</td>
-                    <td>
-                      <a href="editEmployee.jsp"><span class="fa fa-edit">Sửa</span></a>
-                      <span class="fa" style="margin: 0px 5px;"></span>
-                      <a href="#"><span class="fa fa-remove">Xóa</span></a>
-                    </td>
-                  </tr>
+                   <%
+                		}
+                	}
+                   %>
+                   
+                   
                 </tbody>
                 <tfoot>
                 <tr>
@@ -101,6 +80,7 @@
                 </tfoot>
               </table>
             </div>
+    
             <!-- /.box-body -->
           </div>
         <div class="modal  fade" id="modal-addemployee">

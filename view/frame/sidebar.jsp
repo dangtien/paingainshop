@@ -55,7 +55,7 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li class=""><a href="employee.jsp"><i
+					<li class=""><a href="danhsachnhanvien"><i
 							class="fa fa-circle-o"></i>Quản lí</a></li>
 					<li><a href="salary.html"><i class="fa fa-circle-o"></i>Tính
 							lương</a></li>

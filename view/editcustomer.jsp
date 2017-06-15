@@ -26,7 +26,7 @@
             KhachHang kh = new KhachHangDAO().getByID(makh);
            
             %>
-            <input type="hidden" name="" value="" size="30" />
+            
 			<span style="color:red">${msg1}</span>
                 <form class="form-horizontal" action="editcustomer" method="post">
                     <div class="col-md-6">

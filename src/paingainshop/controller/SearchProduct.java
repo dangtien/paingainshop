@@ -46,8 +46,8 @@ public class SearchProduct extends HttpServlet {
                         + "<span class=\"fa fa-tags fa-custom\"></span>"
                         + "<span class=\"fa-custom text-muted\">" + hh.getMaHH() + "</span>"
                         + "<span class=\"fa-custom text-muted\">" + hh.getTenHH() + "</span>"
-                        + "<span class=\"fa-custom text-muted\">Đơn giá: <b>" + hh.getGiaBan() + "</b> VND</span>"
-                        + "<span class=\"text-muted\">Số lương hiện có: <b>" + hh.getSoLuong() + "</b></span>"
+                        + "<span class=\"fa-custom text-muted\">Số lượng: <b>" + hh.getGiaBan() + "</b> VND</span>"
+                        + "<span class=\"text-muted\">Số lượng hiện có: <b>" + hh.getSoLuong() + "</b></span>"
                         + "</li>";
             }
             response.getWriter().print(strtext);

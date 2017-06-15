@@ -42,9 +42,9 @@ public class editcustomer extends HttpServlet {
 			KhachHangDAO db = new KhachHangDAO();
 			try 
 			{
-				if (db.updateKhachHang(MaKH, kh));
+				if (db.updateKhachHang(MaKH, kh))
 				{
-					message1 = "Sửa thông tin thành công.";
+					message1 = "Cập nhật thông tin thành công.";
 					RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp?MaKH="+MaKH);
 					request.setAttribute("msg1", message1 );
 					xxx.forward(request, response);
