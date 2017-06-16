@@ -35,7 +35,7 @@ public class AddNewKhachHang extends HttpServlet {
 		
 		 try
 		 {
-			 //String MaHH = PainAndGainService.CreatePKey("SP", new HangHoaDAO().getLastPkey());
+			 //
 			 String MaKH =PainAndGainService.CreatePKey("KH", new KhachHangDAO().getLastPkey());
 			 String TenHK =request.getParameter("TenKH");
 			 String DiaChi =request.getParameter("Address");

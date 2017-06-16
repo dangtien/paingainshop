@@ -29,6 +29,7 @@
     </section>
     <section class="content">
     	<span style="color:red"><i>${msg1}</i></span>
+    	<span style="color:red"><i>${msg2}</i></span>
           <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
@@ -89,15 +90,16 @@
               <div class="modal-header with-border">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Thêm khách hàng</h4>
+                <h4 class="modal-title">Thêm nhân viên</h4>
               </div>
-                <form class="form-horizontal">
+              
+                <form class="form-horizontal" action="addemployee" method="post">
               <div class="modal-body">
         
                  <div class="form-group">
                   <label for="inputText1" class="col-sm-2 control-label">Tên nhân viên</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputText1" placeholder="Tên khách hàng" name="Tennv">
+                    <input type="text" class="form-control" id="inputText1" placeholder="Tên nhân viên" name="Tennv">
                   </div>
                 </div>
                   <div class="form-group">
@@ -145,7 +147,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Lưu</button>
+                <button type="sublit" class="btn btn-primary">Lưu</button>
               </div>
             </form>
             </div>

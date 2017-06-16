@@ -36,11 +36,11 @@
               </div>
               <div class="form-group">
                 <label>Tên khách hàng</label>
-                <input type="text" class="form-control" id="inputText1" style="width:100%" placeholder="Tên khách hàng" name="TenKH">
+                <input type="text" class="form-control" id="inputText1" style="width:100%" placeholder="Tên khách hàng" name="TenKH" required>
               </div>
               <div class="form-group">
                 <label>Số điện thoại</label>
-                <input type="text" class="form-control" id="inputText3" style="width:100%" placeholder="Số điện thoại khách hàng" name="SDT">
+                <input type="text" class="form-control" id="inputText3" style="width:100%" placeholder="Số điện thoại khách hàng" name="SDT" required>
               </div>
               <!-- /.form-group -->
               <!-- /.form-group -->
@@ -50,11 +50,11 @@
             <!-- /.form-group -->
               <div class="form-group">
                 <label>Địa chỉ</label>
-                <input type="text" class="form-control" id="inputText2" style="width:100%" placeholder="Địa chỉ khách hàng" name="Address">
+                <input type="text" class="form-control" id="inputText2" style="width:100%" placeholder="Địa chỉ khách hàng" name="Address" required>
               </div>
               <div class="form-group">
                 <label>Địa chỉ email</label>
-                <input type="email" class="form-control" id="inputText4" style="width:100%" placeholder="Email khách hàng" name="Email">
+                <input type="email" class="form-control" id="inputText4" style="width:100%" placeholder="Email khách hàng" name="Email" >
               </div>
               <!-- /.form-group -->
             </div>

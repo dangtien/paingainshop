@@ -26,7 +26,7 @@ public class NhanVienDAO {
     }
     public String getLastPkey() throws Exception
     {
-        String sql = "select MaKH from NhanVien order by MaNV DESC Limit 1";
+        String sql = "select MaNV from NhanVien order by MaNV DESC Limit 1";
         ResultSet rs = db.getStatement().executeQuery(sql);
         String value=null;
         while(rs.next()){
@@ -159,6 +159,11 @@ public class NhanVienDAO {
 			 }
 			 return nv;
           }
-		 
+		 public static void main(String[] args) throws Exception {
+			NhanVienDAO db = new NhanVienDAO();
+			NhanVien nv = new NhanVien("NV000006","Luan",1000000,"luanhihi@gmail.com","long bien","0166123465","luan","12345","");
+			db.insertNhanVien(nv);
+			
+		}
 		
 }
