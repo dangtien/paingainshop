@@ -1,17 +1,17 @@
 package paingainshop.model;
-
+import java.sql.Time;
 public class BangChamCong {
 	private int MaCC;
 	private String Ngay;
-	private String GioBD;
-	private String GioKT;
+	private Time GioBD;
+	private Time GioKT;
 	private int TienPhat;
 	private int Phucap;
 	private int Tamung;
 	private int MaCa;
 	private String MaNV;
 	
-	public BangChamCong(int MaCC, String Ngay, String GioBD, String GioKT, int TienPhat, int Phucap, int Tamung, int MaCa, String MaNV){
+	public BangChamCong(int MaCC, String Ngay, Time GioBD, Time GioKT, int TienPhat, int Phucap, int Tamung, int MaCa, String MaNV){
 		this.MaCC = MaCC;
 		this.Ngay = Ngay;
 		this.GioBD = GioBD;
@@ -35,16 +35,16 @@ public class BangChamCong {
 	public void setNgay(String Ngay){
 		this.Ngay = Ngay;
 	}
-	public String getGioBD(){
+	public Time getGioBD(){
 		return this.GioBD;
 	}
-	public void setGioBD(String GioBD){
+	public void setGioBD(Time GioBD){
 		this.GioBD = GioBD;
 	}
-	public String getGioKT(){
+	public Time getGioKT(){
 		return this.GioKT;
 	}
-	public void setGioKT(String GioKT){
+	public void setGioKT(Time GioKT){
 		this.GioKT = GioKT;
 	}
 	public int getTienPhat(){

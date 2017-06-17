@@ -42,7 +42,7 @@
               <div class="input-group">
               	<input class="form-control" id="nowdate" type="text" style="margin-bottom: 7px" placeholder="Ngày hiện tại" disabled>
                 <input id="Manv" type="text" class="form-control" style="margin-bottom: 7px" placeholder="Mã nhân viên">
-				<input id="TenNV" type="text" class="form-control" style="margin-bottom: 7px" placeholder="Tên nhân viên">
+				<input id="TenNV" type="text" class="form-control" style="margin-bottom: 7px" placeholder="Tên nhân viên" name="TenNV">
 				<select class="form-control input input2" style="margin-bottom: 7px">
 				  <option value="" disabled selected>Chọn ca làm việc</option>
 				  <option value="1">1</option>
