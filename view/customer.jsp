@@ -19,7 +19,7 @@
 	<section class="content">
 	<span style="color:red"><i>${msg}</i></span>
 	<form action="addcustomer" method="post">
-		<div class="box box-default" >
+		<div class="box box-default collapsed-box" >
             <div class="box-header with-border">
           <h3 class="box-title">Thêm khách hàng</h3>
 
@@ -27,7 +27,7 @@
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
           </div>
         </div>
-              <div class="box-body">
+              <div class="box-body" style="display: none;">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -62,7 +62,7 @@
           </div>
           <!-- /.row -->
         </div>
-        <div class="box-footer">
+        <div class="box-footer" style="display: none;">
           <div class="input-group-btn">
                   <button id="add-new-event" type="submit" style="float: right; margin-right: 20px; " class="btn btn-primary btn-flat">Thêm</button>
                 </div>

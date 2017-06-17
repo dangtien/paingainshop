@@ -15,7 +15,7 @@
 		</ol>
 	</section>
 	<section class="content">
-		<div class="box box-default" >
+		<div class="box box-default collapsed-box" >
             <div class="box-header with-border">
           <h3 class="box-title">Thêm nhà cung cấp</h3>
 
@@ -23,7 +23,7 @@
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
           </div>
         </div>
-              <div class="box-body">
+              <div class="box-body" style="display: none;">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
@@ -69,7 +69,7 @@
           </div>
           <!-- /.row -->
         </div>
-        <div class="box-footer">
+        <div class="box-footer" style="display: none;">
           <div class="input-group-btn">
                   <button id="add-new-event" type="button" style="float: right; margin-right: 20px; " class="btn btn-primary btn-flat">Thêm</button>
                 </div>
@@ -89,7 +89,8 @@
 	                  <th>Mã nhà cung cấp</th>
 	                  <th>Tên nhà cung cấp</th>
 	                  <th>Địa chỉ</th>
-	                  <th>Số điện thoại</th>
+	                  <th>Tổng đơn đặt hàng</th>
+	                  <th>Tổng tiền nhập hàng</th>
 	                  <th>Action</th>
 	                </tr>
 	                </thead>
@@ -101,7 +102,8 @@
 	                  </td>
 	                  <td>Win 95+</td>
 	                  <td>A</td>
-	                  <td>  <a href="nhacc.jsp"><span class="fa fa-edit">Sửa</span></a>
+	                  <td>A</td>
+	                  <td>  <a href="editnhacc.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
                        </td>
@@ -112,8 +114,9 @@
 	                  <td>PSP browser</td>
 	                  <td>PSP</td>
 	                  <td>-</td>
+	                  <td>A</td>
 	                  <td > 
-	                  	 <a href="nhacc.jsp"><span class="fa fa-edit">Sửa</span></a>
+	                  	 <a href="editnhacc.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
 	                  </td>
@@ -123,8 +126,9 @@
 	                  <td>All others</td>
 	                  <td>-</td>
 	                  <td>-</td>
+	                  <td>A</td>
 	                  <td> 
-	                  	 <a href="nhacc.jsp"><span class="fa fa-edit">Sửa</span></a>
+	                  	 <a href="edinhacc.jsp"><span class="fa fa-edit">Sửa</span></a>
                       <span class="fa" style="margin: 0px 5px;"></span>
                       <a href="#"><span class="fa fa-remove">Xóa</span></a>
 	                  </td>
@@ -135,7 +139,8 @@
 	                  <th>Mã nhà cung cấp</th>
 	                  <th>Tên nhà cung cấp</th>
 	                  <th>Địa chỉ</th>
-	                  <th>Số điện thoại</th>
+	                  <th>Tổng đơn đặt hàng</th>
+	                  <th>Tổng tiền nhập hàng</th>
 	                  <th>Action</th>
 	                </tr>
 	                </tfoot>
