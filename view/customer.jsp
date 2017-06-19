@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ page import="paingainshop.model.KhachHang" %>
+<%@ page import="paingainshop.model.*" %>
+<%@ page import="paingainshop.model.DAO.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
@@ -17,8 +19,8 @@
 		</ol>
 	</section>
 	<section class="content">
-	<span style="color:red"><i>${msg}</i></span>
-	<form action="addcustomer" method="post">
+	<span style="color:red"><i id="msg"></i></span>
+	<form action="" method="post">
 		<div class="box box-default collapsed-box" >
             <div class="box-header with-border">
           <h3 class="box-title">Thêm khách hàng</h3>
@@ -40,7 +42,7 @@
               </div>
               <div class="form-group">
                 <label>Số điện thoại</label>
-                <input type="text" class="form-control" id="inputText3" style="width:100%" placeholder="Số điện thoại khách hàng" name="SDT" required>
+                <input type="text" class="form-control" id="inputText3" style="width:100%"  placeholder="Số điện thoại khách hàng" name="SDT" required>
               </div>
               <!-- /.form-group -->
               <!-- /.form-group -->
@@ -64,7 +66,7 @@
         </div>
         <div class="box-footer" style="display: none;">
           <div class="input-group-btn">
-                  <button id="add-new-event" type="submit" style="float: right; margin-right: 20px; " class="btn btn-primary btn-flat">Thêm</button>
+                  <button id="add-new-event" type="button" style="float: right; margin-right: 20px; " onclick="addCustomer();" class="btn btn-primary btn-flat">Thêm</button>
                 </div>
         </div>
         </div>
@@ -91,18 +93,20 @@
 	                </thead>
 	                <tbody>
 	                <% ArrayList<KhachHang> list = (ArrayList<KhachHang>)request.getAttribute("result");%>
+	                
 	                <%
 	                	if(list!=null){
 	                		for(KhachHang kh : list){
 	                			
-	                	
+	                	CoutSoHoaDonSoTien cs =new CoutSoHoaDonSoTienDAO().getSoHDByID(kh.getMaKH());
+	                	CoutSoTienHoaDon ct = new CoutSoTienHoaDonDAO().getSoTienByID(kh.getMaKH());
 	                %>
 			                <tr>
 			                  <td><%=kh.getMaKH()%></td>
 			                  <td><%=kh.getTenHK() %></td>
 			                  <td><%=kh.getDiaChi() %></td>
-			                  <td></td>
-			                  <td></td>
+			                  <td><%=cs.getSoHoaDon() %></td>
+			                  <td><%=ct.getTongtien() %></td>
 			                  <td>  <a href="editcustomer.jsp?MaKH=<%=kh.getMaKH()%>"><span class="fa fa-edit">Sửa</span></a>
 		                      <span class="fa" style="margin: 0px 5px;"></span>
 		                      

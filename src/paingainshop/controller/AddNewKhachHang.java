@@ -27,12 +27,13 @@ public class AddNewKhachHang extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.setContentType("text/html; charset= UTF-8");
+		request.setCharacterEncoding("utf-8");
 		 try
 		 {
 			 //
@@ -48,36 +49,38 @@ public class AddNewKhachHang extends HttpServlet {
 			 String message = "";
 			 try 
 			 {
-				 if(db.insertKhachHang(kh))
+				 if (TenHK !="" && DiaChi!= "" && SoDT!="" && Email!="" )
 				 {
-					 message = "Thêm khách hàng thành công.";
-					 RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
-					 request.setAttribute("msg", message );
-					 xxx.forward(request, response);
+					 if(db.insertKhachHang(kh))
+					 {
+						 
+						 response.getWriter().println("Thêm thành công");
+					 }
+					 else
+					 {
+						 response.getWriter().println("Không thành công! Kiểm tra lại thông tin");
+					 }
 				 }
-				 else
+				 else 
 				 {
-					 message = "Không thành công.";
-					 RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
-					 request.setAttribute("msg", message );
-					 xxx.forward(request, response);
-					 System.out.println("lỗi.");
+					 response.getWriter().println("Không thành công! Kiểm tra lại thông tin");
 				 }
 			 } catch (Exception e) {
-				 message = "Không thành công.";
-				 RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
-				 request.setAttribute("msg", message );
-				 xxx.forward(request, response);
-				 System.out.println("Lỗi.");
+				response.getWriter().println("Lỗi: " + e.getMessage());
 			 }
 		 }
 		 catch (Exception e)
 		 {
-			 String message = "Không thành công.";
-			 RequestDispatcher xxx = request.getRequestDispatcher("customer.jsp");
-			 request.setAttribute("msg", message );
-			 xxx.forward(request, response);
+			 response.getWriter().println("Lỗi: " + e.getMessage());
 		 }
+	}
+
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doGet(request, response);
 	}
 
 }
