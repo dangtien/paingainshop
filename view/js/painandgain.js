@@ -47,3 +47,17 @@ function addinfobill(value) {
             }
     );
 }
+function editBill(dt){
+  
+  var elem = $(dt).parent().parent();
+  var mahh = elem.attr("for");
+  var dg = elem.children().children()[0].value;
+  var  sl =elem.children().children()[1].value;
+  var gg =elem.children().children()[2].value;
+  $.get("editbill",
+  { MaHH:mahh, DonGia:dg, SoLuong:sl, GiamGia:gg },
+  function(data){
+      $('#hoadondetail').html(data);
+  }
+    );
+  }

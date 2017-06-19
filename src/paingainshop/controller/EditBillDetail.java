@@ -17,14 +17,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import paingainshop.model.CTHoaDon;
 import paingainshop.model.DAO.HangHoaDAO;
-import paingainshop.model.HangHoa;
 import paingainshop.model.HoaDonData;
 
 /**
  *
- * @author dangt
+ * @author Mạnh Nguyễn!
  */
-public class AddBillDetail extends HttpServlet {
+public class EditBillDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -43,10 +42,10 @@ public class AddBillDetail extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddBillDetail</title>");
+            out.println("<title>Servlet EditBillDetail</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddBillDetail at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet EditBillDetail at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -65,40 +64,43 @@ public class AddBillDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String mahh = request.getParameter("maHH");
-        
+        int dongia = Integer.parseInt(request.getParameter("DonGia"));
+        String mahh = request.getParameter("MaHH");
+        int soluong = Integer.parseInt(request.getParameter("SoLuong"));
+        int giamgia = Integer.parseInt(request.getParameter("GiamGia"));
+
+        HttpSession session = request.getSession();
+        HoaDonData hoadon = (HoaDonData) session.getAttribute("hoadon");
+        CTHoaDon ct = hoadon.getItem(mahh);
+        ct.setDonGia(dongia);
+        ct.setGiamGia(giamgia);
+        ct.setSoLuong(soluong);
+        hoadon.update(ct);
+        session.setAttribute("hoadon", hoadon);
         try {
-            HangHoa hh = new HangHoaDAO().getById(mahh);
-            HttpSession session = request.getSession();
-            HoaDonData hoadon = (HoaDonData) session.getAttribute("hoadon");
-            if (hoadon == null) {
-                response.sendRedirect("createhoadon");
-            } else {
-                CTHoaDon ct = new CTHoaDon(hoadon.getMaHD(), mahh, 1, hh.getGiaBan(), 0);
-                hoadon.addItem(ct);
-                session.setAttribute("hoadon", hoadon);
-                String txtresult = "";
-                ArrayList<CTHoaDon> rs = hoadon.getItems();
-                int i=1;
-                for (CTHoaDon ctiet : rs) {
-                    String tensp = new HangHoaDAO().getById(ctiet.getMaHH()).getTenHH();
-                    int total = (ctiet.getDonGia() * ctiet.getSoLuong()) -((ctiet.getDonGia()* ctiet.getSoLuong())*ctiet.getGiamGia())/100;
-                    txtresult += "<tr for=\""+ctiet.getMaHH()+"\">"
-                            + "<td>"+i+"</td>"
-                            + "<td>"+ctiet.getMaHH()+"</td>"
-                            + "<td>"+tensp+"</td>"
-                            + "<td><input type=\"text\" class=\"form-control dongia\" value=\""+ctiet.getDonGia()+"\" onchange= \"editBill(this);\"></td>"
-                            + "<td><input type=\"number\" class=\"form-control soluong\" value=\""+ctiet.getSoLuong()+"\" onchange= \"editBill(this);\"></td>"
-                            + "<td><input type=\"number\" class=\"form-control giamgia\" value=\""+ctiet.getGiamGia()+"\" onchange= \"editBill(this);\"></td>"
-                            + "<td>"+total+"</td>"
-                            + "<td><a href=\"#\"><span  class=\" fa fa-times-circle delproc\"></span></a></td>"
-                            + "</tr>";
-                    i++;
-                }
-                response.getWriter().print(txtresult);
+            String txtresult = "";
+            ArrayList<CTHoaDon> rs = hoadon.getItems();
+            int i = 1;
+            for (CTHoaDon ctiet : rs) {
+                String tensp;
+
+                tensp = new HangHoaDAO().getById(ctiet.getMaHH()).getTenHH();
+                int total = (ctiet.getDonGia() * ctiet.getSoLuong()) - ((ctiet.getDonGia() * ctiet.getSoLuong()) * ctiet.getGiamGia()) / 100;
+                txtresult += "<tr for=\""+ctiet.getMaHH()+"\">"
+                        + "<td>" + i + "</td>"
+                        + "<td>" + ctiet.getMaHH() + "</td>"
+                        + "<td>" + tensp + "</td>"
+                        + "<td><input type=\"text\" class=\"form-control dongia\" value=\"" + ctiet.getDonGia() + "\" onchange= \"editBill(this);\"></td>"
+                        + "<td><input type=\"number\" class=\"form-control soluong\" value=\"" + ctiet.getSoLuong() + "\" onchange= \"editBill(this);\"></td>"
+                        + "<td><input type=\"number\" class=\"form-control giamgia\" value=\"" + ctiet.getGiamGia() + "\" onchange= \"editBill(this);\"></td>"
+                        + "<td>" + total + "</td>"
+                        + "<td><a href=\"#\"><span  class=\" fa fa-times-circle delproc\"></span></a></td>"
+                        + "</tr>";
+                i++;
             }
+            response.getWriter().print(txtresult);
         } catch (Exception ex) {
-            response.getWriter().print("loi: " + ex.getMessage());
+            response.getWriter().print("loi: "+ ex.getMessage());
         }
 
     }
@@ -114,7 +116,7 @@ public class AddBillDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        processRequest(request, response);
     }
 
     /**

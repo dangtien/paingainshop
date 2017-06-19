@@ -35,7 +35,7 @@
                   <th>Thành tiền</th>
                   <th>Action</th>
                 </tr>
-                <tbody id="hoadondetail"></tbody>
+                <tbody id="hoadondetail" onload="editBill();"></tbody>
               </table>
             </div>               
           </div>
