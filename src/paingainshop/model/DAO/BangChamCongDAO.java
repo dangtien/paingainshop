@@ -9,7 +9,6 @@ import paingainshop.model.BangChamCong;
 
 public class BangChamCongDAO {
 	DBconnect db;
-	ResultSet rs;
     public BangChamCongDAO() {
         db = new DBconnect();
     }

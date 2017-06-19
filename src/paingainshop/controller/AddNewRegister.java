@@ -10,9 +10,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
 import paingainshop.model.*;
 import paingainshop.model.DAO.BangChamCongDAO;
-
 
 @WebServlet("/register")
 public class AddNewRegister extends HttpServlet {
@@ -32,6 +33,7 @@ public class AddNewRegister extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 try
 		 {
+			 
 			 int MaCC=  (new BangChamCongDAO().getLastPkey()) +1;
 			 Date Ngay = new Date();
 			 SimpleDateFormat datefrmat = new SimpleDateFormat("yyyy-MM-dd");
@@ -81,4 +83,5 @@ public class AddNewRegister extends HttpServlet {
 			 System.out.println("Lỗi.");
 		 }
 	}
+	
 }
