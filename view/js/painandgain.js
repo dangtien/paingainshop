@@ -47,6 +47,25 @@ function addinfobill(value) {
             }
     );
 }
+
+
+function addCustomer(){
+	var makh = $("#inputText0").val();
+	var tenkh = $("#inputText1").val();
+	var sodt = $("#inputText3").val();
+	var diachi = $("#inputText2").val();
+	var email = $("inputText4").val();
+	
+	$.get("addcustomer",
+			{MaKH: makh, TenKH: tenkh, SDT: sodt, Adrress:diachi, Email: email},
+			function(data){
+				$("#msg").html(data);
+				
+				setTimeout(function(){location.reload()}, 3000);
+			}
+			);
+}
+
 function editBill(dt){
   
   var elem = $(dt).parent().parent();
@@ -61,3 +80,4 @@ function editBill(dt){
   }
     );
   }
+

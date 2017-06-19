@@ -32,32 +32,55 @@ public class EditEmployee extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String MaNV = request.getParameter("MaNV");
-		String TenNV = request.getParameter("Tennv");
-		String Username = request.getParameter("Username");
-		String Email = request.getParameter("Email");
-		String Pass = request.getParameter("Password");
-		String DiaChi = request.getParameter("Diachi");
-		String SDT = request.getParameter("Sodt");
-		int Luong = Integer.parseInt(request.getParameter("Luong"));
-		String gc = request.getParameter("attribute");
-		
-		
-		NhanVien nv = new NhanVien(MaNV,TenNV,Luong,Email,DiaChi,SDT,Username,Pass,gc);
-		NhanVienDAO db = new NhanVienDAO();
-		String message ="";
+		response.setContentType("text/html; charset= UTF-8");
+		request.setCharacterEncoding("utf-8");
 		try
 		{
-			db.updateNhanVien(MaNV, nv);
-			message = "Cập nhật nhân viên thành công.";
-			RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
-			request.setAttribute("msg", message );
-			xxx.forward(request, response);
+			String MaNV = request.getParameter("MaNV");
+			String TenNV = request.getParameter("Tennv");
+			String Username = request.getParameter("Username");
+			String Email = request.getParameter("Email");
+			String Pass = request.getParameter("Password");
+			String DiaChi = request.getParameter("Diachi");
+			String SDT = request.getParameter("Sodt");
+			int Luong = Integer.parseInt(request.getParameter("Luong"));
+			String gc = request.getParameter("attribute");
 			
+			
+			NhanVien nv = new NhanVien(MaNV,TenNV,Luong,Email,DiaChi,SDT,Username,Pass,gc);
+			NhanVienDAO db = new NhanVienDAO();
+			String message ="";
+			try
+			{
+				if (TenNV!= "" && Username!= "" && Pass != "" &&Email!= "" && DiaChi!= "" && SDT!= "" ) 
+				{
+					db.updateNhanVien(MaNV, nv);
+					message = "Cập nhật nhân viên thành công.";
+					RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
+					request.setAttribute("msg", message );
+					xxx.forward(request, response);
+				}
+				else
+				{
+					message = "Cập nhật nhân viên không thành công.";
+					RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
+					request.setAttribute("msg", message );
+					xxx.forward(request, response);
+				}
+				
+			}
+			catch (Exception e)
+			{
+				message = "Cập nhật nhân viên không thành công.";
+				RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
+				request.setAttribute("msg", message );
+				xxx.forward(request, response);
+			}
 		}
 		catch (Exception e)
 		{
-			message = "Cập nhật nhân viên không thành công.";
+			String message = "Cập nhật nhân viên không thành công.";
+			String MaNV = request.getParameter("MaNV");
 			RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
 			request.setAttribute("msg", message );
 			xxx.forward(request, response);

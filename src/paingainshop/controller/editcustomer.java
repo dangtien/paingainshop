@@ -29,8 +29,11 @@ public class editcustomer extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset= UTF-8");
+		request.setCharacterEncoding("utf-8");
 		try
 		{
+			
 			String ten = request.getParameter("TenKH");
 			String sdt = request.getParameter("SDT");
 			String diachi = request.getParameter("Address");
@@ -42,15 +45,25 @@ public class editcustomer extends HttpServlet {
 			KhachHangDAO db = new KhachHangDAO();
 			try 
 			{
-				if (db.updateKhachHang(MaKH, kh))
+				if (ten !="" && diachi!= "" && email!="" && sdt!="" )
+				 {
+					if (db.updateKhachHang(MaKH, kh))
+					{
+						message1 = "Cập nhật thông tin thành công.";
+						RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp?MaKH="+MaKH);
+						request.setAttribute("msg1", message1 );
+						xxx.forward(request, response);
+						
+					}
+				 }
+				else
 				{
-					message1 = "Cập nhật thông tin thành công.";
-					RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp?MaKH="+MaKH);
-					request.setAttribute("msg1", message1 );
-					xxx.forward(request, response);
-					
+					 message1 = "Cập nhật không thành công.";
+					 RequestDispatcher xxx = request.getRequestDispatcher("editcustomer.jsp?MaKH="+MaKH);
+					 request.setAttribute("msg1", message1 );
+					 xxx.forward(request, response);
+					 System.out.println("Lỗi.");
 				}
-				
 				
 			}
 			catch (Exception e)
