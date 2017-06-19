@@ -49,6 +49,8 @@
 <script src="${pageContext.request.contextPath}/templates/plugins/datatables/dataTables.bootstrap.js"></script>
 <!-- painandgain js-->
 <script src="${pageContext.request.contextPath}/js/painandgain.js"></script>
+<!-- bootstrap time picker -->
+<script src="${pageContext.request.contextPath}/templates/plugins/timepicker/bootstrap-timepicker.min.js"></script>
 <!-- Select2 -->
 <script src="${pageContext.request.contextPath}/templates/plugins/select2/select2.full.min.js"></script>
 <!-- page script -->

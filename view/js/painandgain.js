@@ -47,6 +47,7 @@ function addinfobill(value) {
             }
     );
 }
+<<<<<<< HEAD
 
 function addCustomer(){
 	var makh = $("#inputText0").val();
@@ -64,3 +65,19 @@ function addCustomer(){
 			}
 			);
 }
+=======
+function editBill(dt){
+  
+  var elem = $(dt).parent().parent();
+  var mahh = elem.attr("for");
+  var dg = elem.children().children()[0].value;
+  var  sl =elem.children().children()[1].value;
+  var gg =elem.children().children()[2].value;
+  $.get("editbill",
+  { MaHH:mahh, DonGia:dg, SoLuong:sl, GiamGia:gg },
+  function(data){
+      $('#hoadondetail').html(data);
+  }
+    );
+  }
+>>>>>>> 3fa13be0f5c73a92ea238a6bd5ec57158e20765b

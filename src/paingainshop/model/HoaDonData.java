@@ -40,4 +40,12 @@ public class HoaDonData extends HoaDon{
             items.get(index).setGiamGia(item.getGiamGia());
         }
     }
+    public CTHoaDon getItem(String mahh){
+        for(int i=0; i<items.size();i++){
+			if(items.get(i).getMaHH().equals(mahh)){
+				return items.get(i);
+			}
+		}
+        return null;
+    }
 }

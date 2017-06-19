@@ -25,6 +25,10 @@
 <!-- Theme style -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/templates/dist/css/AdminLTE.min.css">
+ <!-- Select2 -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/plugins/select2/select2.min.css">
+  <!-- Bootstrap time Picker -->
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/plugins/timepicker/bootstrap-timepicker.min.css">
 <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet"
