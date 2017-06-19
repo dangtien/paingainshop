@@ -60,7 +60,7 @@
 					<li><a href="salary.html"><i class="fa fa-circle-o"></i>Tính
 							lương</a></li>
 				</ul></li>
-			<li><a href="register.jsp"> <i
+			<li><a href="bangchamcong"> <i
 					class="fa fa-dashboard"></i> <span>Chấm công</span>
 			</a></li>
 			<li><a href="phieuchi.html"> <i

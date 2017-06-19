@@ -30,7 +30,9 @@ public class AddNewRegister extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset= UTF-8");
+		request.setCharacterEncoding("utf-8");
 		 try
 		 {
 			 
@@ -45,43 +47,33 @@ public class AddNewRegister extends HttpServlet {
 			 int Tamung = Integer.parseInt(request.getParameter("tamung"));
 			 int MaCa = Integer.parseInt(request.getParameter("MaCa"));
 			 String MaNV = request.getParameter("MaNV");
+			 
 			 BangChamCong cc = new BangChamCong( MaCC, datestr,GioBD ,GioKT , TienPhat, Phucap, Tamung, MaCa, MaNV);
 			 BangChamCongDAO db = new BangChamCongDAO();
 			 String message = "";
 			 try 
 			 {
-				 if(db.insertBCC(cc))
-				 {
-					 message = "Thêm chấm công thành công";
-					 RequestDispatcher bcc = request.getRequestDispatcher("register.jsp");
-					 request.setAttribute("msg", message );
-					 bcc.forward(request, response);
-					 System.out.println(MaCa);
-				 }
-				 else
-				 {
-					 message = "Không thêm thành công.";
-					 RequestDispatcher bcc = request.getRequestDispatcher("register.jsp");
-					 request.setAttribute("msg", message );
-					 bcc.forward(request, response);
-					 System.out.println("Lỗi.");
-				 }
+				
+					 if(db.insertBCC(cc))
+					 {
+						 
+						 response.getWriter().println("ThÃªm thÃ nh cÃ´ng");
+					 }
+					 else
+					 {
+						 response.getWriter().println("KhÃ´ng thÃ nh cÃ´ng! Kiá»ƒm tra láº¡i thÃ´ng tin");
+					 }
+				 
 			 } catch (Exception e) {
-				 message = "Không thêm thành công.";
-				 RequestDispatcher bcc = request.getRequestDispatcher("register.jsp");
-				 request.setAttribute("msg", message );
-				 bcc.forward(request, response);
-				 System.out.println("Lỗi."+ e);
+				response.getWriter().println("Lá»—i: " + e.getMessage());
 			 }
 		 }
-		 catch (Exception e)
-		 {
-			 String message = "Bạn đã nhập sai định dạng. Mời bạn nhập lại!";
-			 RequestDispatcher bcc = request.getRequestDispatcher("register.jsp");
-			 request.setAttribute("msg", message );
-			 bcc.forward(request, response);
-			 System.out.println("Lỗi.");
-		 }
-	}
-	
+			 catch (Exception e)
+			 {
+				 response.getWriter().println("Lá»—i: " + e.getMessage());
+			 }
+		}
+		 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				doGet(request, response);
+			}
 }

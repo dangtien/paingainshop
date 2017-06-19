@@ -49,6 +49,32 @@ function addinfobill(value) {
 }
 
 
+function addRegister(){
+	var manv = $("#MaNV").val();
+	var ca = $("#MaCa").val();
+	var gioBD = $("#timepicker1").val();
+	var gioKT = $("#timepicker2").val();
+	var tienphat ;
+	if($("#exampleInputAmount1").val()==''){
+		tienphat=0;
+	} else tienphat= $("#exampleInputAmount1").val();
+	var phucap ;
+	if($("#exampleInputAmount2").val()==''){
+		phucap=0;
+	} else phucap= $("#exampleInputAmount2").val()
+	var tamung ;
+	if($("#exampleInputAmount3").val()==''){
+		tamung=0;
+	} else tamung= $("#exampleInputAmount3").val()
+	$.get("addregister",
+			{MaCa: ca, MaNV: manv,GioBD : gioBD, GioKT:gioKT, TienPhat: tienphat, PhuCap: phucap, TamUng: tamung},
+			function(data){
+				$("#msg").html(data);
+				
+				setTimeout(function(){location.reload()}, 3000);
+			}
+			);
+}
 function addCustomer(){
 	var makh = $("#inputText0").val();
 	var tenkh = $("#inputText1").val();
