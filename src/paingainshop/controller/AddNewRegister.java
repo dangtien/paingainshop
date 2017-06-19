@@ -58,27 +58,27 @@ public class AddNewRegister extends HttpServlet {
 				 }
 				 else
 				 {
-					 message = "KhÃ´ng thÃ nh cÃ´ng.";
-					 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
+					 message = "Không thêm thành công.";
+					 RequestDispatcher bcc = request.getRequestDispatcher("register.jsp");
 					 request.setAttribute("msg", message );
-					 xxx.forward(request, response);
-					 System.out.println("lá»—i.");
+					 bcc.forward(request, response);
+					 System.out.println("Lỗi.");
 				 }
 			 } catch (Exception e) {
-				 message = "KhÃ´ng thÃ nh cÃ´ng.";
-				 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
+				 message = "Không thêm thành công.";
+				 RequestDispatcher bcc = request.getRequestDispatcher("register.jsp");
 				 request.setAttribute("msg", message );
-				 xxx.forward(request, response);
-				 System.out.println("Lá»—i."+ e);
+				 bcc.forward(request, response);
+				 System.out.println("Lỗi."+ e);
 			 }
 		 }
 		 catch (Exception e)
 		 {
-			 String message = "Báº¡n Ä‘Ã£ nháº­p sai Ä‘á»‹nh dáº¡ng. Má»�i báº¡n nháº­p láº¡i!";
-			 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
+			 String message = "Bạn đã nhập sai định dạng. Mời bạn nhập lại!";
+			 RequestDispatcher bcc = request.getRequestDispatcher("register.jsp");
 			 request.setAttribute("msg", message );
-			 xxx.forward(request, response);
-			 System.out.println("Lá»—i.");
+			 bcc.forward(request, response);
+			 System.out.println("Lỗi.");
 		 }
 	}
 }

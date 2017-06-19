@@ -42,16 +42,50 @@
               <div class="input-group">
               	<input class="form-control" id="nowdate" type="text" style="margin-bottom: 7px" placeholder="Ngày hiện tại" disabled>
                 <input id="Manv" type="text" class="form-control" style="margin-bottom: 7px" placeholder="Mã nhân viên">
-				<input id="TenNV" type="text" class="form-control" style="margin-bottom: 7px" placeholder="Tên nhân viên" name="TenNV">
+				<form >
+		              <div class="form-group" >
+		                <select class="form-control select2"  style="margin-bottom: 7px; " multiple="multiple" data-placeholder="Chọn nhân viên" style="width: 100%;">
+		                  <option>Alabama</option>
+		                  <option>Alaska</option>
+		                  <option>California</option>
+		                  <option>Delaware</option>
+		                  <option>Tennessee</option>
+		                  <option>Texas</option>
+		                  <option>Washington</option>
+		                </select>
+		              </div>
+                </form>
 				<select class="form-control input input2" style="margin-bottom: 7px">
 				  <option value="" disabled selected>Chọn ca làm việc</option>
 				  <option value="1">1</option>
 				  <option value="2">2</option>
 				  <option value="3">3</option>
 				</select>
-				<input id="hour-start" type="text" class="form-control" style="margin-bottom: 7px" placeholder="Giờ bắt đầu">
-				<input id="hour-end" type="text" class="form-control" style="margin-bottom: 7px" placeholder="Giờ kết thúc">
-              	<form class="form-inline" style="margin-bottom: 7px">
+				
+					<div class="bootstrap-timepicker timepicker">
+					<div class="form-group">
+                  <div class="input-group" style="width : 100%">
+                    <input type="text" class="form-control timepicker" id="timepicker1" >
+
+                    <div class="input-group-addon">
+                      <i class="fa fa-clock-o"></i>
+                    </div>
+                  </div>
+                  <!-- /.input group -->
+                </div>
+                <!-- /.form group -->
+                <div class="form-group" >
+                  <div class="input-group" style="width : 100%">
+                    <input type="text" class="form-control timepicker"id="timepicker2" >
+
+                    <div class="input-group-addon">
+                      <i class="fa fa-clock-o"></i>
+                    </div>
+                  </div>
+                  <!-- /.input group -->
+                </div>
+              </div>
+				<form class="form-inline" style="margin-bottom: 7px">
 				  <div class="form-group">
 				    <label class="sr-only" for="exampleInputAmount">Tiền Phạt</label>
 				    <div class="input-group">
@@ -117,6 +151,10 @@
 <!-- fullCalendar 2.2.5 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <script src="${pageContext.request.contextPath}/templates/plugins/fullcalendar/fullcalendar.min.js"></script>
+<!-- Select2 -->
+<script src="${pageContext.request.contextPath}/templates/plugins/select2/select2.full.min.js"></script>
+
+
 <!-- Page specific script -->
 <script>
   $(function () {
@@ -265,6 +303,15 @@
 
       //Remove event from text input
       $("#new-event").val("");
+      $(".select2").select2();
+    
+      //Date range picker
+      $('#reservation').daterangepicker();
+      //Date range picker with time picker
+      $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+      
+      //Timepicker
+      $(".timepicker").timepicker({showInputs: false});
     });
   });
 </script>
