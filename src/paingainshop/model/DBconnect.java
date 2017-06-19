@@ -15,10 +15,7 @@ public class DBconnect {
 		try {
 				 Class.forName("com.mysql.jdbc.Driver");
 				 String DB_url = "jdbc:mysql://localhost:3306/da_qlbh";
-
 				 this.conn = DriverManager.getConnection(DB_url,"root","root");
-
-
 				 System.out.println("Ket noi Mysql thanh cong.");
 			 } 
 		catch (ClassNotFoundException e) {System.out.println("Ket noi Driver that bai!...." + e.getMessage());}
@@ -135,7 +132,22 @@ public class DBconnect {
 		
 		return pst.executeUpdate()>0;
 	}
-	
+	public boolean addBCC(BangChamCong cc) throws Exception
+	{
+		String sql = "insert into BangChamCong values (?,?,?,?,?,?,?,?,?)";
+		PreparedStatement pst = openConnect().prepareStatement(sql);
+		pst.setInt(1, cc.getMaCC());
+		pst.setString(2, cc.getNgay());
+		pst.setTime(3, cc.getGioBD());
+		pst.setTime(4, cc.getGioKT());
+		pst.setInt(5, cc.getTienPhat());
+		pst.setInt(6, cc.getPhucap());
+		pst.setInt(7, cc.getTamung());
+		pst.setInt(8, cc.getMaCa());
+		pst.setString(9, cc.getMaNV());
+		
+		return pst.executeUpdate()>0;
+	}
 	
 }
 

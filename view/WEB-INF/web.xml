@@ -56,6 +56,7 @@
         <url-pattern>/customer.jsp</url-pattern>
         <url-pattern>/nhacc.jsp</url-pattern>
         <url-pattern>/employee.jsp</url-pattern>
+        <url-pattern>/bangchamcong</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>Index</servlet-name>
@@ -64,6 +65,10 @@
     <servlet>
         <servlet-name>LoadDanhSachHangHoa</servlet-name>
         <servlet-class>paingainshop.controller.LoadDanhSachHangHoa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListRegister</servlet-name>
+        <servlet-class>paingainshop.controller.ListRegister</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>addHoaDon</servlet-name>
@@ -92,6 +97,10 @@
     <servlet-mapping>
         <servlet-name>addHoaDon</servlet-name>
         <url-pattern>/createhoadon</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>ListRegister</servlet-name>
+        <url-pattern>/bangchamcong</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
