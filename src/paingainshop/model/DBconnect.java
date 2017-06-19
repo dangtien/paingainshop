@@ -18,7 +18,6 @@ public class DBconnect {
 
 				 this.conn = DriverManager.getConnection(DB_url,"root","root");
 
-				
 
 				 System.out.println("Ket noi Mysql thanh cong.");
 			 } 
