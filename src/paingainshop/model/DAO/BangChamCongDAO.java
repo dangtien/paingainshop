@@ -9,7 +9,7 @@ import paingainshop.model.BangChamCong;
 
 public class BangChamCongDAO {
 	DBconnect db;
-
+	ResultSet rs;
     public BangChamCongDAO() {
         db = new DBconnect();
     }
@@ -40,7 +40,7 @@ public class BangChamCongDAO {
     public ArrayList<BangChamCong> getAll() throws Exception{
         ArrayList<BangChamCong> list;
         list = new ArrayList<BangChamCong>();
-        String sql = "Select * from BangChamCong";
+        String sql = "Select * from BangChamCong join NhanVien on NhanVien.MaNV = BangChamCong.MaNV;";
         ResultSet rs = db.getStatement().executeQuery(sql);
         while(rs.next()){
             int MaCC = rs.getInt("MaCC");
@@ -48,14 +48,77 @@ public class BangChamCongDAO {
             Time GioBD = rs.getTime("GioBD");
             Time GioKT = rs.getTime("GioKT");
             int TienPhat = rs.getInt("TienPhat");
-            int Phucap = rs.getInt("Phucap");
-            int Tamung = rs.getInt("Tamung");
+            int Phucap = rs.getInt("PhuCap");
+            int Tamung = rs.getInt("TamUng");
             int MaCa = rs.getInt("MaCa");
             String MaNV = rs.getString("MaNV");
-            BangChamCong cc = new BangChamCong(MaCC, Ngay, GioBD, GioKT, TienPhat, Phucap, Tamung, MaCa, MaNV);
+            String TenNV = rs.getString("HoTen");
+            BangChamCong cc = new BangChamCong(MaCC, Ngay, GioBD, GioKT, TienPhat, Phucap, Tamung, MaCa, MaNV,TenNV);
             list.add(cc);
         }
         return list;
     }
-    
+    public ArrayList<BangChamCong> getlikedate(String date) throws Exception{
+        ArrayList<BangChamCong> list;
+        list = new ArrayList<BangChamCong>();
+        String sql = "Select * from BangChamCong join NhanVien on NhanVien.MaNV = BangChamCong.MaNV where Ngay = ?"+date;
+        ResultSet rs = db.getStatement().executeQuery(sql);
+        while(rs.next()){
+            int MaCC = rs.getInt("MaCC");
+            String Ngay = rs.getString("Ngay");
+            Time GioBD = rs.getTime("GioBD");
+            Time GioKT = rs.getTime("GioKT");
+            int TienPhat = rs.getInt("TienPhat");
+            int Phucap = rs.getInt("PhuCap");
+            int Tamung = rs.getInt("TamUng");
+            int MaCa = rs.getInt("MaCa");
+            String MaNV = rs.getString("MaNV");
+            String TenNV = rs.getString("HoTen");
+            BangChamCong cc = new BangChamCong(MaCC, Ngay, GioBD, GioKT, TienPhat, Phucap, Tamung, MaCa, MaNV,TenNV);
+            list.add(cc);
+        }
+        return list;
+    }
+    public ArrayList<BangChamCong> getlikemonth(String month, String year) throws Exception{
+        ArrayList<BangChamCong> list;
+        list = new ArrayList<BangChamCong>();
+        String sql = "Select * from BangChamCong join NhanVien on NhanVien.MaNV = BangChamCong.MaNV where month(Ngay) ="+month+"and year(Ngay) ="+year;
+        ResultSet rs = db.getStatement().executeQuery(sql);
+        while(rs.next()){
+            int MaCC = rs.getInt("MaCC");
+            String Ngay = rs.getString("Ngay");
+            Time GioBD = rs.getTime("GioBD");
+            Time GioKT = rs.getTime("GioKT");
+            int TienPhat = rs.getInt("TienPhat");
+            int Phucap = rs.getInt("PhuCap");
+            int Tamung = rs.getInt("TamUng");
+            int MaCa = rs.getInt("MaCa");
+            String MaNV = rs.getString("MaNV");
+            String TenNV = rs.getString("HoTen");
+            BangChamCong cc = new BangChamCong(MaCC, Ngay, GioBD, GioKT, TienPhat, Phucap, Tamung, MaCa, MaNV,TenNV);
+            list.add(cc);
+        }
+        return list;
+    }
+    public ArrayList<BangChamCong> getlikeweek(String week) throws Exception{
+        ArrayList<BangChamCong> list;
+        list = new ArrayList<BangChamCong>();
+        String sql = "Select * from BangChamCong join NhanVien on NhanVien.MaNV = BangChamCong.MaNV where WEEKOFYEAR(Ngay) ="+week;
+        ResultSet rs = db.getStatement().executeQuery(sql);
+        while(rs.next()){
+            int MaCC = rs.getInt("MaCC");
+            String Ngay = rs.getString("Ngay");
+            Time GioBD = rs.getTime("GioBD");
+            Time GioKT = rs.getTime("GioKT");
+            int TienPhat = rs.getInt("TienPhat");
+            int Phucap = rs.getInt("PhuCap");
+            int Tamung = rs.getInt("TamUng");
+            int MaCa = rs.getInt("MaCa");
+            String MaNV = rs.getString("MaNV");
+            String TenNV = rs.getString("HoTen");
+            BangChamCong cc = new BangChamCong(MaCC, Ngay, GioBD, GioKT, TienPhat, Phucap, Tamung, MaCa, MaNV,TenNV);
+            list.add(cc);
+        }
+        return list;
+    }
 }

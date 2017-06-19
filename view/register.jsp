@@ -62,7 +62,7 @@
 				  <option value="3">3</option>
 				</select>
 				
-					<div class="bootstrap-timepicker timepicker">
+					<div class="bootstrap-timepicker">
 					<div class="form-group">
                   <div class="input-group" style="width : 100%">
                     <input type="text" class="form-control timepicker" id="timepicker1" >
@@ -153,6 +153,7 @@
 <script src="${pageContext.request.contextPath}/templates/plugins/fullcalendar/fullcalendar.min.js"></script>
 <!-- Select2 -->
 <script src="${pageContext.request.contextPath}/templates/plugins/select2/select2.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 
 
 <!-- Page specific script -->
@@ -311,7 +312,7 @@
       $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
       
       //Timepicker
-      $(".timepicker").timepicker({showInputs: false});
+      $(".timepicker").timepicker();
     });
   });
 </script>

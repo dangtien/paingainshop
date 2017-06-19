@@ -10,6 +10,7 @@ public class BangChamCong {
 	private int Tamung;
 	private int MaCa;
 	private String MaNV;
+	private String TenNV;
 	
 	public BangChamCong(int MaCC, String Ngay, Time GioBD, Time GioKT, int TienPhat, int Phucap, int Tamung, int MaCa, String MaNV){
 		this.MaCC = MaCC;
@@ -21,6 +22,18 @@ public class BangChamCong {
 		this.Tamung = Tamung;
 		this.MaCa = MaCa;
 		this.MaNV = MaNV;
+	}
+	public BangChamCong(int MaCC, String Ngay, Time GioBD, Time GioKT, int TienPhat, int Phucap, int Tamung, int MaCa, String MaNV, String TenNV){
+		this.MaCC = MaCC;
+		this.Ngay = Ngay;
+		this.GioBD = GioBD;
+		this.GioKT = GioKT;
+		this.TienPhat = TienPhat;
+		this.Phucap = Phucap;
+		this.Tamung = Tamung;
+		this.MaCa = MaCa;
+		this.MaNV = MaNV;
+		this.TenNV = TenNV;
 	}
 	
 	public int getMaCC(){
@@ -76,5 +89,11 @@ public class BangChamCong {
 	}
 	public void setMaNV(String MaNV){
 		this.MaNV = MaNV;
+	}
+	public String getTenNV(){
+		return this.TenNV;
+	}
+	public void setTenNV(String TenNV){
+		this.TenNV = TenNV;
 	}
 }
