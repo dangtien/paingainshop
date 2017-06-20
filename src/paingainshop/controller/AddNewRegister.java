@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import paingainshop.model.*;
 import paingainshop.model.DAO.BangChamCongDAO;
 
-@WebServlet("/register")
+@WebServlet("/addregister")
 public class AddNewRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     

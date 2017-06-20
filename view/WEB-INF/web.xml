@@ -128,13 +128,10 @@
         <url-pattern>/createhoadon</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>AddNewRegister</servlet-name>
         <url-pattern>/addregister</url-pattern>
     </servlet-mapping>
 	<servlet-mapping>
-=======
->>>>>>> refs/remotes/origin/master
         <servlet-name>ListRegister</servlet-name>
         <url-pattern>/bangchamcong</url-pattern>
     </servlet-mapping>
