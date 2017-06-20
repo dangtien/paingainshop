@@ -20,9 +20,9 @@ import paingainshop.model.HoaDonData;
 
 /**
  *
- * @author Mạnh Nguyễn!
+ * @author Admin
  */
-public class EditBillDetail extends HttpServlet {
+public class removeHoaDonDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +41,10 @@ public class EditBillDetail extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet EditBillDetail</title>");
+            out.println("<title>Servlet removeHoaDonDetail</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet EditBillDetail at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet removeHoaDonDetail at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,52 +63,44 @@ public class EditBillDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
-        response.setCharacterEncoding("utf-8"); 
-        int dongia = Integer.parseInt(request.getParameter("DonGia"));
+        response.setCharacterEncoding("utf-8");
         String mahh = request.getParameter("MaHH");
-        int soluong = Integer.parseInt(request.getParameter("SoLuong"));
-        int giamgia = Integer.parseInt(request.getParameter("GiamGia"));
-
         HttpSession session = request.getSession();
         HoaDonData hoadon = (HoaDonData) session.getAttribute("hoadon");
         CTHoaDon ct = hoadon.getItem(mahh);
-        ct.setDonGia(dongia);
-        ct.setGiamGia(giamgia);
-        ct.setSoLuong(soluong);
-        ct.setSaltong(false);
-        hoadon.update(ct);
+        hoadon.remove(ct);
         session.setAttribute("hoadon", hoadon);
         try {
-            String txtresult = "";
             ArrayList<CTHoaDon> rs = hoadon.getItems();
-            int i = 1;
-            long totalbill = 0;
-            for (CTHoaDon ctiet : rs) {
-                String tensp;
-
-                tensp = new HangHoaDAO().getById(ctiet.getMaHH()).getTenHH();
-                int total = (ctiet.getDonGia() * ctiet.getSoLuong()) - ((ctiet.getDonGia() * ctiet.getSoLuong()) * ctiet.getGiamGia()) / 100;
-                txtresult += "<tr for=\"" + ctiet.getMaHH() + "\">"
-                        + "<td>" + i + "</td>"
-                        + "<td>" + ctiet.getMaHH() + "</td>"
-                        + "<td>" + tensp + "</td>"
-                        + "<td><input type=\"text\" class=\"form-control dongia\" value=\"" + ctiet.getDonGia() + "\" onchange= \"editBill(this);\"></td>"
-                        + "<td><input type=\"number\" class=\"form-control soluong\" value=\"" + ctiet.getSoLuong() + "\" onchange= \"editBill(this);\"></td>"
-                        + "<td><input type=\"number\" class=\"form-control giamgia\" value=\"" + ctiet.getGiamGia() + "\" onchange= \"editBill(this);\"></td>"
-                        + "<td>" + total + "</td>"
-                        + "<td><a href=\"#\" onclick=\"confirmremove(\'"+ ctiet.getMaHH() +"\');\"><span  class=\" fa fa-times-circle delproc\"></span></a></td>"
-                        + "</tr>";
-                i++;
-                totalbill += total;
-            }
-            JSONObject jsonobject = new JSONObject();
-            jsonobject.put("list", txtresult);
-            jsonobject.put("total", Long.toString(totalbill));
-            response.getWriter().print(jsonobject.toJSONString());
-        } catch (Exception ex) {
-            response.getWriter().print("loi: " + ex.getMessage());
+            int i=1;
+                long totalbill=0 ;
+                String txtresult="";
+                for (CTHoaDon ctiet : rs) {
+                    String tensp = new HangHoaDAO().getById(ctiet.getMaHH()).getTenHH();
+                    long total = (ctiet.getDonGia() * ctiet.getSoLuong()) -((ctiet.getDonGia()* ctiet.getSoLuong())*ctiet.getGiamGia())/100;
+                    txtresult += "<tr for=\""+ctiet.getMaHH()+"\">"
+                            + "<td>"+i+"</td>"
+                            + "<td>"+ctiet.getMaHH()+"</td>"
+                            + "<td>"+tensp+"</td>"
+                            + "<td><input type=\"text\" class=\"form-control dongia\" value=\""+ctiet.getDonGia()+"\" onchange= \"editBill(this);\"></td>"
+                            + "<td><input type=\"number\" class=\"form-control soluong\" value=\""+ctiet.getSoLuong()+"\" onchange= \"editBill(this);\"></td>"
+                            + "<td><input type=\"number\" class=\"form-control giamgia\" value=\""+ctiet.getGiamGia()+"\" onchange= \"editBill(this);\"></td>"
+                            + "<td>"+total+"</td>"
+                            + "<td><a href=\"#\" onclick=\"confirmremove(\'"+ ctiet.getMaHH() +"\');\"><span  class=\" fa fa-times-circle delproc\"></span></a></td>"
+                            + "</tr>";
+                    i++;
+                    totalbill+=total;
+                }
+                if(txtresult.isEmpty()){
+                    txtresult ="Không có sản phẩm nào được chọn";
+                }
+                JSONObject obj = new JSONObject();
+                obj.put("list", txtresult);
+                obj.put("total", totalbill);
+                response.getWriter().print(obj.toJSONString());
+        } catch (Exception e) {
+            response.getWriter().print("loi: "+ e.getMessage());
         }
-
     }
 
     /**

@@ -5,8 +5,11 @@
  */
 package paingainshop.model.DAO;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import paingainshop.model.DBconnect;
+import paingainshop.model.HoaDon;
 
 /**
  *
@@ -27,5 +30,33 @@ public class HoaDonDAO {
         }
         return value;
     }
-            
+    public boolean insertHoaDon(HoaDon hd) throws Exception{
+        String sql = "insert into HoaDon values (?,?,?,?)";
+        PreparedStatement pst = db.openConnect().prepareStatement(sql);
+        pst.setString(1, hd.getMaHD());
+        pst.setString(2, hd.getNgay());
+        pst.setString(3, hd.getMaKH());
+        pst.setString(4, hd.getMaNV());
+        return pst.executeUpdate()>0;
+    }
+    public ArrayList<HoaDon> getAll() throws Exception{
+        ArrayList<HoaDon> list = new ArrayList<>();
+        String sql = "select * from hoadon";
+        ResultSet rs = db.getStatement().executeQuery(sql);
+        while(rs.next()){
+            list.add(new HoaDon(rs.getString("MaHD"), rs.getString("Ngay"), rs.getString("MaKH"), rs.getString("MaNV")));
+        }
+        return list;
+    }
+    public HoaDon getById(String mahd) throws Exception{
+        String sql = "select * from hoadon where MaHD=?";
+        PreparedStatement pst = db.openConnect().prepareStatement(sql);
+        pst.setString(1, mahd);
+        ResultSet rs = pst.executeQuery() ;
+        HoaDon hd=null;
+        while(rs.next()){
+            hd = new HoaDon(rs.getString("MaHD"), rs.getString("Ngay"), rs.getString("MaKH"), rs.getString("MaNV"));
+        }
+        return hd;
+    }
 }
