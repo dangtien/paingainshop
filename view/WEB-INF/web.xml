@@ -25,6 +25,14 @@
         <servlet-name>saveBillDetail</servlet-name>
         <servlet-class>paingainshop.controller.saveBillDetail</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoadHoaDon</servlet-name>
+        <servlet-class>paingainshop.controller.LoadHoaDon</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChitietHoaDon</servlet-name>
+        <servlet-class>paingainshop.controller.ChitietHoaDon</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchProduct</servlet-name>
         <url-pattern>/searchproduct</url-pattern>
@@ -56,6 +64,14 @@
     <servlet-mapping>
         <servlet-name>saveBillDetail</servlet-name>
         <url-pattern>/savebill</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadHoaDon</servlet-name>
+        <url-pattern>/hoadon</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChitietHoaDon</servlet-name>
+        <url-pattern>/chitiethoadon</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

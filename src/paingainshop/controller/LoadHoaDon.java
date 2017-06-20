@@ -13,18 +13,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import paingainshop.model.CTHoaDon;
-import paingainshop.model.DAO.CTHoaDonDAO;
 import paingainshop.model.DAO.HoaDonDAO;
 import paingainshop.model.HoaDon;
-import paingainshop.model.HoaDonData;
 
 /**
  *
  * @author Admin
  */
-public class saveBillDetail extends HttpServlet {
+public class LoadHoaDon extends HttpServlet {
+
+  
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -38,33 +36,14 @@ public class saveBillDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html; charset=UTF-8");
-        HttpSession session = request.getSession();
-        HoaDonData hoadon = (HoaDonData) session.getAttribute("hoadon");
-        HoaDon hd = new HoaDon(hoadon.getMaHD(), hoadon.getNgay(), hoadon.getMaKH(), hoadon.getMaNV());
-        ArrayList<CTHoaDon> list = hoadon.getItems();
-        String msg = "";
-        HoaDonDAO hddao = new HoaDonDAO();
-        CTHoaDonDAO ctdao = new CTHoaDonDAO();
-        if (list.isEmpty()) {
-            msg = "Không có sản phẩm nào trong hóa đơn";
-        }else if(hoadon.getMaKH().isEmpty()){
-            msg ="Không có khách hàng nào được chọn";
-        } else if(!list.isEmpty()) {
-            try {
-                hddao.insertHoaDon(hd);
-                for (CTHoaDon ct : list) {
-                    
-                    ctdao.insertCTHoaDon(ct);
-                    
-                }
-                session.setAttribute("hoadon", null);
-                msg = "success";
-            } catch (Exception ex) {
-                msg = "loi: " + ex.getMessage();
-            }
+       HoaDonDAO hddao = new HoaDonDAO();
+        try {
+            ArrayList<HoaDon> rs = hddao.getAll();
+            request.setAttribute("rs", rs);
+            request.getRequestDispatcher("hoadon.jsp").forward(request, response);
+        } catch (Exception ex) {
+            response.getWriter().print(ex.getMessage());
         }
-        response.getWriter().print(msg);
     }
 
     /**
@@ -78,7 +57,7 @@ public class saveBillDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        doGet(request, response);
     }
 
     /**

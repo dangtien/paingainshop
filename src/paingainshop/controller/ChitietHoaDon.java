@@ -6,6 +6,7 @@
 package paingainshop.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,18 +14,20 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import paingainshop.model.CTHoaDon;
 import paingainshop.model.DAO.CTHoaDonDAO;
 import paingainshop.model.DAO.HoaDonDAO;
+import paingainshop.model.DAO.KhachHangDAO;
+import paingainshop.model.DAO.NhanVienDAO;
 import paingainshop.model.HoaDon;
-import paingainshop.model.HoaDonData;
+import paingainshop.model.KhachHang;
+import paingainshop.model.NhanVien;
 
 /**
  *
  * @author Admin
  */
-public class saveBillDetail extends HttpServlet {
+public class ChitietHoaDon extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -39,32 +42,26 @@ public class saveBillDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html; charset=UTF-8");
-        HttpSession session = request.getSession();
-        HoaDonData hoadon = (HoaDonData) session.getAttribute("hoadon");
-        HoaDon hd = new HoaDon(hoadon.getMaHD(), hoadon.getNgay(), hoadon.getMaKH(), hoadon.getMaNV());
-        ArrayList<CTHoaDon> list = hoadon.getItems();
-        String msg = "";
-        HoaDonDAO hddao = new HoaDonDAO();
-        CTHoaDonDAO ctdao = new CTHoaDonDAO();
-        if (list.isEmpty()) {
-            msg = "Không có sản phẩm nào trong hóa đơn";
-        }else if(hoadon.getMaKH().isEmpty()){
-            msg ="Không có khách hàng nào được chọn";
-        } else if(!list.isEmpty()) {
-            try {
-                hddao.insertHoaDon(hd);
-                for (CTHoaDon ct : list) {
-                    
-                    ctdao.insertCTHoaDon(ct);
-                    
-                }
-                session.setAttribute("hoadon", null);
-                msg = "success";
-            } catch (Exception ex) {
-                msg = "loi: " + ex.getMessage();
+        String mahd = request.getParameter("mahd");
+        try {
+            HoaDon hd = new HoaDonDAO().getById(mahd);
+            NhanVien nv = new NhanVienDAO().getById(hd.getMaNV());
+            KhachHang kh = new KhachHangDAO().getByID(hd.getMaKH());
+            ArrayList<CTHoaDon> cthd = new CTHoaDonDAO().getById(mahd);
+            request.setAttribute("hd", hd);
+            request.setAttribute("nv", nv);
+            request.setAttribute("kh", kh);
+            request.setAttribute("cthd", cthd);
+            long total=0;
+            for(CTHoaDon ctiet:cthd){
+                int pay = (ctiet.getDonGia() * ctiet.getSoLuong()) -((ctiet.getDonGia()* ctiet.getSoLuong())*ctiet.getGiamGia())/100;
+                total +=pay;
             }
+            request.setAttribute("total", total);
+            request.getRequestDispatcher("chitiethoadon.jsp").forward(request, response);
+        } catch (Exception ex) {
+            response.getWriter().print("Đường dẫn không đúng");
         }
-        response.getWriter().print(msg);
     }
 
     /**
@@ -78,7 +75,7 @@ public class saveBillDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        doGet(request, response);
     }
 
     /**

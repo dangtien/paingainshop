@@ -75,11 +75,7 @@ function addRegister() {
     $.get("register",
             {MaCa: ca, MaNV: manv, GioBD: gioBD, GioKT: gioKT, TienPhat: tienphat, PhuCap: phucap, TamUng: tamung},
             function (data) {
-                $("#msg").html(data);
-
-                setTimeout(function () {
-                    location.reload()
-                }, 3000);
+               alert(data);
             }
     );
 }
