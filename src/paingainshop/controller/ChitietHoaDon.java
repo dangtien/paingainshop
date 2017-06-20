@@ -45,7 +45,7 @@ public class ChitietHoaDon extends HttpServlet {
         String mahd = request.getParameter("mahd");
         try {
             HoaDon hd = new HoaDonDAO().getById(mahd);
-            NhanVien nv = new NhanVienDAO().getById(hd.getMaNV());
+            NhanVien nv = new NhanVienDAO().getUserByID(hd.getMaNV());
             KhachHang kh = new KhachHangDAO().getByID(hd.getMaKH());
             ArrayList<CTHoaDon> cthd = new CTHoaDonDAO().getById(mahd);
             request.setAttribute("hd", hd);
@@ -60,7 +60,7 @@ public class ChitietHoaDon extends HttpServlet {
             request.setAttribute("total", total);
             request.getRequestDispatcher("chitiethoadon.jsp").forward(request, response);
         } catch (Exception ex) {
-            response.getWriter().print("Đường dẫn không đúng");
+            response.getWriter().print("Ä�Æ°á»�ng dáº«n khÃ´ng Ä‘Ãºng");
         }
     }
 

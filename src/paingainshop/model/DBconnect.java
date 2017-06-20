@@ -42,7 +42,7 @@ public class DBconnect {
 		 stmt.close();
 		 if(conn != null)
 		 conn.close();
-<<<<<<< HEAD
+
 		 }
 	
 	public int executeUpdate(String strSQL) throws Exception
@@ -150,8 +150,8 @@ public class DBconnect {
 		return pst.executeUpdate()>0;
 	}
 	
-=======
+
 		 }	
->>>>>>> bc14abae747655ca8cc9cc0f21f703f005734569
-}
+
+
 
