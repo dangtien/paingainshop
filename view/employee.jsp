@@ -138,6 +138,10 @@
                     <input type="text" class="form-control" id="inputText7" placeholder="Lương" name="Luong">
                   </div>
                 </div>
+                <div class="form-group">
+                  <label for="inputText8" class="col-sm-2 control-label">Trạng thái làm việc</label>
+                  
+                </div>
                   <div class="form-group">
                   <label for="inputText8" class="col-sm-2 control-label">Ghi chú</label>
                   <div class="col-sm-10">

@@ -37,7 +37,7 @@ public class NhanVienDAO {
     
     public ArrayList<NhanVien> getAll() throws Exception{
 		 ArrayList<NhanVien> lst = new ArrayList<NhanVien>();
-		 String strSQL = "select * from NhanVien order by MaNV";
+		 String strSQL = "select * from NhanVien where TrangThai='' order by MaNV  ";
 		 
 		 try {
 			 rs = db.getStatement().executeQuery(strSQL);
@@ -52,8 +52,8 @@ public class NhanVienDAO {
 				 String UserNamem = rs.getString("UserName");
 				 String Pass =rs.getString("Pass");
 				 String GhiChu=rs.getString("GhiChu");
-				 
-				 NhanVien nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu);
+				 String TrangThai=rs.getString("TrangThai");
+				 NhanVien nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu,TrangThai);
 				 lst.add(nv);
 		 }
 		 } catch (Exception e) 
@@ -86,8 +86,8 @@ public class NhanVienDAO {
 				 String UserNamem = rs.getString("Username");
 				 String Pass =rs.getString("Pass");
 				 String GhiChu=rs.getString("GhiChu");
-				 
-				 nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu);
+				 String TrangThai=rs.getString("TrangThai");
+				 nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu,TrangThai);
 			 }
 			 return nv;
           }
@@ -95,7 +95,7 @@ public class NhanVienDAO {
 		 
 		 public boolean insertNhanVien(NhanVien nv) throws Exception
 		 {
-			 String sql = "insert into NhanVien values (?,?,?,?,?,?,?,?,?)";
+			 String sql = "insert into NhanVien values (?,?,?,?,?,?,?,?,?,?)";
 			 PreparedStatement pst = db.openConnect().prepareStatement(sql);
 			 pst.setString(1,nv.getMaNV() );
 			 pst.setString(2, nv.getHoTen());
@@ -106,13 +106,13 @@ public class NhanVienDAO {
 			 pst.setString(7,nv.getUserName() );
 			 pst.setString(8,nv.getPass() );
 			 pst.setString(9,nv.getGhiChu() );
-			 
+			 pst.setString(10,nv.getTrangThai() );
 			 return pst.executeUpdate()>0;
 		 }
 		 
 		 public boolean updateNhanVien (String manv,NhanVien nv) throws Exception
 		 {
-			 String sql  = "update NhanVien set HoTen=?, Luong = ?,Email=?,DiaChi=?,SoDT=?,Username=?,Pass=?,GhiChu=? where MaNV=?";
+			 String sql  = "update NhanVien set HoTen=?, Luong = ?,Email=?,DiaChi=?,SoDT=?,Username=?,Pass=?,GhiChu=?,TrangThai=? where MaNV=?";
 			 PreparedStatement pst = db.openConnect().prepareStatement(sql);
 			 
 			 pst.setString(1, nv.getHoTen());
@@ -123,7 +123,9 @@ public class NhanVienDAO {
 			 pst.setString(6,nv.getUserName() );
 			 pst.setString(7,nv.getPass() );
 			 pst.setString(8,nv.getGhiChu() );
-			 pst.setString(9,nv.getMaNV() );
+			 pst.setString(9,nv.getTrangThai() );
+			 pst.setString(10,nv.getMaNV() );
+			 
 			 return pst.executeUpdate()>0;
 		 }
 		 
@@ -154,16 +156,12 @@ public class NhanVienDAO {
 				 String UserNamem = rs.getString("Username");
 				 String Pass =rs.getString("Pass");
 				 String GhiChu=rs.getString("GhiChu");
-				 
-				 nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu);
+				 String TrangThai=rs.getString("TrangThai");
+				 nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu,TrangThai);
 			 }
 			 return nv;
           }
-		 public static void main(String[] args) throws Exception {
-			NhanVienDAO db = new NhanVienDAO();
-			NhanVien nv = new NhanVien("NV000006","Luan",1000000,"luanhihi@gmail.com","long bien","0166123465","luan","12345","");
-			db.insertNhanVien(nv);
-			
-		}
+		 
+		
 		
 }

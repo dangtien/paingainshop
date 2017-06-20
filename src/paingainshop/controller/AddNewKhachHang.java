@@ -49,7 +49,7 @@ public class AddNewKhachHang extends HttpServlet {
 			 String message = "";
 			 try 
 			 {
-				 if (TenHK !="" && DiaChi!= "" && SoDT!="" && Email!="" )
+				 if (TenHK !="" && DiaChi!= "" && SoDT!=""  )
 				 {
 					 if(db.insertKhachHang(kh))
 					 {

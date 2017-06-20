@@ -45,14 +45,14 @@ public class EditEmployee extends HttpServlet {
 			String SDT = request.getParameter("Sodt");
 			int Luong = Integer.parseInt(request.getParameter("Luong"));
 			String gc = request.getParameter("attribute");
+			String tt= request.getParameter("TrangThai");
 			
-			
-			NhanVien nv = new NhanVien(MaNV,TenNV,Luong,Email,DiaChi,SDT,Username,Pass,gc);
+			NhanVien nv = new NhanVien(MaNV,TenNV,Luong,Email,DiaChi,SDT,Username,Pass,gc,tt);
 			NhanVienDAO db = new NhanVienDAO();
 			String message ="";
 			try
 			{
-				if (TenNV!= "" && Username!= "" && Pass != "" &&Email!= "" && DiaChi!= "" && SDT!= "" ) 
+				if (TenNV!= "" && Username!= "" && Pass != "" && DiaChi!= "" && SDT!= "" ) 
 				{
 					db.updateNhanVien(MaNV, nv);
 					message = "Cập nhật nhân viên thành công.";

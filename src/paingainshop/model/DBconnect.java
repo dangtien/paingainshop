@@ -80,8 +80,8 @@ public class DBconnect {
 			 String UserNamem = rs.getString("UserName");
 			 String Pass =rs.getString("Pass");
 			 String GhiChu=rs.getString("GhiChu");
-			 
-			 nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu);
+			 String TrangThai= rs.getString("TrangThai");
+			 nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu, TrangThai);
 		 }
 		 return nv;
 	 }

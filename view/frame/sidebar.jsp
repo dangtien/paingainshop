@@ -37,7 +37,7 @@
 				</span>
 			</a>
 				<ul class="treeview-menu">
-					<li class=""><a href="nhacc.jsp"><i
+					<li class=""><a href="danhsachnhacungcap"><i
 							class="fa fa-circle-o"></i>Quản lí</a></li>
 				</ul></li>
 			<li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i>
@@ -57,7 +57,7 @@
 				<ul class="treeview-menu">
 					<li class=""><a href="danhsachnhanvien"><i
 							class="fa fa-circle-o"></i>Quản lí</a></li>
-					<li><a href="salary.html"><i class="fa fa-circle-o"></i>Tính
+					<li><a href="tinhluong.jsp"><i class="fa fa-circle-o"></i>Tính
 							lương</a></li>
 				</ul></li>
 			<li><a href="register.jsp"> <i

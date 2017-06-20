@@ -45,12 +45,13 @@ public class AddEmployee extends HttpServlet {
 			String DiaChi = request.getParameter("Diachi");
 			String SDT = request.getParameter("Sodt");
 			String gc= request.getParameter("Ghichu");
-			NhanVien nv = new NhanVien(MaNV,TenNV,Luong,Email,DiaChi,SDT,Username,Pass,gc);
+			String tt= "";
+			NhanVien nv = new NhanVien(MaNV,TenNV,Luong,Email,DiaChi,SDT,Username,Pass,gc,tt);
 			NhanVienDAO db = new NhanVienDAO();
 			String message ="";
 			try 
 			{
-				if (TenNV!= "" && Username!= "" && Pass != "" &&Email!= "" && DiaChi!= "" && SDT!= "" ) 
+				if (TenNV!= "" && Username!= "" && Pass != ""  && DiaChi!= "" && SDT!= "" ) 
 				{
 					db.insertNhanVien(nv);
 					message = "Thêm nhân viên thành công.";
