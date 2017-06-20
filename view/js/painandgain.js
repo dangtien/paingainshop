@@ -78,6 +78,7 @@ function addRegister() {
                alert(data);
             }
     );
+
 }
 function addCustomer() {
     var makh = $("#inputText0").val();

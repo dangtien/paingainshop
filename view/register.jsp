@@ -22,7 +22,7 @@
 
     <!-- Main content -->
     <section class="content">
-    <span style="color:red"><i>${msg}</i></span>
+    <span style="color:red"><i id="msg"></i></span>
     <form action="addcustomer" method="post">
       <div class="row">
         <div class="col-md-3">
@@ -124,7 +124,7 @@
                 <!-- /btn-group -->
               </div>
              <div class="input-group-btn">
-                  <button id="add-new-event" type="button" onclick="addRegister();" style="float: right; margin-right: 20px; " class="btn btn-primary btn-flat">Thêm</button>
+                  <button id="add-new-event" type="button" onclick="addregister();" style="float: right; margin-right: 20px; " class="btn btn-primary btn-flat">Thêm</button>
                 </div>
                
               <!-- /input-group -->
