@@ -49,7 +49,7 @@ function addinfobill(value) {
 }
 
 
-function addRegister(){
+function addregister(){
 	var manv = $("#MaNV").val();
 	var ca = $("#MaCa").val();
 	var gioBD = $("#timepicker1").val();
@@ -70,7 +70,6 @@ function addRegister(){
 			{MaCa: ca, MaNV: manv,GioBD : gioBD, GioKT:gioKT, TienPhat: tienphat, PhuCap: phucap, TamUng: tamung},
 			function(data){
 				$("#msg").html(data);
-				
 				setTimeout(function(){location.reload()}, 3000);
 			}
 			);
