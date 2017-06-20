@@ -5,8 +5,10 @@
  */
 package paingainshop.model.DAO;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import paingainshop.model.DBconnect;
+import paingainshop.model.HoaDon;
 
 /**
  *
@@ -27,5 +29,13 @@ public class HoaDonDAO {
         }
         return value;
     }
-            
+    public boolean insertHoaDon(HoaDon hd) throws Exception{
+        String sql = "insert into HoaDon values (?,?,?,?)";
+        PreparedStatement pst = db.openConnect().prepareStatement(sql);
+        pst.setString(1, hd.getMaHD());
+        pst.setString(2, hd.getNgay());
+        pst.setString(3, hd.getMaKH());
+        pst.setString(4, hd.getMaNV());
+        return pst.executeUpdate()>0;
+    }       
 }

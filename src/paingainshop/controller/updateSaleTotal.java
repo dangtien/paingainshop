@@ -8,8 +8,6 @@ package paingainshop.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,14 +16,13 @@ import javax.servlet.http.HttpSession;
 import org.json.simple.JSONObject;
 import paingainshop.model.CTHoaDon;
 import paingainshop.model.DAO.HangHoaDAO;
-import paingainshop.model.HangHoa;
 import paingainshop.model.HoaDonData;
 
 /**
  *
- * @author dangt
+ * @author Admin
  */
-public class AddBillDetail extends HttpServlet {
+public class updateSaleTotal extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,10 +41,10 @@ public class AddBillDetail extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddBillDetail</title>");
+            out.println("<title>Servlet updateSaleTotal</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddBillDetail at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet updateSaleTotal at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -66,23 +63,18 @@ public class AddBillDetail extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
-        response.setCharacterEncoding("utf-8"); 
-        String mahh = request.getParameter("maHH");
-        
+        response.setCharacterEncoding("utf-8");
+        int sale = Integer.parseInt(request.getParameter("Sale"));
+        HttpSession session = request.getSession();
+        HoaDonData hoadon = (HoaDonData)session.getAttribute("hoadon");
+        hoadon.setSaleTotal(sale);
+        hoadon.updateSale();
+        session.setAttribute("hoadon", hoadon);
         try {
-            HangHoa hh = new HangHoaDAO().getById(mahh);
-            HttpSession session = request.getSession();
-            HoaDonData hoadon = (HoaDonData) session.getAttribute("hoadon");
-            if (hoadon == null) {
-                response.sendRedirect("createhoadon");
-            } else {
-                CTHoaDon ct = new CTHoaDon(hoadon.getMaHD(), mahh, 1, hh.getGiaBan(), 0);
-                hoadon.addItem(ct);
-                session.setAttribute("hoadon", hoadon);
-                String txtresult = "";
-                ArrayList<CTHoaDon> rs = hoadon.getItems();
-                int i=1;
+            ArrayList<CTHoaDon> rs = hoadon.getItems();
+            int i=1;
                 long totalbill=0 ;
+                String txtresult="";
                 for (CTHoaDon ctiet : rs) {
                     String tensp = new HangHoaDAO().getById(ctiet.getMaHH()).getTenHH();
                     long total = (ctiet.getDonGia() * ctiet.getSoLuong()) -((ctiet.getDonGia()* ctiet.getSoLuong())*ctiet.getGiamGia())/100;
@@ -94,20 +86,18 @@ public class AddBillDetail extends HttpServlet {
                             + "<td><input type=\"number\" class=\"form-control soluong\" value=\""+ctiet.getSoLuong()+"\" onchange= \"editBill(this);\"></td>"
                             + "<td><input type=\"number\" class=\"form-control giamgia\" value=\""+ctiet.getGiamGia()+"\" onchange= \"editBill(this);\"></td>"
                             + "<td>"+total+"</td>"
-                            + "<td><a href=\"#\" onclick=\"confirmremove(\'"+ ctiet.getMaHH() +"\');\"><span  class=\" fa fa-times-circle delproc\" ></span></a></td>"
+                            + "<td><a href=\"#\" onclick=\"confirmremove(\'"+ ctiet.getMaHH() +"\');\"><span  class=\" fa fa-times-circle delproc\"></span></a></td>"
                             + "</tr>";
                     i++;
                     totalbill+=total;
                 }
-                JSONObject jsonobject = new JSONObject();
-                jsonobject.put("list", txtresult);
-                jsonobject.put("total",Long.toString(totalbill));
-                response.getWriter().print(jsonobject.toJSONString());
-            }
-        } catch (Exception ex) {
-            response.getWriter().print("loi: " + ex.getMessage());
+                JSONObject obj = new JSONObject();
+                obj.put("list", txtresult);
+                obj.put("total", totalbill);
+                response.getWriter().print(obj.toJSONString());
+        } catch (Exception e) {
+            response.getWriter().print("loi: "+ e.getMessage());
         }
-
     }
 
     /**
@@ -121,7 +111,7 @@ public class AddBillDetail extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doGet(request, response);
+        processRequest(request, response);
     }
 
     /**

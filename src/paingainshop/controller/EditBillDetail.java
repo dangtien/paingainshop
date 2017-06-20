@@ -8,13 +8,12 @@ package paingainshop.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.json.simple.JSONObject;
 import paingainshop.model.CTHoaDon;
 import paingainshop.model.DAO.HangHoaDAO;
 import paingainshop.model.HoaDonData;
@@ -63,7 +62,8 @@ public class EditBillDetail extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("application/json");
+        response.setCharacterEncoding("utf-8"); 
         int dongia = Integer.parseInt(request.getParameter("DonGia"));
         String mahh = request.getParameter("MaHH");
         int soluong = Integer.parseInt(request.getParameter("SoLuong"));
@@ -75,18 +75,20 @@ public class EditBillDetail extends HttpServlet {
         ct.setDonGia(dongia);
         ct.setGiamGia(giamgia);
         ct.setSoLuong(soluong);
+        ct.setSaltong(false);
         hoadon.update(ct);
         session.setAttribute("hoadon", hoadon);
         try {
             String txtresult = "";
             ArrayList<CTHoaDon> rs = hoadon.getItems();
             int i = 1;
+            long totalbill = 0;
             for (CTHoaDon ctiet : rs) {
                 String tensp;
 
                 tensp = new HangHoaDAO().getById(ctiet.getMaHH()).getTenHH();
                 int total = (ctiet.getDonGia() * ctiet.getSoLuong()) - ((ctiet.getDonGia() * ctiet.getSoLuong()) * ctiet.getGiamGia()) / 100;
-                txtresult += "<tr for=\""+ctiet.getMaHH()+"\">"
+                txtresult += "<tr for=\"" + ctiet.getMaHH() + "\">"
                         + "<td>" + i + "</td>"
                         + "<td>" + ctiet.getMaHH() + "</td>"
                         + "<td>" + tensp + "</td>"
@@ -94,13 +96,17 @@ public class EditBillDetail extends HttpServlet {
                         + "<td><input type=\"number\" class=\"form-control soluong\" value=\"" + ctiet.getSoLuong() + "\" onchange= \"editBill(this);\"></td>"
                         + "<td><input type=\"number\" class=\"form-control giamgia\" value=\"" + ctiet.getGiamGia() + "\" onchange= \"editBill(this);\"></td>"
                         + "<td>" + total + "</td>"
-                        + "<td><a href=\"#\"><span  class=\" fa fa-times-circle delproc\"></span></a></td>"
+                        + "<td><a href=\"#\" onclick=\"confirmremove(\'"+ ctiet.getMaHH() +"\');\"><span  class=\" fa fa-times-circle delproc\"></span></a></td>"
                         + "</tr>";
                 i++;
+                totalbill += total;
             }
-            response.getWriter().print(txtresult);
+            JSONObject jsonobject = new JSONObject();
+            jsonobject.put("list", txtresult);
+            jsonobject.put("total", Long.toString(totalbill));
+            response.getWriter().print(jsonobject.toJSONString());
         } catch (Exception ex) {
-            response.getWriter().print("loi: "+ ex.getMessage());
+            response.getWriter().print("loi: " + ex.getMessage());
         }
 
     }
