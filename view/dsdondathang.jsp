@@ -76,8 +76,8 @@
             <!-- /.box-body -->
         </div>
             </div>
-            <div class="col-md-1">
-                    <button type="button" class="btn btn-primary" > <a Thêm đơn đặt hàng</button>
+            <div class="col-md-2">
+                    <button type="button" class="btn btn-primary" > Thêm đơn đặt hàng</button>
                
             </div>
         </div>

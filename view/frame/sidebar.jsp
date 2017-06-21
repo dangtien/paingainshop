@@ -26,7 +26,7 @@
                 <ul class="treeview-menu">
                     <li class=""><a href="${pageContext.request.contextPath}/addproduct.jsp"><i
                                 class="fa fa-circle-o"></i>Thêm mới</a></li>
-                    <li><a href="dsdondathang.jsp"><i
+                    <li><a href="${pageContext.request.contextPath}/dsdondathang.jsp"><i
                                 class="fa fa-circle-o"></i>Nhập hàng</a></li>
                     <li><a href="${pageContext.request.contextPath}/danhsach"><i
                                 class="fa fa-circle-o"></i>Quản lí hàng hóa</a></li>

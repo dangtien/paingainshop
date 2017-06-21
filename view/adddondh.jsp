@@ -16,7 +16,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li><a href="#">Danh sách đơn đặt hàng</a></li>
+            <li><a href="dsdondathang.jsp">Danh sách đơn đặt hàng</a></li>
             <li class="active">Lập đơn đặt hàng</li>
         </ol>
     </section>
