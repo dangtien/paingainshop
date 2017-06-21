@@ -17,8 +17,9 @@ import paingainshop.model.service.PainAndGainService;
  */
 @WebServlet("/addnewproduct")
 public class AddNewProduct extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+
+    private static final long serialVersionUID = 1L;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -27,60 +28,50 @@ public class AddNewProduct extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 try
-		 {
-			 String MaHH = PainAndGainService.CreatePKey("SP", new HangHoaDAO().getLastPkey());
-			 String TenHH = request.getParameter("productname");
-			 String NhomHH= request.getParameter("category");
-			 int GiaBan = Integer.parseInt(request.getParameter("outprice"));
-			 int GiaNhap = Integer.parseInt(request.getParameter("inprice"));
-			 String ThuocTinh = request.getParameter("attribute1");
-			 int SoLuong = Integer.parseInt(request.getParameter("sl"));
-			 String DonViTinh = request.getParameter("dvt");
-			 String MaNCC = request.getParameter("vendor");
-			 String GhiChu = request.getParameter("attribute2");
-			 
-			 HangHoa hh = new HangHoa( MaHH, TenHH, NhomHH, GiaBan, GiaNhap, ThuocTinh, SoLuong, DonViTinh, MaNCC, GhiChu);
-			 HangHoaDAO db = new HangHoaDAO();
-			 String message = "";
-			 try 
-			 {
-				 if(db.insertHangHoa(hh))
-				 {
-					 message = "Thêm sản phẩm thành công.";
-					 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
-					 request.setAttribute("msg", message );
-					 xxx.forward(request, response);
-					 System.out.println(MaHH);
-				 }
-				 else
-				 {
-					 message = "Không thành công.";
-					 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
-					 request.setAttribute("msg", message );
-					 xxx.forward(request, response);
-					 System.out.println("lỗi.");
-				 }
-			 } catch (Exception e) {
-				 message = "Không thành công.";
-				 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
-				 request.setAttribute("msg", message );
-				 xxx.forward(request, response);
-				 System.out.println("Lỗi."+ e);
-			 }
-		 }
-		 catch (Exception e)
-		 {
-			 String message = "Bạn đã nhập sai định dạng. Mời bạn nhập lại!";
-			 RequestDispatcher xxx = request.getRequestDispatcher("addproduct.jsp");
-			 request.setAttribute("msg", message );
-			 xxx.forward(request, response);
-			 System.out.println("Lỗi.");
-		 }
-	}
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       response.setContentType("text/html; charset=UTF-8");
+       request.setCharacterEncoding("utf-8");
+        String message = "";
+        try {
+            String MaHH = PainAndGainService.CreatePKey("SP", new HangHoaDAO().getLastPkey());
+            String TenHH = request.getParameter("productname");
+            String NhomHH = request.getParameter("category");
+            int GiaBan = Integer.parseInt(request.getParameter("outprice"));
+            int GiaNhap = Integer.parseInt(request.getParameter("inprice"));
+            String ThuocTinh = request.getParameter("attribute1");
+            int SoLuong = Integer.parseInt(request.getParameter("sl"));
+            String DonViTinh = request.getParameter("dvt");
+            String MaNCC = request.getParameter("vendor");
+            String GhiChu = request.getParameter("attribute2");
+
+            HangHoa hh = new HangHoa(MaHH, TenHH, NhomHH, GiaBan, GiaNhap, ThuocTinh, SoLuong, DonViTinh, MaNCC, GhiChu);
+            HangHoaDAO db = new HangHoaDAO();
+
+            try {
+                if (db.insertHangHoa(hh)) {
+                    message = "Thêm sản phẩm thành công.";
+
+                } else {
+                    message = "Không thành công.";
+
+                }
+            } catch (Exception e) {
+                message = "Không thành công. " + e.getMessage();
+            }
+        } catch (Exception e) {
+            message = "Bạn đã nhập sai định dạng. Mời bạn nhập lại!";
+        }
+        response.getWriter().print(message);
+
+    }
+
+    /**
+     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+     * response)
+     */
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
 
 }
