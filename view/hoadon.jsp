@@ -47,7 +47,7 @@
                         %>
                         <tr>
                             <td><a href="#"><%= hd.getMaHD()%></a></td>
-                            <td><%= hd.getMaKH() %>p</td>
+                            <td><%= hd.getMaKH() %></td>
                             <td><%= hd.getMaNV() %></td>
                             <td><%= hd.getNgay() %></td>
                             <td><a href="chitiethoadon?mahd=<%= hd.getMaHD() %>">Chi tiết</a></td>
