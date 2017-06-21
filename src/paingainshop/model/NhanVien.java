@@ -12,8 +12,9 @@ public class NhanVien {
 	private String UserName;
 	private String Pass;
 	private String GhiChu;
+	private String TrangThai;
 	
-	public NhanVien ( String MaNV, String HoTen, int Luong, String Email, String DiaChi, String SoDT, String UserName, String Pass, String GhiChu)
+	public NhanVien ( String MaNV, String HoTen, int Luong, String Email, String DiaChi, String SoDT, String UserName, String Pass, String GhiChu,String TrangThai)
 	{
 		this.MaNV = MaNV;
 		this.HoTen=HoTen;
@@ -24,6 +25,7 @@ public class NhanVien {
 		this.UserName=UserName;
 		this.Pass= Pass;
 		this.GhiChu= GhiChu;
+		this.TrangThai= TrangThai;
 	}
 
 	public String getMaNV() {
@@ -96,6 +98,14 @@ public class NhanVien {
 
 	public void setGhiChu(String ghiChu) {
 		GhiChu = ghiChu;
+	}
+
+	public String getTrangThai() {
+		return TrangThai;
+	}
+
+	public void setTrangThai(String trangThai) {
+		TrangThai = trangThai;
 	}
 	
 	

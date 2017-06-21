@@ -6,20 +6,28 @@
 package paingainshop.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import paingainshop.model.CTHoaDon;
+import paingainshop.model.DAO.CTHoaDonDAO;
+import paingainshop.model.DAO.HoaDonDAO;
+import paingainshop.model.DAO.KhachHangDAO;
 import paingainshop.model.DAO.NhanVienDAO;
+import paingainshop.model.HoaDon;
+import paingainshop.model.KhachHang;
 import paingainshop.model.NhanVien;
 
 /**
  *
- * @author dangt
+ * @author Admin
  */
-public class Login extends HttpServlet {
-
+public class ChitietHoaDon extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -33,7 +41,27 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        response.setContentType("text/html; charset=UTF-8");
+        String mahd = request.getParameter("mahd");
+        try {
+            HoaDon hd = new HoaDonDAO().getById(mahd);
+            NhanVien nv = new NhanVienDAO().getUserByID(hd.getMaNV());
+            KhachHang kh = new KhachHangDAO().getByID(hd.getMaKH());
+            ArrayList<CTHoaDon> cthd = new CTHoaDonDAO().getById(mahd);
+            request.setAttribute("hd", hd);
+            request.setAttribute("nv", nv);
+            request.setAttribute("kh", kh);
+            request.setAttribute("cthd", cthd);
+            long total=0;
+            for(CTHoaDon ctiet:cthd){
+                int pay = (ctiet.getDonGia() * ctiet.getSoLuong()) -((ctiet.getDonGia()* ctiet.getSoLuong())*ctiet.getGiamGia())/100;
+                total +=pay;
+            }
+            request.setAttribute("total", total);
+            request.getRequestDispatcher("chitiethoadon.jsp").forward(request, response);
+        } catch (Exception ex) {
+            response.getWriter().print("Ä�Æ°á»�ng dáº«n khÃ´ng Ä‘Ãºng");
+        }
     }
 
     /**
@@ -47,24 +75,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String username = request.getParameter("username");
-       String password = request.getParameter("password");
-       NhanVienDAO nvacess = new NhanVienDAO();
-       NhanVien nv;
-        try {
-            nv = nvacess.getUserByUserName(username);
-            if(nv == null){
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-             }else{
-                HttpSession session = request.getSession();
-                session.setAttribute("login", nv);
-                response.sendRedirect("index");
-            }
-        } catch (Exception ex) {
-            //request.getRequestDispatcher("login.jsp").forward(request, response);
-            response.getWriter().print(ex.getMessage());
-        }
-       
+        doGet(request, response);
     }
 
     /**

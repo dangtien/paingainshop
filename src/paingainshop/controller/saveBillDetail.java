@@ -6,20 +6,25 @@
 package paingainshop.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import paingainshop.model.DAO.NhanVienDAO;
-import paingainshop.model.NhanVien;
+import paingainshop.model.CTHoaDon;
+import paingainshop.model.DAO.CTHoaDonDAO;
+import paingainshop.model.DAO.HoaDonDAO;
+import paingainshop.model.HoaDon;
+import paingainshop.model.HoaDonData;
 
 /**
  *
- * @author dangt
+ * @author Admin
  */
-public class Login extends HttpServlet {
-
+public class saveBillDetail extends HttpServlet {
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -33,7 +38,33 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        response.setContentType("text/html; charset=UTF-8");
+        HttpSession session = request.getSession();
+        HoaDonData hoadon = (HoaDonData) session.getAttribute("hoadon");
+        HoaDon hd = new HoaDon(hoadon.getMaHD(), hoadon.getNgay(), hoadon.getMaKH(), hoadon.getMaNV());
+        ArrayList<CTHoaDon> list = hoadon.getItems();
+        String msg = "";
+        HoaDonDAO hddao = new HoaDonDAO();
+        CTHoaDonDAO ctdao = new CTHoaDonDAO();
+        if (list.isEmpty()) {
+            msg = "Không có sản phẩm nào trong hóa đơn";
+        }else if(hoadon.getMaKH().isEmpty()){
+            msg ="Không có khách hàng nào được chọn";
+        } else if(!list.isEmpty()) {
+            try {
+                hddao.insertHoaDon(hd);
+                for (CTHoaDon ct : list) {
+                    
+                    ctdao.insertCTHoaDon(ct);
+                    
+                }
+                session.setAttribute("hoadon", null);
+                msg = "success";
+            } catch (Exception ex) {
+                msg = "loi: " + ex.getMessage();
+            }
+        }
+        response.getWriter().print(msg);
     }
 
     /**
@@ -47,24 +78,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String username = request.getParameter("username");
-       String password = request.getParameter("password");
-       NhanVienDAO nvacess = new NhanVienDAO();
-       NhanVien nv;
-        try {
-            nv = nvacess.getUserByUserName(username);
-            if(nv == null){
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-             }else{
-                HttpSession session = request.getSession();
-                session.setAttribute("login", nv);
-                response.sendRedirect("index");
-            }
-        } catch (Exception ex) {
-            //request.getRequestDispatcher("login.jsp").forward(request, response);
-            response.getWriter().print(ex.getMessage());
-        }
-       
+        
     }
 
     /**

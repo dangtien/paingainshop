@@ -6,20 +6,23 @@
 package paingainshop.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import paingainshop.model.DAO.NhanVienDAO;
-import paingainshop.model.NhanVien;
+import paingainshop.model.DAO.HoaDonDAO;
+import paingainshop.model.HoaDon;
 
 /**
  *
- * @author dangt
+ * @author Admin
  */
-public class Login extends HttpServlet {
+public class LoadHoaDon extends HttpServlet {
 
+  
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -33,7 +36,14 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+       HoaDonDAO hddao = new HoaDonDAO();
+        try {
+            ArrayList<HoaDon> rs = hddao.getAll();
+            request.setAttribute("rs", rs);
+            request.getRequestDispatcher("hoadon.jsp").forward(request, response);
+        } catch (Exception ex) {
+            response.getWriter().print(ex.getMessage());
+        }
     }
 
     /**
@@ -47,24 +57,7 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String username = request.getParameter("username");
-       String password = request.getParameter("password");
-       NhanVienDAO nvacess = new NhanVienDAO();
-       NhanVien nv;
-        try {
-            nv = nvacess.getUserByUserName(username);
-            if(nv == null){
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-             }else{
-                HttpSession session = request.getSession();
-                session.setAttribute("login", nv);
-                response.sendRedirect("index");
-            }
-        } catch (Exception ex) {
-            //request.getRequestDispatcher("login.jsp").forward(request, response);
-            response.getWriter().print(ex.getMessage());
-        }
-       
+        doGet(request, response);
     }
 
     /**

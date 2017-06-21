@@ -15,7 +15,7 @@ public class DBconnect {
 		try {
 				 Class.forName("com.mysql.jdbc.Driver");
 				 String DB_url = "jdbc:mysql://localhost:3306/da_qlbh";
-				 this.conn = DriverManager.getConnection(DB_url,"root","manh");
+				 this.conn = DriverManager.getConnection(DB_url,"root","root");
 				 System.out.println("Ket noi Mysql thanh cong.");
 			 } 
 		catch (ClassNotFoundException e) {System.out.println("Ket noi Driver that bai!...." + e.getMessage());}
@@ -42,6 +42,7 @@ public class DBconnect {
 		 stmt.close();
 		 if(conn != null)
 		 conn.close();
+
 		 }
 	
 	public int executeUpdate(String strSQL) throws Exception
@@ -80,8 +81,8 @@ public class DBconnect {
 			 String UserNamem = rs.getString("UserName");
 			 String Pass =rs.getString("Pass");
 			 String GhiChu=rs.getString("GhiChu");
-			 
-			 nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu);
+			 String TrangThai= rs.getString("TrangThai");
+			 nv = new NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserNamem,Pass,GhiChu, TrangThai);
 		 }
 		 return nv;
 	 }
@@ -132,7 +133,25 @@ public class DBconnect {
 		
 		return pst.executeUpdate()>0;
 	}
+	public boolean addBCC(BangChamCong cc) throws Exception
+	{
+		String sql = "insert into BangChamCong values (?,?,?,?,?,?,?,?,?)";
+		PreparedStatement pst = openConnect().prepareStatement(sql);
+		pst.setInt(1, cc.getMaCC());
+		pst.setString(2, cc.getNgay());
+		pst.setTime(3, cc.getGioBD());
+		pst.setTime(4, cc.getGioKT());
+		pst.setInt(5, cc.getTienPhat());
+		pst.setInt(6, cc.getPhucap());
+		pst.setInt(7, cc.getTamung());
+		pst.setInt(8, cc.getMaCa());
+		pst.setString(9, cc.getMaNV());
+		
+		return pst.executeUpdate()>0;
+	}
 	
-	
-}
+
+		 }	
+
+
 

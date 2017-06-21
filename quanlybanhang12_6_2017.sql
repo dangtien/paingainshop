@@ -1,4 +1,3 @@
-drop database da_qlbh;
 create database da_qlbh default character set utf8;
 use da_qlbh;
 

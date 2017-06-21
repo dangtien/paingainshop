@@ -32,6 +32,8 @@ public class AddEmployee extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset= UTF-8");
+		request.setCharacterEncoding("utf-8");
 		try {
 			
 			String MaNV = PainAndGainService.CreatePKey("NV", new NhanVienDAO().getLastPkey());
@@ -43,16 +45,27 @@ public class AddEmployee extends HttpServlet {
 			String DiaChi = request.getParameter("Diachi");
 			String SDT = request.getParameter("Sodt");
 			String gc= request.getParameter("Ghichu");
-			NhanVien nv = new NhanVien(MaNV,TenNV,Luong,Email,DiaChi,SDT,Username,Pass,gc);
+			String tt= "";
+			NhanVien nv = new NhanVien(MaNV,TenNV,Luong,Email,DiaChi,SDT,Username,Pass,gc,tt);
 			NhanVienDAO db = new NhanVienDAO();
 			String message ="";
 			try 
 			{
-				db.insertNhanVien(nv);
-				message = "Thêm nhân viên thành công.";
-				RequestDispatcher xxx = request.getRequestDispatcher("employee.jsp");
-				request.setAttribute("msg2", message );
-				xxx.forward(request, response);
+				if (TenNV!= "" && Username!= "" && Pass != ""  && DiaChi!= "" && SDT!= "" ) 
+				{
+					db.insertNhanVien(nv);
+					message = "Thêm nhân viên thành công.";
+					RequestDispatcher xxx = request.getRequestDispatcher("employee.jsp");
+					request.setAttribute("msg2", message );
+					xxx.forward(request, response);
+				}
+				else
+				{
+					message = "Thêm nhân viên không thành công.";
+					RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
+					request.setAttribute("msg", message );
+					xxx.forward(request, response);
+				}
 			}
 			catch (Exception e)
 			{

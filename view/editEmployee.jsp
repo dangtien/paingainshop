@@ -58,6 +58,16 @@
                                 <input type="password" class="form-control" id="inputText4"  name="Password" value="<%=nv.getPass() %>">
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="inputText4" class="col-sm-2 control-label">Trạng thái</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="inputText4" name="TrangThai" >
+								<option value="" selected>Còn làm việc</option>
+								<option value="Nghỉ">Nghỉ</option>
+							</select>
+                            </div>
+                        </div>
+	                        
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">

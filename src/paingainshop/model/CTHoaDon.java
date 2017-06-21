@@ -10,6 +10,7 @@ public class CTHoaDon {
 	private int SoLuong;
 	private int DonGia;
 	private int GiamGia;
+        private boolean saltong;
 	public CTHoaDon(String MaHD,String MaHH,int SoLuong,int DonGia,int GiamGia)
 	{
 		this.MaHD=MaHD;
@@ -17,8 +18,15 @@ public class CTHoaDon {
 		this.SoLuong=SoLuong;
 		this.DonGia=DonGia;
 		this.GiamGia=GiamGia;
+                this.saltong=true;
 		
 	}
+        public void setSaltong(boolean bool){
+            this.saltong =bool;
+        }
+        public boolean getSaltong(){
+            return this.saltong;
+        }
 	public String getMaHD() {
 		return MaHD;
 	}
