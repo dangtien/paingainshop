@@ -12,6 +12,7 @@
 <%@page import="paingainshop.model.HoaDon"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<title>Chi Tiết Hóa Đơn</title>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
 <div class="content-wrapper">

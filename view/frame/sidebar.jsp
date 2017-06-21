@@ -69,7 +69,7 @@
                         class="fa fa-dashboard"></i> <span>Chấm công</span>
                 </a></li>
             <li><a href="${pageContext.request.contextPath}/loaddsphieuchi"> <i
-                        class="fa fa-dashboard"></i> <span>Danh mục phiếu chi</span>
+                        class="fa fa-dashboard"></i> <span>Danh sách phiếu chi</span>
                 </a></li>
             <!-- NHÉT CÁI DANH MỤC NHÉ -->
         </ul>

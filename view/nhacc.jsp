@@ -3,6 +3,7 @@
 <%@ page import="paingainshop.model.*" %>
 <%@ page import="paingainshop.model.DAO.*" %>
 <%@ page import="java.util.ArrayList" %>
+<title>Quản Lý Nhà Cung Cấp</title>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
 <div class="content-wrapper">
@@ -96,7 +97,6 @@
 	                  <th>Mã nhà cung cấp</th>
 	                  <th>Tên nhà cung cấp</th>
 	                  <th>Địa chỉ</th>
-	                  <th>Tổng đơn đặt hàng</th>
 	                  <th>Tổng tiền nhập hàng</th>
 	                  <th>Action</th>
 	                </tr>
@@ -117,7 +117,6 @@
 			                  <td><%=ncc.getTenNCC() %></td>
 			                  <td><%=ncc.getDiaChi() %></td>
 			                  <td></td>
-			                  <td></td>
 			                  <td>  <a href="editnhacc.jsp?MaNCC=<%=ncc.getMaNCC()%>"><span class="fa fa-edit">Sửa</span></a>
 		                      <span class="fa" style="margin: 0px 5px;"></span>
 		                      
@@ -136,7 +135,6 @@
 	                  <th>Mã nhà cung cấp</th>
 	                  <th>Tên nhà cung cấp</th>
 	                  <th>Địa chỉ</th>
-	                  <th>Tổng đơn đặt hàng</th>
 	                  <th>Tổng tiền nhập hàng</th>
 	                  <th>Action</th>
 	                </tr>

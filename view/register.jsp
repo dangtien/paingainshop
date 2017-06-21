@@ -5,6 +5,7 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import=" java.util.Date" %>
 <%@ page import=" java.text.*" %>
+<title>Quản Lý Chấm Công </title>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
 <div class="content-wrapper">

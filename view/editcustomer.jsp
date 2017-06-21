@@ -3,6 +3,7 @@
 <%@ page import="paingainshop.model.DAO.* "%>
 <%@ page import="paingainshop.model.KhachHang"%>
 <%@ page import="java.util.ArrayList" %>
+<title>Chỉnh Sửa Thông Tin Khách Hàng</title>
 <%@include file="frame/header.jsp" %>
 <%@include file="frame/sidebar.jsp" %>
 <div class="content-wrapper">
