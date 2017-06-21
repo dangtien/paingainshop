@@ -173,3 +173,23 @@ function deleteHangHoa(mah) {
                 }
             });
 }
+function saveHangHoa(mah){
+    var tenh= $("#inputText1").val();
+    var nhomh = $("#inputText2").val();
+    var giaban=$("#inputText7").val(); 
+    var gianhap =$("#inputText8").val();
+    var thuoctinh =$("#inputText4").val();
+    var soluong =$("#inputText5").val();
+    var dv= $("#inputText6").val();
+    var mancc= $("#inputText3").val();
+    var ghichu = $("#inputText9").val();
+    $.get("/hanghoa/save",
+    {
+        primproduct:mah, productname:tenh, category:nhomh, outprice:giaban, inprice:gianhap,
+        attribute1:thuoctinh,sl:soluong, dvt:dv, vendor:mancc, attribute2:ghichu
+    },
+    function(data){
+        alert(data);
+        $("#comeback").html("Trở về");
+    });
+}

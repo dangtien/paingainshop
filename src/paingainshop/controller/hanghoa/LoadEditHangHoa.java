@@ -68,7 +68,7 @@ public class LoadEditHangHoa extends HttpServlet {
             request.setAttribute("hh", hh);
             ArrayList<NhaCungCap> l_ncc = new NhaCungCapDAO().getAll();
             request.setAttribute("l_ncc", l_ncc);
-            request.getRequestDispatcher("edithanghoa.jsp").forward(request, response);
+            request.getRequestDispatcher("/edithanghoa.jsp").forward(request, response);
         } catch (Exception ex) {
             response.getWriter().print("Loi: "+ ex.getMessage());
         }
@@ -86,7 +86,7 @@ public class LoadEditHangHoa extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doGet(request, response);
     }
 
     /**

@@ -60,7 +60,31 @@ public class UpdateHangHoa extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html; charset =UTF-8;");
+        request.setCharacterEncoding("utf-8");
+        String MaHH = request.getParameter("primproduct");
+        String TenHH = request.getParameter("productname");
+        String NhomHH = request.getParameter("category");
+        int GiaBan = Integer.parseInt(request.getParameter("outprice"));
+        int GiaNhap = Integer.parseInt(request.getParameter("inprice"));
+        String ThuocTinh = request.getParameter("attribute1");
+        int SoLuong = Integer.parseInt(request.getParameter("sl"));
+        String DonViTinh = request.getParameter("dvt");
+        String MaNCC = request.getParameter("vendor");
+        String GhiChu = request.getParameter("attribute2");
+        HangHoa hh = new HangHoa(MaHH, TenHH, NhomHH, GiaBan, GiaNhap, ThuocTinh, SoLuong, DonViTinh, MaNCC, GhiChu);
+        HangHoaDAO db = new HangHoaDAO();
+        String msg = "";
+        try {
+            if(db.updateHangHoa(hh)){
+                msg ="Cập nhật thông tin thành công";
+            }else{
+                msg ="Cập nhật thất bại";
+            }
+        } catch (Exception ex) {
+            msg="loi: "+ ex.getMessage();
+        }
+        response.getWriter().print(msg);
     }
 
     /**
@@ -74,31 +98,8 @@ public class UpdateHangHoa extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html; charset =UTF-8;");
-        request.setCharacterEncoding("utf-8");
-        String MaHH = request.getParameter("primproduct");
-        String TenHH = request.getParameter("productname");
-        String NhomHH = request.getParameter("category");
-        int GiaBan = Integer.parseInt(request.getParameter("outprice"));
-        int GiaNhap = Integer.parseInt(request.getParameter("inprice"));
-        String ThuocTinh = request.getParameter("attribute1");
-        int SoLuong = Integer.parseInt(request.getParameter("sl"));
-        String DonViTinh = request.getParameter("dvt");
-        String MaNCC = request.getParameter("vendor");
-        String GhiChu = request.getParameter("attribute2");
-
-        HangHoa hh = new HangHoa(MaHH, TenHH, NhomHH, GiaBan, GiaNhap, ThuocTinh, SoLuong, DonViTinh, MaNCC, GhiChu);
-        HangHoaDAO db = new HangHoaDAO();
-        String msg = "";
-        try {
-            if(db.updateHangHoa(hh)){
-                msg ="Cập nhật thông tin thành công";
-            }
-        } catch (Exception ex) {
-            msg="loi: "+ ex.getMessage();
-        }
-        request.setAttribute("msg", msg);
-        request.getRequestDispatcher("hanghoad/edit?mahh="+ MaHH).forward(request, response);
+        doGet(request, response);
+        
     }
 
     /**

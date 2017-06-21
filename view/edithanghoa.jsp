@@ -25,7 +25,7 @@
     <section class="content">
         <!-- đây là nội dung -->
         <span style="color:red">${msg}</span>
-        <form class="form-horizontal" action="hanghoa/save" method="post">
+        <form class="form-horizontal">
             <div class="col-md-6">
                 <div class="box box-info">
                     <div class="box-header with-border">
@@ -65,10 +65,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputText2" class="col-sm-2 control-label">Mã nhà cung cấp <span style="color:red"><i>*</i></span></label>
+                            <label for="inputText3" class="col-sm-2 control-label">Mã nhà cung cấp <span style="color:red"><i>*</i></span></label>
                             <div class="col-sm-10">
 
-                                <select class="form-control" id="inputText2" name="vendor" >
+                                <select class="form-control" id="inputText3" name="vendor" >
                                     <%
                                         ArrayList<NhaCungCap> lncc = (ArrayList<NhaCungCap>) request.getAttribute("l_ncc");
                                         for (NhaCungCap ncc : lncc) {
@@ -86,11 +86,9 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputText3" class="col-sm-2 control-label">Thuộc tính</label>
+                            <label for="inputText4" class="col-sm-2 control-label">Thuộc tính</label>
                             <div class="col-md-10">
-                                <textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute1" id="inputText3" >
-                                    <%= hh.getThuocTinh()%>
-                                </textarea>
+                                <textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute1" id="inputText4" ><%= hh.getThuocTinh()%></textarea>
                             </div>
                         </div>
                     </div>
@@ -103,16 +101,16 @@
                     </div>
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="inputText0" class="col-sm-2 control-label">Số lượng <span style="color:red"><i>*</i></span></label>
+                            <label for="inputText5" class="col-sm-2 control-label">Số lượng <span style="color:red"><i>*</i></span></label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control" id="inputText0" placeholder="Số lượng" name="sl" value="<%=hh.getSoLuong()%>">
+                                <input type="number" class="form-control" id="inputText5" placeholder="Số lượng" name="sl" value="<%=hh.getSoLuong()%>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputText1" class="col-sm-2 control-label">Đơn vị tính <span style="color:red"><i>*</i></span></label>
+                            <label for="inputText6" class="col-sm-2 control-label">Đơn vị tính <span style="color:red"><i>*</i></span></label>
                             <div class="col-sm-10">
 
-                                <select class="form-control" id="inputText1" name="dvt">
+                                <select class="form-control" id="inputText6" name="dvt">
                                     <option value="<%= hh.getDonViTinh()%>" selected="selected"><%=hh.getDonViTinh()%></option>
                                     <option value="cái">Cái</option>
                                     <option value="chiếc">Chiếc</option>
@@ -121,28 +119,26 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputText2" class="col-sm-2 control-label">Giá bán <span style="color:red"><i>*</i></span></label>
+                            <label for="inputText7" class="col-sm-2 control-label">Giá bán <span style="color:red"><i>*</i></span></label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputText2" placeholder="Giá bán" name="outprice" value="<%=hh.getGiaBan()%>">
+                                <input type="text" class="form-control" id="inputText7" placeholder="Giá bán" name="outprice" value="<%=hh.getGiaBan()%>">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputText2" class="col-sm-2 control-label">Giá nhập <span style="color:red"><i>*</i></span></label>
+                            <label for="inputText8" class="col-sm-2 control-label">Giá nhập <span style="color:red"><i>*</i></span></label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputText2" placeholder="Giá Nhập" name="inprice" <%=hh.getGiaNhap()%> >
+                                <input type="text" class="form-control" id="inputText8" placeholder="Giá Nhập" name="inprice" value="<%=hh.getGiaNhap()%>" >
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="inputText3" class="col-sm-2 control-label">Ghi chú</label>
+                            <label for="inputText9" class="col-sm-2 control-label">Ghi chú</label>
                             <div class="col-md-10">
-                                <textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute2" id="inputText3">
-                                    <%=hh.getGhiChu()%>
-                                </textarea>
+                                <textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute2" id="inputText9"><%=hh.getGhiChu()%></textarea>
                             </div>
                         </div>
                         <div class="box-footer">
-                            <a href="danhsach"><button type="reset" class="btn btn-default">Hủy</button></a>
-                            <button type="submit" class="btn btn-info pull-right" >Lưu</button>
+                            <a href="/danhsach" style="display:inline-block;"><button type="button" class="btn btn-default" id="comeback">Hủy</button></a>
+                            <button type="button" class="btn btn-info pull-right" onclick="saveHangHoa('<%=hh.getMaHH()%>')">Lưu</button>
                         </div>
                     </div>
                 </div>
