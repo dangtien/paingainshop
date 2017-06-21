@@ -146,7 +146,7 @@
 		<url-pattern>/createhoadon</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>AddNewRegister</servlet-name>
+		<servlet-name>addregister</servlet-name>
 		<url-pattern>/addregister</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
