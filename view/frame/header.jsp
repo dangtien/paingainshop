@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Trang chủ</title>
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
@@ -97,7 +97,7 @@
 <body class="sidebar-mini wysihtml5-supported skin-black-light">
 	<div class="wrapper">
 		<header class="main-header"> <!-- Logo --> <a
-			href="home.jsp" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+			href="${pageContext.request.contextPath}/home.jsp" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
 			<span class="logo-mini"><b>P</b>&G</span> <!-- logo for regular state and mobile devices -->
 			<span class="logo-lg"><b>Pain&</b>Gain</span>
 		</a> <!-- Header Navbar: style can be found in header.less --> <nav

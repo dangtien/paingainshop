@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <aside class="main-sidebar">
-
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
         <!-- Sidebar user panel -->
@@ -16,7 +15,7 @@
             </div>
         </div>
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="active"><a href="home.jsp"> <i
+            <li class="active"><a href="${pageContext.request.contextPath}/home.jsp"> <i
                         class="fa fa-dashboard"></i> <span>Tổng quan</span>
                 </a></li>
             <li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i>
@@ -25,15 +24,15 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="addproduct.jsp"><i
+                    <li class=""><a href="${pageContext.request.contextPath}/addproduct.jsp"><i
                                 class="fa fa-circle-o"></i>Thêm mới</a></li>
-                    <li><a href="nhaphang"><i
+                    <li><a href="${pageContext.request.contextPath}/nhaphang"><i
                                 class="fa fa-circle-o"></i>Nhập hàng</a></li>
-                    <li><a href="danhsach"><i
+                    <li><a href="${pageContext.request.contextPath}/danhsach"><i
                                 class="fa fa-circle-o"></i>Quản lí hàng hóa</a></li>
-                    <li><a href="createhoadon"><i
+                    <li><a href="${pageContext.request.contextPath}/createhoadon"><i
                                 class="fa fa-circle-o"></i>Bán hàng</a></li>
-                    <li><a href="hoadon"><i
+                    <li><a href="${pageContext.request.contextPath}/hoadon"><i
                                 class="fa fa-circle-o"></i>Hóa đơn</a></li>
                     
                 </ul></li>
@@ -43,7 +42,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="danhsachnhacungcap"><i
+                    <li class=""><a href="${pageContext.request.contextPath}/danhsachnhacungcap"><i
                                 class="fa fa-circle-o"></i>Quản lí</a></li>
                 </ul></li>
             <li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i>
@@ -52,7 +51,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="danhsachkhachhang"><i
+                    <li class=""><a href="${pageContext.request.contextPath}/danhsachkhachhang"><i
                                 class="fa fa-circle-o"></i>Quản lí</a></li>
                 </ul></li>
             <li class="treeview"><a href="#"> <i class="fa fa-dashboard"></i>
@@ -61,15 +60,15 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class=""><a href="danhsachnhanvien"><i
+                    <li class=""><a href="${pageContext.request.contextPath}/danhsachnhanvien"><i
                                 class="fa fa-circle-o"></i>Quản lí</a></li>
-                    <li><a href="tinhluong.jsp"><i class="fa fa-circle-o"></i>Tính
+                    <li><a href="${pageContext.request.contextPath}/tinhluong.jsp"><i class="fa fa-circle-o"></i>Tính
                             lương</a></li>
                 </ul></li>
-            <li><a href="bangchamcong"> <i
+            <li><a href="${pageContext.request.contextPath}/bangchamcong"> <i
                         class="fa fa-dashboard"></i> <span>Chấm công</span>
                 </a></li>
-            <li><a href="phieuchi.html"> <i
+            <li><a href="${pageContext.request.contextPath}/loaddsphieuchi"> <i
                         class="fa fa-dashboard"></i> <span>Danh mục phiếu chi</span>
                 </a></li>
             <!-- NHÉT CÁI DANH MỤC NHÉ -->
