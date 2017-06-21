@@ -11152,7 +11152,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Hiển thị _START_ đến _END_ trong tổng _TOTAL_ sản phẩm",
+			"sInfo": "Hiển thị _START_ đến _END_ trong tổng _TOTAL_",
 	
 	
 			/**
@@ -11173,7 +11173,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Hiển thị 0 đến 0 trong tổng 0 sản phẩm",
+			"sInfoEmpty": "Hiển thị 0 đến 0 trong tổng 0",
 	
 	
 			/**
@@ -11195,7 +11195,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoFiltered": "(lọc từ _MAX_ sản phẩm)",
+			"sInfoFiltered": "(lọc từ _MAX_)",
 	
 	
 			/**
@@ -11313,7 +11313,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Hiển thị cho _MENU_ sản phẩm",
+			"sLengthMenu": "Hiển thị _MENU_",
 	
 	
 			/**
