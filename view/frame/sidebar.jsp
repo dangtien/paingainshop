@@ -63,7 +63,7 @@
 			<li><a href="register.jsp"> <i
 					class="fa fa-dashboard"></i> <span>Chấm công</span>
 			</a></li>
-			<li><a href="phieuchi.html"> <i
+			<li><a href="loaddsphieuchi"> <i
 					class="fa fa-dashboard"></i> <span>Danh mục phiếu chi</span>
 			</a></li>
 			<!-- NHÉT CÁI DANH MỤC NHÉ -->
