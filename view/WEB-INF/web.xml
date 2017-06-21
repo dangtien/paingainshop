@@ -1,6 +1,5 @@
-<web-app id="WebApp_ID" version="3.1"
-         xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <display-name>paingainshop</display-name>
     <servlet>
         <servlet-name>SearchKhachHang</servlet-name>
@@ -34,11 +33,22 @@
         <servlet-name>LoadDSPhieuChi</servlet-name>
         <servlet-class>paingainshop.controller.LoadDSPhieuChi</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteHangHoa</servlet-name>
+        <servlet-class>paingainshop.controller.hanghoa.DeleteHangHoa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoadEditHangHoa</servlet-name>
+        <servlet-class>paingainshop.controller.hanghoa.LoadEditHangHoa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateHangHoa</servlet-name>
+        <servlet-class>paingainshop.controller.hanghoa.UpdateHangHoa</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoadDSPhieuChi</servlet-name>
         <url-pattern>/loaddsphieuchi</url-pattern>
     </servlet-mapping>
-        
     <servlet>
         <servlet-name>ChitietHoaDon</servlet-name>
         <servlet-class>paingainshop.controller.ChitietHoaDon</servlet-class>
@@ -82,6 +92,18 @@
     <servlet-mapping>
         <servlet-name>ChitietHoaDon</servlet-name>
         <url-pattern>/chitiethoadon</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteHangHoa</servlet-name>
+        <url-pattern>/hanghoa/delete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoadEditHangHoa</servlet-name>
+        <url-pattern>/hanghoa/edit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateHangHoa</servlet-name>
+        <url-pattern>/hanghoa/save</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
@@ -166,4 +188,3 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 </web-app>
-

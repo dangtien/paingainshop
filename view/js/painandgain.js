@@ -75,7 +75,7 @@ function addRegister() {
     $.get("register",
             {MaCa: ca, MaNV: manv, GioBD: gioBD, GioKT: gioKT, TienPhat: tienphat, PhuCap: phucap, TamUng: tamung},
             function (data) {
-               alert(data);
+                alert(data);
             }
     );
 
@@ -117,39 +117,59 @@ function editBill(dt) {
 function updateSale() {
     var sale = $("#txtinputsale").val();
     $.getJSON("updatesale",
-            {Sale:sale},
+            {Sale: sale},
             function (data) {
                 $('#hoadondetail').html(data['list']);
                 $('#paytotal').html(data['total']);
             }
     );
 }
-function removeBill(mahh){
+function removeBill(mahh) {
     $.getJSON("removechitiethoadon",
-            {MaHH:mahh},
+            {MaHH: mahh},
             function (data) {
                 $('#hoadondetail').html(data['list']);
                 $('#paytotal').html(data['total']);
             }
     );
 }
-function confirmremove(mahh){
+function confirmremove(mahh) {
     var result = confirm("Xóa sản phẩm có mã " + mahh + " khỏi đơn hàng?");
-    if(result){
+    if (result) {
         removeBill(mahh);
-    }else{
+    } else {
         return false;
     }
 }
 
-function saveBill(){
+function saveBill() {
     $.get("savebill",
-    function(data){
-        if(data=="success"){
-            alert("Lưu thành công hóa đơn");
-            location.reload();
-        }else{
-                alert(data);
-            }
-    });
+            function (data) {
+                if (data == "success") {
+                    alert("Lưu thành công hóa đơn");
+                    location.reload();
+                } else {
+                    alert(data);
+                }
+            });
+}
+function confirmDelete(mahh) {
+    var select = confirm("Xóa sản phẩm có mã " + mahh + "vĩnh viễn?");
+    if (select) {
+        deleteHangHoa(mahh);
+    } else {
+        return false;
+    }
+
+}
+function deleteHangHoa(mah) {
+    $.get("hanghoa/delete",
+            {mahh: mah},
+            function (data) {
+                if (data == "success") {
+                    alert("Đã xóa sản phẩm có mã " + mah);
+                } else {
+                    alert(data);
+                }
+            });
 }

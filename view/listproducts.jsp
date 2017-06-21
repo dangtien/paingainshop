@@ -41,9 +41,9 @@
                             <td><%= h.getSoLuong()%></td>
                             <td><%= h.getGiaBan()%></td>
                             <td>
-                                <a href="#"><span class="fa fa-edit">Sửa</span></a>
+                                <a href="hanghoa/edit?mahh=<%=h.getMaHH()%>"><span class="fa fa-edit">Sửa</span></a>
                                 <span class="fa" style="margin: 0px 5px;"></span>
-                                <a href="#"><span class="fa fa-remove">Xóa</span></a>
+                                <a href="#" onclick="confirmDelete('<%=h.getMaHH() %>')"><span class="fa fa-remove">Xóa</span></a>
                             </td>
                         </tr>
                         <%}
