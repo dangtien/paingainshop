@@ -112,6 +112,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Thêm khách hàng</h4>
+                        <span style="color:red"><i id="msg"></i></span>
                     </div>
                     <form class="form-horizontal">
                         <div class="modal-body">
@@ -143,7 +144,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Lưu</button>
+                            <button type="button" class="btn btn-primary" onclick="addCustomer();">Lưu</button>
                         </div>
                     </form>
                 </div>

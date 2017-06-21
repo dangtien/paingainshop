@@ -81,20 +81,15 @@ function addRegister() {
 
 }
 function addCustomer() {
-    var makh = $("#inputText0").val();
     var tenkh = $("#inputText1").val();
     var sodt = $("#inputText3").val();
     var diachi = $("#inputText2").val();
-    var email = $("inputText4").val();
+    var email = $("#inputText4").val();
 
     $.get("addcustomer",
-            {MaKH: makh, TenKH: tenkh, SDT: sodt, Adrress: diachi, Email: email},
+            {TenKH: tenkh, SDT: sodt, Address: diachi, Email: email},
             function (data) {
                 $("#msg").html(data);
-
-                setTimeout(function () {
-                    location.reload()
-                }, 3000);
             }
     );
 }
@@ -191,5 +186,22 @@ function saveHangHoa(mah){
     function(data){
         alert(data);
         $("#comeback").html("Trở về");
+    });
+}
+function addProduct(){
+    var tenh = $("#inputText1").val();
+    var nhomh = $("#inputText2").val();
+    var ncc =$("#inputText3").val();
+    var thuoctinh=$("#inputText4").val();
+    var soluong=$("#inputText5").val();
+    var dv=$("#inputText6").val();
+    var giaban=$("#inputText7").val();
+    var gianhap=$("#inputText8").val();
+    var ghichu=$("#inputText9").val();
+    $.get("addnewproduct",{
+        productname:tenh, category:nhomh, outprice:giaban, inprice:gianhap,
+        attribute1:thuoctinh, sl:soluong, dvt:dv, vendor: ncc, attribute2:ghichu
+    },function(data){
+        $("#msg").html(data);
     });
 }
