@@ -8,7 +8,7 @@
 		<h1>Tổng quan</h1>
 		<ol class="breadcrumb">
 			<li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-			<li class="active">Tổng quan</li>
+			<li class="active">Thêm hàng hóa</li>
 		</ol>
 	</section>
 	    <section class="content">

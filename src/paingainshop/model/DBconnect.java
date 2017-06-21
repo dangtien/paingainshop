@@ -15,11 +15,9 @@ public class DBconnect {
 		try {
 				 Class.forName("com.mysql.jdbc.Driver");
 				 String DB_url = "jdbc:mysql://localhost:3306/da_qlbh";
-<<<<<<< HEAD
+
 				 this.conn = DriverManager.getConnection(DB_url,"root","kchiyam");
-=======
-				 this.conn = DriverManager.getConnection(DB_url,"root","manh");
->>>>>>> cc823fdcde4dea6e487b42a9450dec05ac98b207
+
 				 System.out.println("Ket noi Mysql thanh cong.");
 			 } 
 		catch (ClassNotFoundException e) {System.out.println("Ket noi Driver that bai!...." + e.getMessage());}
