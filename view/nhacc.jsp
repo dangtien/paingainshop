@@ -97,7 +97,7 @@
 	                  <th>Mã nhà cung cấp</th>
 	                  <th>Tên nhà cung cấp</th>
 	                  <th>Địa chỉ</th>
-	                  <th>Tổng tiền nhập hàng</th>
+	                  <th>Số điện thoại</th>
 	                  <th>Action</th>
 	                </tr>
 	                </thead>
@@ -116,7 +116,7 @@
 			                  <td><%=ncc.getMaNCC() %></td>
 			                  <td><%=ncc.getTenNCC() %></td>
 			                  <td><%=ncc.getDiaChi() %></td>
-			                  <td></td>
+			                  <td><%=ncc.getSoDT() %></td>
 			                  <td>  <a href="editnhacc.jsp?MaNCC=<%=ncc.getMaNCC()%>"><span class="fa fa-edit">Sửa</span></a>
 		                      <span class="fa" style="margin: 0px 5px;"></span>
 		                      
@@ -135,7 +135,7 @@
 	                  <th>Mã nhà cung cấp</th>
 	                  <th>Tên nhà cung cấp</th>
 	                  <th>Địa chỉ</th>
-	                  <th>Tổng tiền nhập hàng</th>
+	                  <th>Số điện thoại</th>
 	                  <th>Action</th>
 	                </tr>
 	                </tfoot>

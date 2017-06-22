@@ -8,8 +8,8 @@ package paingainshop.model.DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import paingainshop.model.DBconnect;
-import paingainshop.model.HoaDon;
+
+import paingainshop.model.*;
 
 /**
  *
@@ -17,7 +17,7 @@ import paingainshop.model.HoaDon;
  */
 public class HoaDonDAO {
     DBconnect db;
-
+    ResultSet rs;
     public HoaDonDAO() {
         db = new DBconnect();
     }
@@ -58,5 +58,24 @@ public class HoaDonDAO {
             hd = new HoaDon(rs.getString("MaHD"), rs.getString("Ngay"), rs.getString("MaKH"), rs.getString("MaNV"));
         }
         return hd;
+    }
+    public ArrayList<CountSoHoaDon> CoutSL() throws Exception
+    {
+    	ArrayList<CountSoHoaDon> lstt = new ArrayList<CountSoHoaDon>();
+    	String sql ="select count(MaHD) as tongHD from hoadon where Ngay = curdate()";
+    	try {
+            rs = db.getStatement().executeQuery(sql);
+            while (rs.next()) {
+
+                int sl = rs.getInt("tongHD");
+                
+                CountSoHoaDon cnt = new CountSoHoaDon(sl);
+                lstt.add(cnt);
+            }
+        } catch (Exception e) {
+            System.out.println("Loi truy van CSDL.");
+        }
+        db.closeConnet();
+        return lstt;
     }
 }
