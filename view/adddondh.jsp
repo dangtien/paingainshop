@@ -26,10 +26,10 @@
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <div class="input-group input-group-sm">
-                        <input type="text" name="txtsearchproc" class="form-control" placeholder="Tìm kiếm sản phẩm" id="txtsearch1" onkeyup ="showHint(this.value);">
-                        <span class="input-group-btn">
-                            <button  type="button" class="btn btn-info btn-flat" id="btnaddpro" data-toggle="modal" data-target="#modal-addpro">Thêm</button>
-                        </span>
+                            <input type="text" name="txtsearchproc" class="form-control" placeholder="Tìm kiếm sản phẩm" id="txtsearch1" onkeyup ="dhsearchProduct(this.value);">
+                            <span class="input-group-btn">
+                                <button  type="button" class="btn btn-info btn-flat" id="btnaddpro" data-toggle="modal" data-target="#modal-addpro">Thêm</button>
+                            </span>
                         </div>
                     </div>
                     <div class="box-body suggest" id="sugges1">
@@ -37,16 +37,18 @@
                     </div>
                     <div class="box-body table-responsive no-padding">
                         <table class="table table-hover">
-                            <tr>
-                                <th>STT</th>
-                                <th>Mã hàng</th>
-                                <th>Tên hàng</th>
-                                <th width="125px">Đơn giá nhập</th>
-                                <th width="88px">Số lượng</th>
-                                <th>Thành tiền</th>
-                                <th>Action</th>
-                            </tr>
-                            <tbody id="hoadondetail" onload=""></tbody>
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã hàng</th>
+                                    <th>Tên hàng</th>
+                                    <th width="125px">Đơn giá nhập</th>
+                                    <th width="88px">Số lượng</th>
+                                    <th>Thành tiền</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="hoadondetail" style="text-align: center;"></tbody>
                         </table>
                     </div>               
                 </div>
@@ -63,7 +65,7 @@
                                 <!-- Don hang -->
                                 <div class="box-body">
                                     <strong>Mã đơn đặt hàng:</strong>
-                                    <p class="text-muted"><%= request.getAttribute("madh") %></p>
+                                    <p class="text-muted"><%= request.getAttribute("madh")%></p>
                                     <strong>Nhân viên lập: </strong>
                                     <p class="text-muted"><%=request.getAttribute("nhanvien")%></p>
                                     <strong>Ngày lập:</strong>
@@ -98,90 +100,90 @@
 
                             <div class="form-group">
                                 <label for="inputText0" class="col-sm-2 control-label">Mã Hàng</label>
-                              <div class="col-sm-10">
-                                  <input type="text" class="form-control" id="inputText0" placeholder="Tự động sinh mã"  name="primproduct" disabled="disabled">
-                              </div>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputText0" placeholder="Tự động sinh mã"  name="primproduct" disabled="disabled">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="inputText1" class="col-sm-2 control-label">Tên hàng <span style="color:red"><i>*</i></span></label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" id="inputText1" placeholder="Tên hàng hóa" name="productname">
+                                    <input type="text" class="form-control" id="inputText1" placeholder="Tên hàng hóa" name="productname">
                                 </div>
-                              </div>
-                              <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="inputText2" class="col-sm-2 control-label">Nhóm hàng <span style="color:red"><i>*</i></span></label>
                                 <div class="col-sm-10">
 
-                                  <select class="form-control" id="inputText2"  name="category" >
-                                                              <option value="Áo ba lỗ">Áo ba lỗ</option>
-                                                              <option value="Áo thun">Áo thun</option>
-                                                              <option value="Quần short">Quần short</option>
-                                                              <option value="Găng tay">Găng tay</option>
-                                                              <option value="Cuốn sổ">Cuốn sổ</option>
-                                                              <option value="Túi xách">Túi xách</option>
-                                                              <option value="Phụ kiện khác">Phụ kiện khác</option>
-                                                      </select>
+                                    <select class="form-control" id="inputText2"  name="category" >
+                                        <option value="Áo ba lỗ">Áo ba lỗ</option>
+                                        <option value="Áo thun">Áo thun</option>
+                                        <option value="Quần short">Quần short</option>
+                                        <option value="Găng tay">Găng tay</option>
+                                        <option value="Cuốn sổ">Cuốn sổ</option>
+                                        <option value="Túi xách">Túi xách</option>
+                                        <option value="Phụ kiện khác">Phụ kiện khác</option>
+                                    </select>
                                 </div>
-                              </div>
-                              <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="inputText2" class="col-sm-2 control-label">Mã nhà cung cấp <span style="color:red"><i>*</i></span></label>
                                 <div class="col-sm-10">
 
-                                  <select class="form-control" id="inputText2" name="vendor" >
-                                                              <option value="NC000001" selected>Sony</option>
-                                                              <option value="NC000002">Điện máy xanh</option>
-                                                              <option value="NC000003">Thế giới di động</option>
-                                                              <option value="NC000006">Nike</option>
-                                                              <option value="NC000007">Adidas</option>
-                                                              <option value="NC000008">Muscltech</option>
-                                                              <option value="NC000009">PowerTrain</option>
-                                                              <option value="SNC000004">SamSung </option>
-                                                              <option value="NC000005">Little Rock</option>
+                                    <select class="form-control" id="inputText2" name="vendor" >
+                                        <option value="NC000001" selected>Sony</option>
+                                        <option value="NC000002">Điện máy xanh</option>
+                                        <option value="NC000003">Thế giới di động</option>
+                                        <option value="NC000006">Nike</option>
+                                        <option value="NC000007">Adidas</option>
+                                        <option value="NC000008">Muscltech</option>
+                                        <option value="NC000009">PowerTrain</option>
+                                        <option value="SNC000004">SamSung </option>
+                                        <option value="NC000005">Little Rock</option>
 
-                                                      </select>
+                                    </select>
                                 </div>
-                              </div>
-                              <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="inputText3" class="col-sm-2 control-label">Thuộc tính</label>
                                 <div class="col-md-10">
-                                      <textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute1" id="inputText3"></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute1" id="inputText3"></textarea>
                                 </div>
-                              </div>
+                            </div>
                             <div class="form-group">
                                 <label for="inputText0" class="col-sm-2 control-label" >Số lượng </label>
                                 <div class="col-sm-10">
-                                  <input type="number" class="form-control" id="inputText0" placeholder="Số lượng" name="sl" value="0" disabled>
+                                    <input type="number" class="form-control" id="inputText0" placeholder="Số lượng" name="sl" value="0" disabled>
                                 </div>
-                              </div>
-                               <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="inputText1" class="col-sm-2 control-label">Đơn vị tính <span style="color:red"><i>*</i></span></label>
                                 <div class="col-sm-10">
 
-                                  <select class="form-control" id="inputText1" name="dvt">
-                                                              <option value="cái" selected>Cái</option>
-                                                              <option value="chiếc">Chiếc</option>
-                                                              <option value="kg">Kg</option>
-                                                      </select>
+                                    <select class="form-control" id="inputText1" name="dvt">
+                                        <option value="cái" selected>Cái</option>
+                                        <option value="chiếc">Chiếc</option>
+                                        <option value="kg">Kg</option>
+                                    </select>
                                 </div>
-                              </div>
-                              <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="inputText2" class="col-sm-2 control-label">Giá bán </label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" id="inputText2" placeholder="Giá bán" name="outprice" disabled>
+                                    <input type="text" class="form-control" id="inputText2" placeholder="Giá bán" name="outprice" disabled>
                                 </div>
-                              </div>
-                              <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="inputText2" class="col-sm-2 control-label">Giá nhập <span style="color:red"><i>*</i></span></label>
                                 <div class="col-sm-10">
-                                  <input type="text" class="form-control" id="inputText2" placeholder="Giá Nhập" name="inprice">
+                                    <input type="text" class="form-control" id="inputText2" placeholder="Giá Nhập" name="inprice">
                                 </div>
-                              </div>
-                              <div class="form-group">
+                            </div>
+                            <div class="form-group">
                                 <label for="inputText3" class="col-sm-2 control-label">Ghi chú</label>
                                 <div class="col-md-10">
-                                      <textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute2" id="inputText3"></textarea>
+                                    <textarea class="form-control" rows="3" placeholder="Thêm mô tả" name="attribute2" id="inputText3"></textarea>
                                 </div>
-                              </div>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>

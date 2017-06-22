@@ -205,3 +205,50 @@ function addProduct(){
         $("#msg").html(data);
     });
 }
+function dhsearchProduct(str) {
+    if (str.length == 0) {
+        $('#result1').html("");
+        $("#sugges1").hide();
+    } else {
+        $.get("/donhang/search",
+                {txtsearch: str},
+                function (data) {
+                    $('#result1').html(data);
+                    $("#sugges1").show();
+                }
+        );
+    }
+}
+function dhthemSanpham(mahh){
+    $("#sugges1").hide();
+    $("#txtsearch1").val('');
+    $.getJSON("/donhang/add",
+            {maHH: mahh},
+            function (data) {
+                $('#hoadondetail').html(data['list']);
+                $("#paytotal").html(data['total']);
+            }
+    );
+}
+function confirmDHRemove(mah){
+    $.getJSON("/donhang/remove",
+            {MaHH: mah},
+            function (data) {
+                $('#hoadondetail').html(data['list']);
+                $('#paytotal').html(data['total']);
+            }
+    );
+}
+function donhangEdit(dt){
+    var elem = $(dt).parent().parent();
+    var mahh = elem.attr("for");
+    var dg = elem.children().children()[0].value;
+    var sl = elem.children().children()[1].value;
+    $.getJSON("/donhang/edit",
+            {MaHH: mahh, DonGia: dg, SoLuong: sl},
+            function (data) {
+                $('#hoadondetail').html(data['list']);
+                $('#paytotal').html(data['total']);
+            }
+    );
+}
