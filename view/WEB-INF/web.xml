@@ -45,6 +45,10 @@
         <servlet-name>UpdateHangHoa</servlet-name>
         <servlet-class>paingainshop.controller.hanghoa.UpdateHangHoa</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ThemDonHang</servlet-name>
+        <servlet-class>paingainshop.controller.donhang.ThemDonHang</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoadDSPhieuChi</servlet-name>
         <url-pattern>/loaddsphieuchi</url-pattern>
@@ -104,6 +108,10 @@
     <servlet-mapping>
         <servlet-name>UpdateHangHoa</servlet-name>
         <url-pattern>/hanghoa/save</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ThemDonHang</servlet-name>
+        <url-pattern>/donhang/new</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

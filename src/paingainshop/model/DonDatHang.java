@@ -8,6 +8,7 @@ public class DonDatHang {
 	private String MaNV;
 	private int TrangThai;
 	public DonDatHang(String maDDH, String ngay, String maNV, int trangThai) {
+
 		
 		this.MaDDH = maDDH;
 		this.Ngay = ngay;
@@ -38,20 +39,4 @@ public class DonDatHang {
 	public void setTrangThai(int trangThai) {
 		TrangThai = trangThai;
 	}
-	
-	/*
-	 public static void main (String[] args)
-	{
-		Date x = new Date();
-		System.out.println(x);
-		@SuppressWarnings("deprecation")
-		Date xx = new Date("10/20/2016");
-		SimpleDateFormat ft = new SimpleDateFormat ("yyyy/MM/dd");
-
-			     System.out.println("Date hien tai: " + ft.format(x));
-		//System.out.println(xx);
-			     
-	}
-	 
-	 */
 }

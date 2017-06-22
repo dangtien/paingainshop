@@ -63,11 +63,11 @@
                                 <!-- Don hang -->
                                 <div class="box-body">
                                     <strong>Mã đơn đặt hàng:</strong>
-                                    <p class="text-muted"></p>
+                                    <p class="text-muted"><%= request.getAttribute("madh") %></p>
                                     <strong>Nhân viên lập: </strong>
-                                    <p class="text-muted"><%=request.getAttribute("Nhanvien")%></p>
+                                    <p class="text-muted"><%=request.getAttribute("nhanvien")%></p>
                                     <strong>Ngày lập:</strong>
-                                    <p class="text-muted"><%=request.getAttribute("Ngay")%></p>
+                                    <p class="text-muted"><%=request.getAttribute("ngay")%></p>
                                 </div>
                             </div>
                         </div>
