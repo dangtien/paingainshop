@@ -69,6 +69,29 @@ public class DonDatHangDAO {
         db.closeConnet();
         return lst;
     }
+    
+    public ArrayList<DonDatHang> getOnDay() throws Exception {
+        ArrayList<DonDatHang> lst = new ArrayList<DonDatHang>();
+        String strSQL = "select * from dondathang order by MaDDH where Ngay = curdate() ";
+
+        try {
+            rs = db.getStatement().executeQuery(strSQL);
+            while (rs.next()) {
+
+                String ma = rs.getString("MaDDH");
+                String ngay = rs.getString("Ngay");
+                String manv = rs.getString("MaNV");
+                int tt = rs.getInt("TrangThai");
+
+                DonDatHang ddh = new DonDatHang(ma, ngay, manv, tt);
+                lst.add(ddh);
+            }
+        } catch (Exception e) {
+            System.out.println("Loi truy van CSDL.");
+        }
+        db.closeConnet();
+        return lst;
+    }
 
     public DonDatHang getById(String madh) throws Exception {
         String sql = "select * from dondathang where MaDDH=?";

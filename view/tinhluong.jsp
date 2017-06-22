@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%@ page import="paingainshop.model.KhachHang" %>
+
 <%@ page import="paingainshop.model.*" %>
 <%@ page import="paingainshop.model.DAO.*" %>
 <%@ page import="java.util.ArrayList" %>
@@ -38,33 +38,32 @@
 	                  <th>Tên nhân viên</th>
 	                  <th>Số giờ làm trong tháng</th>
 	                  <th>Lương/giờ</th>
-	                  <th>Thưởng</th>
 	                  <th>Phạt</th>
 	                   <th>Phụ cấp</th>
-	                  <th>Action</th>
+	                  <th>Tổng lương</th>
 	                </tr>
 	                </thead>
 	                <tbody>
-	                <% ArrayList<KhachHang> list = (ArrayList<KhachHang>)request.getAttribute("result");%>
-	                
-	                <%
+	                <% ArrayList<BangTinhLuong> list = new ArrayList<BangTinhLuong>();
+	                try 
+	                {
+	                	list = new BangTinhLuongDAO().getInfoLuong();
+	                }
+	                catch (Exception e)
+	                {}
 	                	if(list!=null){
-	                		for(KhachHang kh : list){
+	                		for(BangTinhLuong btl : list){
 	                			
 	                	
 	                %>
 			                <tr>
-			                  <td></td>
-			                  <td></td>
-			                  <td></td>
-			                  <td></td>
-			                  <td></td>
-			                  <td></td>
-			                  <td></td>
-			                  <td>  <a href="editcustomer.jsp?MaKH=<%=kh.getMaKH()%>"><span class="fa fa-edit">Sửa</span></a>
-		                      <span class="fa" style="margin: 0px 5px;"></span>
-		                      
-		                       </td>
+			                  <td><%=btl.getManv() %></td>
+			                  <td><%=btl.getTen() %></td>
+			                  <td><%=btl.getGio() %></td>
+			                  <td><%=btl.getLuong() %></td>
+			                  <td><%=btl.getPhat() %></td>
+			                  <td><%=btl.getPhucap() %></td>
+			                  <td><%= btl.getGio()*btl.getLuong()-btl.getPhat()+btl.getPhucap() %> </td>
 			                </tr>
 	                <%
 	                		}
@@ -80,10 +79,9 @@
 	                  <th>Tên nhân viên</th>
 	                  <th>Số giờ làm trong tháng</th>
 	                  <th>Lương/giờ</th>
-	                  <th>Thưởng</th>
 	                  <th>Phạt</th>
 	                   <th>Phụ cấp</th>
-	                  <th>Action</th>
+	                  <th>Tổng Lương</th>
 	                </tr>
 	                </tfoot>
 	              </table>

@@ -48,6 +48,15 @@ public class HoaDonDAO {
         }
         return list;
     }
+    public ArrayList<HoaDon> getOnDay() throws Exception{
+        ArrayList<HoaDon> list = new ArrayList<>();
+        String sql = "select * from hoadon where Ngay = curdate() ";
+        ResultSet rs = db.getStatement().executeQuery(sql);
+        while(rs.next()){
+            list.add(new HoaDon(rs.getString("MaHD"), rs.getString("Ngay"), rs.getString("MaKH"), rs.getString("MaNV")));
+        }
+        return list;
+    }
     public HoaDon getById(String mahd) throws Exception{
         String sql = "select * from hoadon where MaHD=?";
         PreparedStatement pst = db.openConnect().prepareStatement(sql);
@@ -62,7 +71,7 @@ public class HoaDonDAO {
     public ArrayList<CountSoHoaDon> CoutSL() throws Exception
     {
     	ArrayList<CountSoHoaDon> lstt = new ArrayList<CountSoHoaDon>();
-    	String sql ="select count(MaHD) as tongHD from hoadon where Ngay = curdate()";
+    	String sql ="select count(MaHD) as tongHD from hoadon where Ngay = curdate() ";
     	try {
             rs = db.getStatement().executeQuery(sql);
             while (rs.next()) {

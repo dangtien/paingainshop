@@ -131,7 +131,7 @@
 					    		}
 					    	}
                             %>
-                            <a href="#" class="small-box-footer">Thông tin chi tiết <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="hoadontrongngay.jsp" class="small-box-footer">Thông tin chi tiết <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->

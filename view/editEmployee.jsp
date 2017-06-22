@@ -63,7 +63,8 @@
                             <label for="inputText4" class="col-sm-2 control-label">Trạng thái</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="inputText4" name="TrangThai" >
-								<option value="" selected>Còn làm việc</option>
+                                <option value="<%=nv.getTrangThai() %>" selected><%=nv.getTrangThai() %></option>
+								<option value="" >Còn làm việc</option>
 								<option value="Nghỉ">Nghỉ</option>
 							</select>
                             </div>
