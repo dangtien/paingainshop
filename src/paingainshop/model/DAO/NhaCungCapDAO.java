@@ -105,4 +105,17 @@ public class NhaCungCapDAO {
     	}
     	return ncc;
     }
+    public static void main(String[] args) throws Exception {
+		NhaCungCap ncc = new NhaCungCap("NC000011","Thành đô","23110932","Giải phóng","046343784","td@gmail.com","");
+		NhaCungCapDAO db = new NhaCungCapDAO();
+		try 
+		{
+			db.insertNhaCungCap(ncc);
+			System.out.println("thanfh chooong");
+		}
+		catch (Exception c)
+		{
+			System.out.println("that bai");
+		}
+	}
 }

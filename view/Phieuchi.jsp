@@ -3,6 +3,7 @@
          pageEncoding="UTF-8"%>
 <%@ page import="paingainshop.model.*" %>
 <%@ page import="java.util.ArrayList" %>
+<title>Danh Sách Phiếu Chi</title>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
 <div class="content-wrapper">

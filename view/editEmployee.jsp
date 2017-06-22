@@ -8,6 +8,7 @@
          pageEncoding="UTF-8"%>
 <%@page import="paingainshop.model.DAO.*" %>
 <%@page import="paingainshop.model.NhanVien"  %>
+<title>Chỉnh Sửa Thông Tin Nhân Viên</title>
 <%@include file="frame/header.jsp" %>
 <%@include file="frame/sidebar.jsp" %>
 <div class="content-wrapper">

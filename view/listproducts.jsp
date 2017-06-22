@@ -2,6 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@page import="paingainshop.model.HangHoa"%>
 <%@page import="java.util.ArrayList"%>
+<title>Danh Sách Hàng Hóa</title>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
 <div class="content-wrapper">

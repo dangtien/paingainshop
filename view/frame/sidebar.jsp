@@ -26,7 +26,7 @@
                 <ul class="treeview-menu">
                     <li class=""><a href="${pageContext.request.contextPath}/addproduct.jsp"><i
                                 class="fa fa-circle-o"></i>Thêm mới</a></li>
-                    <li><a href="${pageContext.request.contextPath}/nhaphang"><i
+                    <li><a href="${pageContext.request.contextPath}/dsdondathang.jsp"><i
                                 class="fa fa-circle-o"></i>Nhập hàng</a></li>
                     <li><a href="${pageContext.request.contextPath}/danhsach"><i
                                 class="fa fa-circle-o"></i>Quản lí hàng hóa</a></li>
@@ -69,7 +69,7 @@
                         class="fa fa-dashboard"></i> <span>Chấm công</span>
                 </a></li>
             <li><a href="${pageContext.request.contextPath}/loaddsphieuchi"> <i
-                        class="fa fa-dashboard"></i> <span>Danh mục phiếu chi</span>
+                        class="fa fa-dashboard"></i> <span>Danh sách phiếu chi</span>
                 </a></li>
             <!-- NHÉT CÁI DANH MỤC NHÉ -->
         </ul>

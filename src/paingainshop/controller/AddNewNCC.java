@@ -46,17 +46,24 @@ public class AddNewNCC extends HttpServlet {
 			
 			String message = "";
 			
-			NhaCungCap ncc= new NhaCungCap(MaNCC,ten,mathue,diachi,email,sdt,gc);
+			NhaCungCap ncc= new NhaCungCap(MaNCC,ten,mathue,diachi,sdt,email,gc);
 			NhaCungCapDAO db = new NhaCungCapDAO();
 			try 
 			{
-				if (ten !="" && mathue !=""&& email!=""&& diachi!= "" && sdt!="" ) 
+				if (ten !="" && mathue !=""&&email!=""&& diachi!= "" && sdt!="" ) 
 				{
-					db.insertNhaCungCap(ncc);
+					try {
+						db.insertNhaCungCap(ncc);
+					}
+					catch (Exception e)
+					{
+						System.out.println("loi o day");
+					}
 					message = "Thêm nhà cung cấp thành công.";
 					RequestDispatcher xxx = request.getRequestDispatcher("nhacc.jsp");
 					request.setAttribute("msg2", message );
 					xxx.forward(request, response);
+					
 				}
 				else
 				{
@@ -64,6 +71,7 @@ public class AddNewNCC extends HttpServlet {
 					RequestDispatcher xxx = request.getRequestDispatcher("nhacc.jsp");
 					request.setAttribute("msg2", message );
 					xxx.forward(request, response);
+					System.out.println("loi 1");
 				}
 			}
 			catch (Exception e)
@@ -72,6 +80,7 @@ public class AddNewNCC extends HttpServlet {
 				RequestDispatcher xxx = request.getRequestDispatcher("nhacc.jsp");
 				request.setAttribute("msg2", message );
 				xxx.forward(request, response);
+				System.out.println("loi 2");
 				
 			}
 		} catch (Exception e) {
@@ -80,7 +89,7 @@ public class AddNewNCC extends HttpServlet {
 			RequestDispatcher xxx = request.getRequestDispatcher("nhacc.jsp");
 			request.setAttribute("msg2", message );
 			xxx.forward(request, response);
-			
+			System.out.println("loi 3");
 		}
 	}
 

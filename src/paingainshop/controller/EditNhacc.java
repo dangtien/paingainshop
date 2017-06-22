@@ -43,20 +43,14 @@ public class EditNhacc extends HttpServlet {
 			String MaNCC = request.getParameter("MaNCC");
 			String message1 = "";
 			
-			NhaCungCap ncc= new NhaCungCap(MaNCC,ten,mathue,diachi,email,sdt,gc);
+			NhaCungCap ncc= new NhaCungCap(MaNCC,ten,mathue,diachi,sdt,email,gc);
 			NhaCungCapDAO db = new NhaCungCapDAO();
 			try 
 			{
-				if (ten !="" && mathue !=""&& email!=""&& diachi!= "" && sdt!="" )
+				if (ten !="" && mathue !=""  && diachi!= "" && sdt!= "" )
 				 {
-					    try {
-					    	db.updateNhaCungCap(MaNCC, ncc);
-					    }
-					    catch(Exception e)
-					    {
-					    	System.out.println("looixacasc");
-					    }
-						message1 = "Cập nhật thông tin thành công.";
+					    db.updateNhaCungCap(MaNCC, ncc);
+					    message1 = "Cập nhật thông tin thành công.";
 						RequestDispatcher xxx = request.getRequestDispatcher("editnhacc.jsp?MaNCC="+MaNCC);
 						request.setAttribute("msg1", message1 );
 						xxx.forward(request, response);

@@ -8,6 +8,7 @@
          pageEncoding="UTF-8"%>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="paingainshop.model.NhanVien" %>
+<title>Quản Lý Nhân Viên</title>
 <%@include file="frame/header.jsp" %>
 <script language="javascript">
               function confirmAction() {

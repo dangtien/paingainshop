@@ -33,7 +33,7 @@ public class PhieuChiDAO {
     public ArrayList<PhieuChi> getAll() throws Exception{
         ArrayList<PhieuChi> list;
         list = new ArrayList<PhieuChi>();
-        String sql = "Select * from phieuchi";
+        String sql = "Select * from phieuchi order by MaPC desc ";
         ResultSet rs = db.getStatement().executeQuery(sql);
         while(rs.next()){
             String MaPC = rs.getString("MaPC");

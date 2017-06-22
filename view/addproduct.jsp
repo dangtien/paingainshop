@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<title>Thêm Sản Phẩm</title>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
 <div class="content-wrapper">
@@ -8,7 +9,7 @@
 		<h1>Tổng quan</h1>
 		<ol class="breadcrumb">
 			<li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-			<li class="active">Tổng quan</li>
+			<li class="active">Thêm hàng hóa</li>
 		</ol>
 	</section>
 	    <section class="content">

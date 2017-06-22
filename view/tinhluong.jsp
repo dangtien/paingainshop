@@ -4,6 +4,7 @@
 <%@ page import="paingainshop.model.*" %>
 <%@ page import="paingainshop.model.DAO.*" %>
 <%@ page import="java.util.ArrayList" %>
+<title>Quản Lý Tính Lương</title>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
 <div class="content-wrapper">

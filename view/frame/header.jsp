@@ -4,7 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
+
+=======
 <title>Trang chủ</title>
+>>>>>>> e95a56312648c2e7aa4b984bea1c2caf93e94a2f
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
@@ -23,8 +27,7 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/plugins/fullcalendar/fullcalendar.min.css">
   <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/plugins/fullcalendar/fullcalendar.print.css" media="print">	
 <!-- Theme style -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/templates/dist/css/AdminLTE.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/templates/dist/css/AdminLTE.min.css">
  <!-- Select2 -->
   <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/plugins/select2/select2.min.css">
   <!-- Bootstrap time Picker -->
