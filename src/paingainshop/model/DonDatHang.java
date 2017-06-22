@@ -4,10 +4,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 public class DonDatHang {
 	private String MaDDH;
-	private Date Ngay;
+	private String Ngay;
 	private String MaNV;
-	private boolean TrangThai;
-	public DonDatHang(String maDDH, Date ngay, String maNV, boolean trangThai) {
+	private int TrangThai;
+	public DonDatHang(String maDDH, String ngay, String maNV, int trangThai) {
 		
 		this.MaDDH = maDDH;
 		this.Ngay = ngay;
@@ -20,10 +20,10 @@ public class DonDatHang {
 	public void setMaDDH(String maDDH) {
 		MaDDH = maDDH;
 	}
-	public Date getNgay() {
+	public String getNgay() {
 		return Ngay;
 	}
-	public void setNgay(Date ngay) {
+	public void setNgay(String ngay) {
 		Ngay = ngay;
 	}
 	public String getMaNV() {
@@ -32,14 +32,15 @@ public class DonDatHang {
 	public void setMaNV(String maNV) {
 		MaNV = maNV;
 	}
-	public boolean isTrangThai() {
+	public int isTrangThai() {
 		return TrangThai;
 	}
-	public void setTrangThai(boolean trangThai) {
+	public void setTrangThai(int trangThai) {
 		TrangThai = trangThai;
 	}
 	
-	public static void main (String[] args)
+	/*
+	 public static void main (String[] args)
 	{
 		Date x = new Date();
 		System.out.println(x);
@@ -51,5 +52,6 @@ public class DonDatHang {
 		//System.out.println(xx);
 			     
 	}
-	
+	 
+	 */
 }
