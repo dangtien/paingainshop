@@ -198,7 +198,7 @@ function addProduct(){
     var giaban=$("#inputText7").val();
     var gianhap=$("#inputText8").val();
     var ghichu=$("#inputText9").val();
-    $.get("addnewproduct",{
+    $.get("/addnewproduct",{
         productname:tenh, category:nhomh, outprice:giaban, inprice:gianhap,
         attribute1:thuoctinh, sl:soluong, dvt:dv, vendor: ncc, attribute2:ghichu
     },function(data){
@@ -251,4 +251,15 @@ function donhangEdit(dt){
                 $('#paytotal').html(data['total']);
             }
     );
+}
+function saveDonDatHang() {
+    $.get("/donhang/save",
+            function (data) {
+                if (data == "success") {
+                    alert("Lưu thành công hóa đơn");
+                    location.reload();
+                } else {
+                    alert(data);
+                }
+            });
 }

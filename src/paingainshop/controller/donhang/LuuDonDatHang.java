@@ -7,26 +7,28 @@ package paingainshop.controller.donhang;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import paingainshop.model.CTDonDatHang;
+import paingainshop.model.CTHoaDon;
+import paingainshop.model.DAO.CTDonDatHangDAO;
+import paingainshop.model.DAO.CTHoaDonDAO;
 import paingainshop.model.DAO.DonDatHangDAO;
-import paingainshop.model.DAO.NhanVienDAO;
+import paingainshop.model.DAO.HoaDonDAO;
+import paingainshop.model.DonDatHang;
 import paingainshop.model.DonHang;
-import paingainshop.model.NhanVien;
-import paingainshop.model.service.PainAndGainService;
+import paingainshop.model.HoaDon;
+import paingainshop.model.HoaDonData;
 
 /**
  *
- * @author Mạnh Nguyễn!
+ * @author BANH MY
  */
-public class ThemDonHang extends HttpServlet {
+public class LuuDonDatHang extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +47,10 @@ public class ThemDonHang extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ThemDonHang</title>");            
+            out.println("<title>Servlet LuuDonDatHang</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ThemDonHang at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LuuDonDatHang at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -66,26 +68,31 @@ public class ThemDonHang extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       response.setContentType("text/html; charset=UTF-8");
-       request.setCharacterEncoding("utf-8");
-        try {
-            HttpSession session = request.getSession();
-            NhanVien nv = (NhanVien)session.getAttribute("login");
-            String MaDDH = PainAndGainService.CreatePKey("DH", new DonDatHangDAO().getLastPkey());
-            Date date = new Date();
-            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-            String datestr = dateformat.format(date);
-            DonHang donhang = new DonHang(MaDDH, datestr, nv.getMaNV(), 0);
-            session.setAttribute("donhang", donhang);
-            request.setAttribute("madh", MaDDH);
-            request.setAttribute("nhanvien", nv.getUserName());
-            request.setAttribute("ngay", datestr);
-            request.getRequestDispatcher(request.getContextPath()+"/adddondh.jsp").forward(request, response);
-            
-        } catch (Exception ex) {
-            response.getWriter().print("loi server: "+ ex.getMessage());
+        response.setContentType("text/html; charset=UTF-8");
+        HttpSession session = request.getSession();
+        DonHang donhang = (DonHang) session.getAttribute("donhang");
+        DonDatHang dh = new DonDatHang(donhang.getMaDDH(), donhang.getNgay(), donhang.getMaNV(), 0);
+        ArrayList<CTDonDatHang> list = donhang.getItems();
+        String msg = "";
+        DonDatHangDAO dhdao = new DonDatHangDAO();
+        CTDonDatHangDAO ctdao = new CTDonDatHangDAO();
+        if (list.isEmpty()) {
+            msg = "Không có sản phẩm nào trong đơn hàng";
+        } else if(!list.isEmpty()) {
+            try {
+                dhdao.insertDonDatHang(dh);
+                for (CTDonDatHang ct : list) {
+                    
+                    ctdao.insertCTDonDatHang(ct);
+                    
+                }
+                session.setAttribute("donhang", null);
+                msg = "success";
+            } catch (Exception ex) {
+                msg = "loi: " + ex.getMessage();
+            }
         }
-       
+        response.getWriter().print(msg);
     }
 
     /**

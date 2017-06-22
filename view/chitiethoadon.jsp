@@ -41,22 +41,22 @@
             <div class="box-body">
                 <div class="row">
                     <%
-                        HoaDon hd = (HoaDon)request.getAttribute("hd");
-                        KhachHang kh= (KhachHang)request.getAttribute("kh");
-                        NhanVien nv = (NhanVien)request.getAttribute("nv");
+                        HoaDon hd = (HoaDon) request.getAttribute("hd");
+                        KhachHang kh = (KhachHang) request.getAttribute("kh");
+                        NhanVien nv = (NhanVien) request.getAttribute("nv");
                     %>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Mã Hóa đơn</label>
-                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= hd.getMaHD() %></h3>
+                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= hd.getMaHD()%></h3>
                         </div>
                         <div class="form-group">
                             <label>Tên khách hàng</label>
-                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= kh.getTenHK() %></h3>
+                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= kh.getTenHK()%></h3>
                         </div>
                         <div class="form-group">
                             <label>Nhân viên lập</label>
-                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= nv.getUserName() %></h3>
+                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= nv.getUserName()%></h3>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -68,11 +68,11 @@
                         </div>
                         <div class="form-group">
                             <label>Ngày lập</label>
-                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= hd.getNgay() %></h3>
+                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= hd.getNgay()%></h3>
                         </div>
                         <div class="form-group">
                             <label>Tổng giá trị</label>
-                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= request.getAttribute("total") %></h3>
+                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= request.getAttribute("total")%></h3>
                         </div>
                         <!-- /.form-group -->
                     </div>
@@ -97,11 +97,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <%
+                            ArrayList<CTHoaDon> list = (ArrayList<CTHoaDon>) request.getAttribute("cthd");
+                            int i=1;
+                            for (CTHoaDon ct : list) {
+                                String tensp = new HangHoaDAO().getById(ct.getMaHH()).getTenHH();
+                                long money = (ct.getDonGia() * ct.getSoLuong()) -((ct.getDonGia()* ct.getSoLuong())*ct.getGiamGia())/100;
+                        %>
                         <tr>
-                            
+                            <td><%=i %></td>
+                            <td><%= ct.getMaHD() %></td>
+                            <td><%= tensp %></td>
+                            <td><%= ct.getDonGia() %></td>
+                            <td><%= ct.getSoLuong()%></td>
+                            <td><%= ct.getGiamGia()%></td>
+                            <td><%= money%></td>
                         </tr>
-                       
+                        <%}
+                        %>
                     </tbody>
                     <tfoot>
                         <tr>

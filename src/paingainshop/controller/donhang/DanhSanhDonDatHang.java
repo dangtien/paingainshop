@@ -7,26 +7,21 @@ package paingainshop.controller.donhang;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import paingainshop.model.DAO.DonDatHangDAO;
-import paingainshop.model.DAO.NhanVienDAO;
-import paingainshop.model.DonHang;
-import paingainshop.model.NhanVien;
-import paingainshop.model.service.PainAndGainService;
+import paingainshop.model.DonDatHang;
 
 /**
  *
- * @author Mạnh Nguyễn!
+ * @author BANH MY
  */
-public class ThemDonHang extends HttpServlet {
+public class DanhSanhDonDatHang extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +40,10 @@ public class ThemDonHang extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ThemDonHang</title>");            
+            out.println("<title>Servlet DanhSanhDonDatHang</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ThemDonHang at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DanhSanhDonDatHang at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -66,26 +61,16 @@ public class ThemDonHang extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       response.setContentType("text/html; charset=UTF-8");
-       request.setCharacterEncoding("utf-8");
+        response.setContentType("text/html; charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         try {
-            HttpSession session = request.getSession();
-            NhanVien nv = (NhanVien)session.getAttribute("login");
-            String MaDDH = PainAndGainService.CreatePKey("DH", new DonDatHangDAO().getLastPkey());
-            Date date = new Date();
-            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-            String datestr = dateformat.format(date);
-            DonHang donhang = new DonHang(MaDDH, datestr, nv.getMaNV(), 0);
-            session.setAttribute("donhang", donhang);
-            request.setAttribute("madh", MaDDH);
-            request.setAttribute("nhanvien", nv.getUserName());
-            request.setAttribute("ngay", datestr);
-            request.getRequestDispatcher(request.getContextPath()+"/adddondh.jsp").forward(request, response);
-            
+            ArrayList<DonDatHang> rs = new DonDatHangDAO().getAll();
+            request.setAttribute("rs", rs);
+            request.getRequestDispatcher(request.getContextPath()+"/dsdondathang.jsp").forward(request, response);
         } catch (Exception ex) {
-            response.getWriter().print("loi server: "+ ex.getMessage());
+            Logger.getLogger(DanhSanhDonDatHang.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+        
     }
 
     /**

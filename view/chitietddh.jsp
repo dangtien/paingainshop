@@ -4,6 +4,11 @@
     Author     : Asus
 --%>
 
+<%@page import="paingainshop.model.DAO.HangHoaDAO"%>
+<%@page import="paingainshop.model.DAO.NhanVienDAO"%>
+<%@page import="paingainshop.model.DonDatHang"%>
+<%@page import="paingainshop.model.CTDonDatHang"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@include file="frame/header.jsp"%>
@@ -33,14 +38,18 @@
             </div>
             <div class="box-body">
                 <div class="row">
+                    <%
+                        
+                        DonDatHang dh = (DonDatHang) request.getAttribute("dh");
+                    %>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Mã đơn đặt hàng</label>
-                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"></h3>
+                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= dh.getMaDDH()%></h3>
                         </div>
                         <div class="form-group">
                             <label>Nhân viên lập</label>
-                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"></h3>
+                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= new NhanVienDAO().getUserByID(dh.getMaNV()).getHoTen()%></h3>
                         </div>
                     </div>
                     <!-- /.col -->
@@ -48,11 +57,11 @@
                         <!-- /.form-group -->
                         <div class="form-group">
                             <label>Ngày lập</label>
-                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"></h3>
+                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= dh.getNgay()%></h3>
                         </div>
                         <div class="form-group">
                             <label>Tổng giá trị</label>
-                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"></h3>
+                            <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= request.getAttribute("total")%></h3>
                         </div>
                         <div>
                             <button type="button" class="btn btn-primary" style="float:right">Cập nhật trạng thái</button>
@@ -79,16 +88,25 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
+                        <%
+                            int i = 1;
+                            ArrayList<CTDonDatHang> list = (ArrayList<CTDonDatHang>) request.getAttribute("rs");
+                            for (CTDonDatHang ct : list) {
+                                long money = ct.getDonGia() * ct.getSoLuong();
+                                String tensp = new HangHoaDAO().getById(ct.getMaHH()).getTenHH();
+
+                        %>
                         <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><%= i %></td>
+                            <td><%= ct.getMaDDH()%></td>
+                            <td><%=tensp %></td>
+                            <td><%= ct.getDonGia()%></td>
+                            <td><%=ct.getSoLuong()%></td>
+                            <td><%= money%></td>
                         </tr>
-                       
+                        <% i++;
+                            }
+                        %>
                     </tbody>
                     <tfoot>
                         <tr>

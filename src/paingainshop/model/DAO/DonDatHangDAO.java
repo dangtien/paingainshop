@@ -70,6 +70,23 @@ public class DonDatHangDAO {
         return lst;
     }
 
+    public DonDatHang getById(String madh) throws Exception {
+        String sql = "select * from dondathang where MaDDH=?";
+        PreparedStatement pst = db.openConnect().prepareStatement(sql);
+        pst.setString(1, madh);
+        rs = pst.executeQuery();
+        DonDatHang dh = null;
+        while (rs.next()) {
+            String ma = rs.getString("MaDDH");
+            String ngay = rs.getString("Ngay");
+            String manv = rs.getString("MaNV");
+            int tt = rs.getInt("TrangThai");
+
+            dh = new DonDatHang(ma, ngay, manv, tt);
+        }
+        return dh;
+    }
+
     public boolean updateDonDatHang(DonDatHang ddh) throws Exception {
         String sql = "update dondathang set Ngay=?, MaNV=?, TrangThai=? where MaDDH =? ";
         PreparedStatement pst = db.openConnect().prepareStatement(sql);

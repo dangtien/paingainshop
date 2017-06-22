@@ -7,6 +7,10 @@ public class DonDatHang {
 	private String Ngay;
 	private String MaNV;
 	private int TrangThai;
+
+    public int getTrangThai() {
+        return TrangThai;
+    }
 	public DonDatHang(String maDDH, String ngay, String maNV, int trangThai) {
 
 		

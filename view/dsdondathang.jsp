@@ -4,6 +4,9 @@
     Author     : Asus
 --%>
 
+<%@page import="paingainshop.model.DAO.NhanVienDAO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="paingainshop.model.DonDatHang"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@include file="frame/header.jsp"%>
@@ -12,7 +15,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-           Quản lí hàng hóa
+            Quản lí hàng hóa
             <small>Danh sách đơn đặt hàng</small>
         </h1>
         <ol class="breadcrumb">
@@ -25,60 +28,53 @@
         <div class="row">
             <div class="col-md-10">
                 <div class="box box-primary">
- 
-            <!-- /.box-header -->
-            <div class="box-body">
-                <table id="example1" class="table table-bordered table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th>Mã Đơn đặt hàng</th>
-                            <th>Nhân viên lập</th>
-                            <th>Ngày lập</th>
-                            <th>Trạng thái</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>DH000001</td>
-                            <td>NV000001</td>
-                            <td>2017/04/01</td>
-                            <td><a href="chitietddh.jsp">Chưa cập nhật</a></td>
-                        </tr>
-                         <tr>
-                            <td>DH000002</td>
-                            <td>NV000002</td>
-                            <td>2017/03/25</td>
-                            <td><a href="chitietddh.jsp">Đã cập nhật</a></td>
-                        </tr>
-                         <tr>
-                            <td>DH000003</td>
-                            <td>NV000003</td>
-                            <td>2017/03/02</td>
-                            <td><a href="chitietddh.jsp">Đã cập nhật</a></td>
-                        </tr>
-                         <tr>
-                            <td>DH000004</td>
-                            <td>NV000001</td>
-                            <td>2017/03/31</td>
-                            <td><a href="chitietddh.jsp">Chưa cập nhật</a></td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Mã Đơn đặt hàng</th>
-                            <th>Nhân viên lập</th>
-                            <th>Ngày lập</th>
-                            <th>Trạng thái</th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <!-- /.box-body -->
-        </div>
+
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <table id="example1" class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Mã Đơn đặt hàng</th>
+                                    <th>Nhân viên lập</th>
+                                    <th>Ngày lập</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    ArrayList<DonDatHang> list = (ArrayList<DonDatHang>) request.getAttribute("rs");
+                                    for (DonDatHang dh : list) {
+                                %>
+                                <tr>
+                                    <td><%=dh.getMaDDH()%></td>
+                                    <td><%= new NhanVienDAO().getUserByID(dh.getMaNV()).getHoTen()%></td>
+                                    <td><%=dh.getNgay()%></td>
+                            
+                                <% if (dh.getTrangThai() == 0) {
+                                        out.print("<td><a href=\"/donhang/chitiet?madh="+ dh.getMaDDH() +"\">Chưa cập nhật</a></td>");
+                                    } else {
+                                        out.print("<td><a href=\"/donhang/chitiet?madh="+ dh.getMaDDH() +"\">Đã cập nhật</a></td>");
+                                }%>
+                            
+                            </tr>
+                            <%}%>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Mã Đơn đặt hàng</th>
+                                    <th>Nhân viên lập</th>
+                                    <th>Ngày lập</th>
+                                    <th>Trạng thái</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
             </div>
             <div class="col-md-2">
-                <a href="${pageContext.request.contextPath}/donhang/new"> <button type="button" class="btn btn-primary" > Thêm đơn đặt hàng</button></a>
-               
+                <a href="${pageContext.request.contextPath}/donhang/new"> <button type="button" class="btn btn-primary" > Tạo đơn đặt hàng</button></a>
+
             </div>
         </div>
     </section>

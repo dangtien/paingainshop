@@ -60,7 +60,7 @@ public class ChitietHoaDon extends HttpServlet {
             request.setAttribute("total", total);
             request.getRequestDispatcher("chitiethoadon.jsp").forward(request, response);
         } catch (Exception ex) {
-            response.getWriter().print("Ä�Æ°á»�ng dáº«n khÃ´ng Ä‘Ãºng");
+            response.getWriter().print("Duong dan khong dung");
         }
     }
 
