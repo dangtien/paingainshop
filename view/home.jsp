@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+         
+<%@page import="java.util.*" %>
+<%@page import ="java.io.IOException" %>
+<%@page import="paingainshop.model.*" %>
+<%@page import="paingainshop.model.DAO.*" %>
 <title>Pain&Gain | Trang Chủ Quản Lý </title>
 <%@include file="frame/header.jsp"%>
 <%@include file="frame/sidebar.jsp"%>
@@ -16,6 +21,8 @@
         </ol>
     </section>
     <section class="content">
+    
+    
         <!-- Small boxes (Stat box) -->
         <div class="row">
             <div class="box box-default color-palette-box">
@@ -26,11 +33,31 @@
                     <div class="col-lg-3 col-xs-6">
                         <!-- small box -->
                         <div class="small-box bg-aqua">
+                        <%ArrayList<CountDDH> lst1 =new ArrayList<CountDDH>(); %>
+					    <%
+					    	try
+					    	{
+					    		lst1= new DonDatHangDAO().CoutDDH();
+					    		
+					    	}
+						    catch (Exception e)
+						    {}
+					    	if (lst1!=null)
+					    	{
+					    		for (CountDDH tong :lst1)
+					    		{
+					    			
+					    		
+					    %>
                             <div class="inner">
-                                <h3>150</h3>
+                                <h3><%=tong.getTongDDH() %></h3>
 
                                 <p>Số đơn đặt hàng</p>
                             </div>
+                            <%
+					    		}
+					    	}
+                            %>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
@@ -41,11 +68,31 @@
                     <div class="col-lg-3 col-xs-6">
                         <!-- small box -->
                         <div class="small-box bg-green">
+                        <%ArrayList<CountTongHangNhap> lst2 =new ArrayList<CountTongHangNhap>(); %>
+					    <%
+					    	try
+					    	{
+					    		lst2= new CTDonDatHangDAO().CoutSL();
+					    		
+					    	}
+						    catch (Exception e)
+						    {}
+					    	if (lst2!=null)
+					    	{
+					    		for (CountTongHangNhap tong2 :lst2)
+					    		{
+					    			
+					    		
+					    %>
                             <div class="inner">
-                                <h3>53</h3>
+                                <h3><%=tong2.getTongHangNhap() %></h3>
 
                                 <p>Hàng hóa nhập</p>
                             </div>
+                            <%
+					    		}
+					    	}
+                            %>
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
@@ -56,14 +103,34 @@
                     <div class="col-lg-3 col-xs-6">
                         <!-- small box -->
                         <div class="small-box bg-yellow">
+                         <%ArrayList<CountSoHoaDon> lst3 =new ArrayList<CountSoHoaDon>(); %>
+					    <%
+					    	try
+					    	{
+					    		lst3= new HoaDonDAO().CoutSL();
+					    		
+					    	}
+						    catch (Exception e)
+						    {}
+					    	if (lst3!=null)
+					    	{
+					    		for (CountSoHoaDon tong3 :lst3)
+					    		{
+					    			
+					    		
+					    %>
                             <div class="inner">
-                                <h3>44</h3>
+                                <h3><%=tong3.getTongHD() %></h3>
 
                                 <p>Hóa đơn bán hàng</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion ion-bag"></i>
                             </div>
+                            <%
+					    		}
+					    	}
+                            %>
                             <a href="#" class="small-box-footer">Thông tin chi tiết <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>

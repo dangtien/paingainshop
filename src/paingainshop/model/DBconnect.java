@@ -16,7 +16,7 @@ public class DBconnect {
 				 Class.forName("com.mysql.jdbc.Driver");
 				 String DB_url = "jdbc:mysql://localhost:3306/da_qlbh";
 
-				 this.conn = DriverManager.getConnection(DB_url,"root","manh");
+				 this.conn = DriverManager.getConnection(DB_url,"root","root");
 
 				
 				 System.out.println("Ket noi Mysql thanh cong.");
