@@ -75,7 +75,7 @@ public class ThemDonHang extends HttpServlet {
             Date date = new Date();
             SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
             String datestr = dateformat.format(date);
-            DonHang donhang = new DonHang(MaDDH, datestr, nv.getUserName(), false);
+            DonHang donhang = new DonHang(MaDDH, datestr, nv.getUserName(), 0);
             session.setAttribute("donhang", donhang);
             request.setAttribute("madh", MaDDH);
             request.setAttribute("nhanvien", nv.getUserName());

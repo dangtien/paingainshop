@@ -4,47 +4,38 @@
  * and open the template in the editor.
  */
 package paingainshop.model.DAO;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-<<<<<<< HEAD
 import java.sql.ResultSet;
 import paingainshop.model.DBconnect;
-
-=======
 import paingainshop.model.*;
->>>>>>> 81242299834971c98a919810fc3b6ad3a35e3637
+
 /**
  *
  * @author dangt
  */
 public class DonDatHangDAO {
-<<<<<<< HEAD
+
     private DBconnect db;
-    public DonDatHangDAO(){
-        db = new DBconnect();
-    }
-=======
-	DBconnect db;
-    ResultSet rs;
+    private ResultSet rs;
 
     public DonDatHangDAO() {
         db = new DBconnect();
     }
-    
->>>>>>> 81242299834971c98a919810fc3b6ad3a35e3637
-    public String getLastPkey() throws Exception{
+
+    public String getLastPkey() throws Exception {
         String sql = "select MaDDH from dondathang order by MaDDH DESC Limit 1";
         ResultSet rs = db.getStatement().executeQuery(sql);
-        String value=null;
-        while(rs.next()){
-             value= rs.getString("MaDDH");
+        String value = null;
+        while (rs.next()) {
+            value = rs.getString("MaDDH");
         }
         return value;
     }
-<<<<<<< HEAD
-=======
+
     public boolean insertDonDatHang(DonDatHang ddh) throws Exception {
         String sql = "insert into dondathang values (?,?,?,?)";
         PreparedStatement pst = db.openConnect().prepareStatement(sql);
@@ -52,10 +43,10 @@ public class DonDatHangDAO {
         pst.setString(2, ddh.getNgay());
         pst.setString(3, ddh.getMaNV());
         pst.setInt(4, ddh.isTrangThai());
-       
+
         return pst.executeUpdate() > 0;
     }
-    
+
     public ArrayList<DonDatHang> getAll() throws Exception {
         ArrayList<DonDatHang> lst = new ArrayList<DonDatHang>();
         String strSQL = "select * from dondathang order by MaDDH";
@@ -68,8 +59,8 @@ public class DonDatHangDAO {
                 String ngay = rs.getString("Ngay");
                 String manv = rs.getString("MaNV");
                 int tt = rs.getInt("TrangThai");
-                
-                DonDatHang ddh = new DonDatHang(ma,ngay,manv,tt);
+
+                DonDatHang ddh = new DonDatHang(ma, ngay, manv, tt);
                 lst.add(ddh);
             }
         } catch (Exception e) {
@@ -78,29 +69,29 @@ public class DonDatHangDAO {
         db.closeConnet();
         return lst;
     }
-    
-    public boolean updateDonDatHang( DonDatHang ddh) throws Exception {
+
+    public boolean updateDonDatHang(DonDatHang ddh) throws Exception {
         String sql = "update dondathang set Ngay=?, MaNV=?, TrangThai=? where MaDDH =? ";
         PreparedStatement pst = db.openConnect().prepareStatement(sql);
-        
+
         pst.setString(1, ddh.getNgay());
-        pst.setString(2, ddh.getMaNV() );
-        pst.setInt(3, ddh.isTrangThai() );
-        pst.setString(4, ddh.getMaDDH() );
-        
+        pst.setString(2, ddh.getMaNV());
+        pst.setInt(3, ddh.isTrangThai());
+        pst.setString(4, ddh.getMaDDH());
+
         return pst.executeUpdate() > 0;
 
     }
-    public ArrayList<CountDDH> CoutDDH() throws Exception
-    {
-    	ArrayList<CountDDH> lstt = new ArrayList<CountDDH>();
-    	String sql ="select count(MaDDH) as tongDDH from dondathang where Ngay = curdate()";
-    	try {
+
+    public ArrayList<CountDDH> CoutDDH() throws Exception {
+        ArrayList<CountDDH> lstt = new ArrayList<CountDDH>();
+        String sql = "select count(MaDDH) as tongDDH from dondathang where Ngay = curdate()";
+        try {
             rs = db.getStatement().executeQuery(sql);
             while (rs.next()) {
 
                 int tong = rs.getInt("tongDDH");
-                
+
                 CountDDH cnt = new CountDDH(tong);
                 lstt.add(cnt);
             }
@@ -110,5 +101,4 @@ public class DonDatHangDAO {
         db.closeConnet();
         return lstt;
     }
->>>>>>> 81242299834971c98a919810fc3b6ad3a35e3637
 }

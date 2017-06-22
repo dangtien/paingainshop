@@ -15,7 +15,7 @@ public class DonHang extends DonDatHang {
 
     private ArrayList<CTDonDatHang> items;
 
-    public DonHang(String maDDH, String ngay, String maNV, boolean trangThai) {
+    public DonHang(String maDDH, String ngay, String maNV, int trangThai) {
         super(maDDH, ngay, maNV, trangThai);
         items = new ArrayList<>();
     }
