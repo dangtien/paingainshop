@@ -5,7 +5,7 @@ package paingainshop.model;
 public class CTDonDatHang {
 	private String MaDDH;
 	private String MaHH;
-	private int SoLuong;
+	private int SoLuong; 
 	private int DonGia;
 	
 	public CTDonDatHang(String MaDDH,String MaHH,int SoLuong,int DonGia)
@@ -48,5 +48,19 @@ public class CTDonDatHang {
 	public void setDonGia(int donGia) {
 		DonGia = donGia;
 	}
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof CTDonDatHang){
+            CTDonDatHang ct = (CTDonDatHang)obj;
+            if(ct.getMaDDH().equals(this.getMaDDH()) && getMaHH().equals(ct.getMaHH())){
+                return true;
+            }else{
+                return false;
+            }
+        }else{
+            return false;
+        }
+    }
 	
 }

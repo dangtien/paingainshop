@@ -77,7 +77,7 @@
         </div>
             </div>
             <div class="col-md-2">
-                    <button type="button" class="btn btn-primary" > Thêm đơn đặt hàng</button>
+                <a href="${pageContext.request.contextPath}/donhang/new"> <button type="button" class="btn btn-primary" > Thêm đơn đặt hàng</button></a>
                
             </div>
         </div>
