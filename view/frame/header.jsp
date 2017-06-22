@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
 
-=======
 <title>Trang chủ</title>
->>>>>>> e95a56312648c2e7aa4b984bea1c2caf93e94a2f
+
 <meta
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
 	name="viewport">
