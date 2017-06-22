@@ -196,6 +196,10 @@
         <url-pattern>/addregister</url-pattern>
         <url-pattern>/donhang/*</url-pattern>
         <url-pattern>/hanghoa/*</url-pattern>
+        <url-pattern>/home.jsp/*</url-pattern>
+        <url-pattern>/addproduct.jsp</url-pattern>
+        <url-pattern>/hoadon</url-pattern>
+        <url-pattern>/chitiethoadon</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>Index</servlet-name>
