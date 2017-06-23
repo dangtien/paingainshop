@@ -38,34 +38,20 @@
               	<input class="form-control" id="nowdate" name="Ngay" type="text" style="margin-bottom: 7px" placeholder="Ngày hiện tại" disabled value=<%= (new SimpleDateFormat("yyyy-MM-dd").format(new Date()) )%>>
                 <div class="form-group" >
 		                <select class="form-control select2" onchange="ShowEmployee(this);" id="MaNV"  style="margin-bottom: 7px; "  data-placeholder="Chọn mã nhân viên" style="width: 100%;" name="MaNV" required>
-		                 <option value="" disabled selected>Chọn mã nhân viên</option>
+		                 <option value="" disabled selected>Chọn nhân viên</option>
 		                  <% ArrayList<NhanVien> list2 = (ArrayList<NhanVien>)request.getAttribute("result");%>
 	                <%
 	                	if(list2!=null){
 	                		for(NhanVien nv : list2){
 	                %>
-		                  <option><%=nv.getMaNV() %></option>
+		                 <option value ="<%=nv.getMaNV() %>"><%=nv.getHoTen() %></option>
 		             <%
 	                		}
 	                	}
 	                %>
 		                </select>
 		              </div>
-		              <div class="form-group" >
-		                <select class="form-control select2"  style="margin-bottom: 7px; "  data-placeholder="Chọn nhân viên" style="width: 100%;" name="TenNV" required>
-		                 <option value="" disabled selected>Chọn tên nhân viên</option>
-		                  <% ArrayList<NhanVien> list = (ArrayList<NhanVien>)request.getAttribute("result");%>
-	                <%
-	                	if(list!=null){
-	                		for(NhanVien nv : list){
-	                %>
-		                  <option><%=nv.getHoTen() %></option>
-		             <%
-	                		}
-	                	}
-	                %>
-		                </select>
-		              </div>
+		              
 				<select class="form-control input input2" id="MaCa" style="margin-bottom: 7px" name="MaCa" required>
 				  <option value="" disabled selected>Chọn ca làm việc</option>
 				  <option value="1">Ca 1</option>
@@ -78,7 +64,7 @@
                   <div class="input-group" style="width : 100%">
                     <input type="time" class="form-control " id="timepicker1" name="GioBD" placeholder="Giờ bắt đầu" required>
                     <div class="input-group-addon">
-                      <span>GiờBD</span>
+                      <span>Giờ bắt đầu</span>
                     </div>
                   
                   <!-- /.input group -->
@@ -90,7 +76,7 @@
                   <div class="input-group" style="width : 100%">
                     <input type="time"  class="form-control "id="timepicker2" name="GioKT" placeholder="Giờ kết thúc" required>
                     <div class="input-group-addon">
-                      <span>GiờKT</span>
+                      <span>Giờ kết thúc</span>
                    
                   </div>
                   <!-- /.input group -->
@@ -99,26 +85,26 @@
 				  <div class="form-group">
 				    <label class="sr-only" for="exampleInputAmount">Tiền Phạt</label>
 				    <div class="input-group">
-				      <div class="input-group-addon">$</div>
+				      <div class="input-group-addon">--</div>
 				      <input type="text" class="form-control" id="exampleInputAmount1" placeholder="Tiền Phạt" name="TienPhat">
-				      <div class="input-group-addon">.00</div>
+				      <div class="input-group-addon">VND</div>
 				    </div>
 				  </div>
 			
 				  <div class="form-group">
 				    <label class="sr-only" for="exampleInputAmount">Tiền Phụ cấp</label>
 				    <div class="input-group">
-				      <div class="input-group-addon">$</div>
+				      <div class="input-group-addon">+</div>
 				      <input type="text" class="form-control" id="exampleInputAmount2" placeholder="Tiền Phụ cấp" name="PhuCap">
-				      <div class="input-group-addon">.00</div>
+				      <div class="input-group-addon">VND</div>
 				    </div>
 				  </div>
 				  <div class="form-group">
 				    <label class="sr-only" for="exampleInputAmount">Tạm ứng</label>
 				    <div class="input-group">
-				      <div class="input-group-addon">$</div>
+				      <div class="input-group-addon">-</div>
 				      <input type="text" class="form-control" id="exampleInputAmount3" placeholder="Tạm ứng" name="TamUng">
-				      <div class="input-group-addon">.00</div>
+				      <div class="input-group-addon">VND</div>
 				    </div>
 				  </div>
                 
