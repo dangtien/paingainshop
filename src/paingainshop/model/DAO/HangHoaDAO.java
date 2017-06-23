@@ -103,6 +103,16 @@ public class HangHoaDAO {
                 pst.setString(10, newhh.getMaHH());
 		return pst.executeUpdate()>0;
     }
+    
+     public boolean updateSLHangHoa(int sl, String mahh) throws Exception{
+        String sql = "update  HangHoa  SoLuong=? where MaHH =?";
+		PreparedStatement pst = db.openConnect().prepareStatement(sql);
+		pst.setInt(1, sl);
+		pst.setString(2, mahh);
+		
+		return pst.executeUpdate()>0;
+    }
+    
     public boolean deleteHangHoa(String MaHH) throws Exception{
     	String sql = "delete from HangHoa where MaHH=?";
     	PreparedStatement pst =  db.openConnect().prepareStatement(sql);
