@@ -142,8 +142,8 @@ public class DBconnect {
 		PreparedStatement pst = openConnect().prepareStatement(sql);
 		pst.setInt(1, cc.getMaCC());
 		pst.setString(2, cc.getNgay());
-		pst.setTime(3, cc.getGioBD());
-		pst.setTime(4, cc.getGioKT());
+		pst.setString(3, cc.getGioBD());
+		pst.setString(4, cc.getGioKT());
 		pst.setInt(5, cc.getTienPhat());
 		pst.setInt(6, cc.getPhucap());
 		pst.setInt(7, cc.getTamung());
