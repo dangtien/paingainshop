@@ -40,7 +40,7 @@
               <div class="input-group">
               	<input class="form-control" id="nowdate" name="Ngay" type="text" style="margin-bottom: 7px" placeholder="Ngày hiện tại" disabled value=<%= (new SimpleDateFormat("yyyy-MM-dd").format(new Date()) )%>>
                 <div class="form-group" >
-		                <select class="form-control select2" onchange="ShowEmployee(this);" id="MaNV"  style="margin-bottom: 7px; "  data-placeholder="Chọn mã nhân viên" style="width: 100%;" name="MaNV" required>
+		                <select class="form-control select2" onchange="ShowEmployee(this);" id="MaNV"  style="margin-bottom: 7px; "  data-placeholder="Chọn nhân viên" style="width: 100%;" name="MaNV" required>
 		                 <option value="" disabled selected>Chọn nhân viên</option>
 		                  <% ArrayList<NhanVien> list2 = new ArrayList<NhanVien>(); 
 		                  list2 = new NhanVienDAO().getAll();

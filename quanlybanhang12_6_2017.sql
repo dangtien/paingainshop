@@ -10,13 +10,15 @@ DiaChi nvarchar(300) null,
 SoDT varchar(12) not null,
 Username varchar(30) not null unique,
 Pass nvarchar(40) not null,
-GhiChu nvarchar(300) null
+GhiChu nvarchar(300) null,
+Trangthai nvarchar(10)
 );
-insert into NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserName,Pass) values 
-    ('NV000001',N'Nguyễn Duy Mạnh',2500000,'Manh@gmai.com',N'Tây Sơn','01636323484','manh','12345'),
-    ('NV000002',N'Đặng Tiến Chiêu',3200000,'Chieu@gmai.com',N'Hà Đông','0122218786','chieu','12345'),
-    ('NV000003',N'Vũ Khánh Chi',3000000,'chixxx@gmai.com',N'Thạch Thất','0986213214','chi','12345'),
-    ('NV000004',N'Trần Văn Huy',2100000,'huy@gmai.com',N'Hai bà Trưng','01222108386','huy','12345');
+insert into NhanVien (MaNV,HoTen,Luong,Email,DiaChi,SoDT,UserName,Pass,TrangThai) values 
+    ('NV000001',N'Nguyễn Duy Mạnh',2500000,'Manh@gmai.com',N'Tây Sơn','01636323484','manh','12345','clv'),
+    ('NV000002',N'Đặng Tiến Chiêu',3200000,'Chieu@gmai.com',N'Hà Đông','0122218786','chieu','12345','clv'),
+    ('NV000003',N'Vũ Khánh Chi',3000000,'chixxx@gmai.com',N'Thạch Thất','0986213214','chi','12345','clv'),
+    ('NV000004',N'Trần Văn Huy',2100000,'huy@gmai.com',N'Hai bà Trưng','01222108386','huy','12345','clv'),
+    ('NV000005',N'Luân',2100000,'luanxx@gmai.com',N'Hai bà Trưng','01222165386','luan','12345','Nghỉ');
 create table NhaCC(
 MaNCC varchar(8) not null primary key,
 TenNCC nvarchar(200) not null unique,

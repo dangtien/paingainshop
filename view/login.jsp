@@ -55,11 +55,14 @@
       <div class="row">
         <div class="col-xs-4">
           <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng Nhập</button>
+           
         </div>
+        <span style="color:blue" ><i>Không phận sự miễn vào. Xin cảm ơn.</i></span>
         <!-- /.col -->
       </div>
+      
     </form>
-    <a href="register.html" class="text-center">Đăng kí mới</a>
+  
 
   </div>
   <!-- /.login-box-body -->

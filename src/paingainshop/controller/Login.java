@@ -56,9 +56,16 @@ public class Login extends HttpServlet {
             if(nv == null){
                 request.getRequestDispatcher("login.jsp").forward(request, response);
              }else{
-                HttpSession session = request.getSession();
-                session.setAttribute("login", nv);
-                response.sendRedirect("index");
+               if (nv.getPass().equals(password) && nv.getTrangThai().equals("clv"))
+               {
+            	   HttpSession session = request.getSession();
+                   session.setAttribute("login", nv);
+                   response.sendRedirect("index");
+               }
+               else 
+               {
+            	   request.getRequestDispatcher("login.jsp").forward(request, response);
+               }
             }
         } catch (Exception ex) {
             //request.getRequestDispatcher("login.jsp").forward(request, response);
