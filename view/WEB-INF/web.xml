@@ -175,7 +175,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>UpdateTTDonDatHang</servlet-name>
-        <url-pattern>/updatettdondathang</url-pattern>
+        <url-pattern>/donhang/updatettdondathang</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>

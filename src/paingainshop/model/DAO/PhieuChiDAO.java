@@ -8,7 +8,7 @@ package paingainshop.model.DAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import paingainshop.model.DBconnect;
+
 import paingainshop.model.*;
 
 /**
@@ -68,10 +68,19 @@ public class PhieuChiDAO {
         }
         return pc;
     }
-    public static void main(String args[]) throws Exception
-    {
-       PhieuChi pc = new PhieuChiDAO().getById("PC000001");
-      System.out.print(pc.getMaNV()) ;
-    }
+    public boolean insertPhieuChi(PhieuChi pc) throws Exception
+	 {
+		 String sql = "insert into phieuchi values (?,?,?,?,?,?,?)";
+		 PreparedStatement pst = db.openConnect().prepareStatement(sql);
+		 pst.setString(1,pc.getMaPC() );
+		 pst.setString(2, pc.getNgay());
+		 pst.setString(3, pc.getLoaiChi());
+		 pst.setString(4,pc.getNguoiNhan() );
+		 pst.setInt(5,pc.getGiaTri() );
+		 pst.setString(6,pc.getGhiChu() );
+		 pst.setString(7,pc.getMaNV() );
+		 
+		 return pst.executeUpdate()>0;
+	 }
             
 }

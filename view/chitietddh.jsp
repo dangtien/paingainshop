@@ -28,7 +28,7 @@
     </section>
     <section class="content">
         <!-- Small boxes (Stat box) -->
-        <form action ="updatettdondathang" method="post">  
+        
            
         <div class="box box-default">
             <div class="box-header with-border">
@@ -67,7 +67,7 @@
                             <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= request.getAttribute("total")%></h3>
                         </div>
                         <div>
-                            <button type="submit"  class="btn btn-primary" style="float:right"> Cập nhật trạng thái</button>
+                            <button type="button" onclick="capnhatDonHang('<%=dh.getMaDDH() %>')" class="btn btn-primary" style="float:right"> Cập nhật trạng thái</button>
                         </div>
                         <!-- /.form-group -->
                     </div>
@@ -76,7 +76,7 @@
                 <!-- /.row -->
             </div>
         </div>
-        </form>
+        
         <div class="box">
             <!-- /.box-header -->
             <div class="box-body">

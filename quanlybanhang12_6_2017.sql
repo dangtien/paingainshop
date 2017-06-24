@@ -205,6 +205,14 @@ insert into PhieuChi(MaPC,Ngay,LoaiChi,NguoiNhan,GiaTri,GhiChu,MaNV) values
 	('PC000003','2017/04/03',N'Tiền hàng','',1250000,'','NV000004'),
 	('PC000004','2017/04/10',N'Tiền hàng','',860000,'','NV000002'),
 	('PC000005','2017/04/27',N'Tiền Internet','',263000,'','NV000003');
+	
+create table NhatKi (
+	MaNK varchar (8) not null primary key,
+    Ngay date not null,
+    Gio time not null,
+    NoiDung Nvarchar(100)
+    
+);
 delimiter $$
  CREATE TRIGGER before_insert_BangChamCong BEFORE INSERT ON BangChamCong
        FOR EACH ROW

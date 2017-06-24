@@ -105,7 +105,7 @@ public class HangHoaDAO {
     }
     
      public boolean updateSLHangHoa(int sl, String mahh) throws Exception{
-        String sql = "update  HangHoa  SoLuong=? where MaHH =?";
+        String sql = "update  HangHoa set SoLuong=? where MaHH =? ";
 		PreparedStatement pst = db.openConnect().prepareStatement(sql);
 		pst.setInt(1, sl);
 		pst.setString(2, mahh);

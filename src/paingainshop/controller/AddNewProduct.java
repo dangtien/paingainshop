@@ -1,6 +1,8 @@
 package paingainshop.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import paingainshop.model.*;
 import paingainshop.model.DAO.HangHoaDAO;
+import paingainshop.model.DAO.NhatKiDAO;
 import paingainshop.model.service.PainAndGainService;
 
 /**
@@ -47,20 +50,21 @@ public class AddNewProduct extends HttpServlet {
 
             HangHoa hh = new HangHoa(MaHH, TenHH, NhomHH, GiaBan, GiaNhap, ThuocTinh, SoLuong, DonViTinh, MaNCC, GhiChu);
             HangHoaDAO db = new HangHoaDAO();
-
+            
+            
             try {
                 if (db.insertHangHoa(hh)) {
-                    message = "Thêm sản phẩm thành công.";
+                    message = "ThÃªm sáº£n pháº©m thÃ nh cÃ´ng.";
 
                 } else {
-                    message = "Không thành công.";
+                    message = "KhÃ´ng thÃ nh cÃ´ng.";
 
                 }
             } catch (Exception e) {
-                message = "Không thành công. " + e.getMessage();
+                message = "KhÃ´ng thÃ nh cÃ´ng. " + e.getMessage();
             }
         } catch (Exception e) {
-            message = "Bạn đã nhập sai định dạng. Mời bạn nhập lại!";
+            message = "Báº¡n Ä‘Ã£ nháº­p sai Ä‘á»‹nh dáº¡ng. Má»�i báº¡n nháº­p láº¡i!";
         }
         response.getWriter().print(message);
 
