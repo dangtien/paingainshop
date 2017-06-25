@@ -55,14 +55,14 @@ public class EditEmployee extends HttpServlet {
 				if (TenNV!= "" && Username!= "" && Pass != "" && DiaChi!= "" && SDT!= "" ) 
 				{
 					db.updateNhanVien(MaNV, nv);
-					message = "Cập nhật nhân viên thành công.";
+					message = "Cập nhật thông tin thành công.";
 					RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
 				}
 				else
 				{
-					message = "Cập nhật nhân viên không thành công.";
+					message = "Cập nhật thông tin không thành công.";
 					RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
@@ -71,7 +71,7 @@ public class EditEmployee extends HttpServlet {
 			}
 			catch (Exception e)
 			{
-				message = "Cập nhật nhân viên không thành công.";
+				message = "Cập nhật thông tin không thành công.";
 				RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
 				request.setAttribute("msg", message );
 				xxx.forward(request, response);
@@ -79,7 +79,7 @@ public class EditEmployee extends HttpServlet {
 		}
 		catch (Exception e)
 		{
-			String message = "Cập nhật nhân viên không thành công.";
+			String message = "Cập nhật thông tin không thành công.";
 			String MaNV = request.getParameter("MaNV");
 			RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
 			request.setAttribute("msg", message );

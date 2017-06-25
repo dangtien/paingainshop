@@ -30,7 +30,7 @@ public class AddNewRegister extends HttpServlet {
      * response)
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html; charset= UTF-8");
         request.setCharacterEncoding("utf-8");
         try {
@@ -39,35 +39,48 @@ public class AddNewRegister extends HttpServlet {
             Date Ngay = new Date();
             SimpleDateFormat datefrmat = new SimpleDateFormat("yyyy-MM-dd");
             String datestr = datefrmat.format(Ngay);
-            Time GioBD = new Time(Long.parseLong(request.getParameter("gioBD")));
-            Time GioKT = new Time(Long.parseLong(request.getParameter("gioKT")));
+            String GioBD = request.getParameter("GioBD");
+            String GioKT = request.getParameter("GioKT");
             int TienPhat = Integer.parseInt(request.getParameter("TienPhat"));
             int Phucap = Integer.parseInt(request.getParameter("PhuCap"));
             int Tamung = Integer.parseInt(request.getParameter("TamUng"));
             int MaCa = Integer.parseInt(request.getParameter("MaCa"));
             String MaNV = request.getParameter("MaNV");
 
-            BangChamCong cc = new BangChamCong(MaCC, datestr, GioBD, GioKT, TienPhat, Phucap, Tamung, MaCa, MaNV);
+            BangChamCong cc = new BangChamCong(MaCC, datestr, GioBD, GioKT, TienPhat, Phucap, Tamung, MaNV, MaCa);
             BangChamCongDAO db = new BangChamCongDAO();
             String message = "";
             try {
 
                 if (db.insertBCC(cc)) {
-
-                    response.getWriter().println("Thêm thành công");
+                	message = "  Chấm công thành công.";
+					RequestDispatcher xxx = request.getRequestDispatcher("register.jsp");
+					request.setAttribute("msg", message );
+					xxx.forward(request, response);
+					
                 } else {
-                    response.getWriter().println("Không thành công");
+                	message = "  Chấm công không thành công.";
+					RequestDispatcher xxx = request.getRequestDispatcher("register.jsp");
+					request.setAttribute("msg", message );
+					xxx.forward(request, response);
+					System.out.println("loi 1");
                 }
 
             } catch (Exception e) {
-                response.getWriter().println("Lỗi: " + e.getMessage());
+            	message = "  Chấm công không thành công.";
+				RequestDispatcher xxx = request.getRequestDispatcher("register.jsp");
+				request.setAttribute("msg", message );
+				xxx.forward(request, response);
+				System.out.println("loi 2");
             }
         } catch (Exception e) {
-            response.getWriter().println("Lỗi: " + e.getMessage());
+        	String message = "  Chấm công không thành công.";
+			RequestDispatcher xxx = request.getRequestDispatcher("register.jsp");
+			request.setAttribute("msg", message );
+			xxx.forward(request, response);
+			System.out.println("loi 3");
         }
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
+   
 }

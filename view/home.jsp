@@ -61,7 +61,7 @@
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Thông tin chi tiết <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="ddhtrongngay.jsp" class="small-box-footer">Thông tin chi tiết <i class="fa fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -96,7 +96,7 @@
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a href="#" class="small-box-footer">Thông tin chi tiết <i class="fa fa-arrow-circle-right"></i></a>
+                            <a href="#" class="small-box-footer"> .</a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -151,10 +151,28 @@
                             <div class="col-md-12">
                                 <!-- The time line -->
                                 <ul class="timeline">
+                                <%
+                                	ArrayList<NhatKi> lst4 = new ArrayList<NhatKi>();
+                                	try 
+                                	{
+                                		lst4 = new NhatKiDAO().getAll();
+                                	}
+                                	catch(Exception e)
+                                	{}
+                                	if (lst4 != null)
+                                	{
+                                		for (NhatKi nk : lst4)
+                                    	{
+                                    		
+                                    	
+                                
+                                %>
+                                
+                                
                                     <!-- timeline time label -->
                                     <li class="time-label">
-                                        <span class="bg-red">
-                                            10 Feb. 2014
+                                        <span class="bg-red" >
+                                            <span class="time"><i class="fa fa-clock-o"></i> <%=nk.getGio() %></span>
                                         </span>
                                     </li>
                                     <!-- /.timeline-label -->
@@ -163,35 +181,17 @@
                                         <i class="fa fa-user bg-aqua"></i>
 
                                         <div class="timeline-item">
-                                            <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-                                            <h3 class="timeline-header no-border">sent you an email</h3>
+                                            <span class="time"> <%=nk.getNgay() %></span>
+                                            <h3 class="timeline-header no-border"><%=nk.getNoiDung() %></h3>
                                         </div>
                                     </li>
                                     <!-- END timeline item -->
                                     <!-- timeline item -->
-                                    <li>
-                                        <i class="fa fa-user bg-aqua"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-                                            <h3 class="timeline-header no-border"> accepted your friend request</h3>
-                                        </div>
-                                    </li>
-                                    <!-- END timeline item -->
-                                    <!-- timeline item -->
-                                    <li>
-                                        <i class="fa fa-user bg-aqua"></i>
-
-                                        <div class="timeline-item">
-                                            <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-                                            <h3 class="timeline-header no-border">nội dung nè</h3>
-                                        </div>
-                                    </li>
-                                    <!-- END timeline item -->
-                                    <!-- timeline time label -->
-
-                                    <!-- /.timeline-label -->
-                                    <!-- timeline item -->
+                                    
+                                    <%
+                                    	}
+                                	}
+                                    %>
 
                                 </ul>
                             </div>

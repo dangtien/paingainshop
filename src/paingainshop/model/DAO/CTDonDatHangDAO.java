@@ -66,7 +66,26 @@ public class CTDonDatHangDAO {
         }
         return list;
     }
+    public CTDonDatHang getByMaDDH(String ma)throws Exception
+		 {
+			 String sql = "select * from ctdondathang where MaDDH=?";
+			 PreparedStatement pst = db.openConnect().prepareStatement(sql);
+			 pst.setString(1, ma);
+			 rs = pst.executeQuery();
+			 CTDonDatHang ct = null;
+			 if(rs.next())
+			 {
+				
+				 
+				 String madon = rs.getString("MaDDH");
+                                 String MaHH = rs.getString("MaHH");
+                                 int SL = rs.getInt("SoLuong");
+                                int DonGia = rs.getInt("DonGia");
 
+                        ct = new CTDonDatHang(madon, MaHH, SL, DonGia);
+			 }
+			 return ct;
+          }
     public ArrayList<CountTongHangNhap> CoutSL() throws Exception {
         ArrayList<CountTongHangNhap> lstt = new ArrayList<CountTongHangNhap>();
         String sql = "select sum(ctdondathang.SoLuong) as TongHangNhap from ctdondathang join dondathang on ctdondathang.MaDDH = dondathang.MaDDH where dondathang.Ngay = curdate()";

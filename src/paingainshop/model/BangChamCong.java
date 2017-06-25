@@ -3,16 +3,16 @@ import java.sql.Time;
 public class BangChamCong {
 	private int MaCC;
 	private String Ngay;
-	private Time GioBD;
-	private Time GioKT;
+	private String GioBD;
+	private String GioKT;
 	private int TienPhat;
 	private int Phucap;
 	private int Tamung;
 	private int MaCa;
 	private String MaNV;
-	private String TenNV;
+
 	
-	public BangChamCong(int MaCC, String Ngay, Time GioBD, Time GioKT, int TienPhat, int Phucap, int Tamung, int MaCa, String MaNV){
+	public BangChamCong(int MaCC, String Ngay, String GioBD, String GioKT, int TienPhat, int Phucap, int Tamung, String MaNV, int MaCa){
 		this.MaCC = MaCC;
 		this.Ngay = Ngay;
 		this.GioBD = GioBD;
@@ -23,77 +23,81 @@ public class BangChamCong {
 		this.MaCa = MaCa;
 		this.MaNV = MaNV;
 	}
-	public BangChamCong(int MaCC, String Ngay, Time GioBD, Time GioKT, int TienPhat, int Phucap, int Tamung, int MaCa, String MaNV, String TenNV){
-		this.MaCC = MaCC;
-		this.Ngay = Ngay;
-		this.GioBD = GioBD;
-		this.GioKT = GioKT;
-		this.TienPhat = TienPhat;
-		this.Phucap = Phucap;
-		this.Tamung = Tamung;
-		this.MaCa = MaCa;
-		this.MaNV = MaNV;
-		this.TenNV = TenNV;
+
+	public int getMaCC() {
+		return MaCC;
 	}
+
+	public void setMaCC(int maCC) {
+		MaCC = maCC;
+	}
+
+	public String getNgay() {
+		return Ngay;
+	}
+
+	public void setNgay(String ngay) {
+		Ngay = ngay;
+	}
+
+	public String getGioBD() {
+		return GioBD;
+	}
+
+	public void setGioBD(String gioBD) {
+		GioBD = gioBD;
+	}
+
+	public String getGioKT() {
+		return GioKT;
+	}
+
+	public void setGioKT(String gioKT) {
+		GioKT = gioKT;
+	}
+
+	public int getTienPhat() {
+		return TienPhat;
+	}
+
+	public void setTienPhat(int tienPhat) {
+		TienPhat = tienPhat;
+	}
+
+	public int getPhucap() {
+		return Phucap;
+	}
+
+	public void setPhucap(int phucap) {
+		Phucap = phucap;
+	}
+
+	public int getTamung() {
+		return Tamung;
+	}
+
+	public void setTamung(int tamung) {
+		Tamung = tamung;
+	}
+
+	public int getMaCa() {
+		return MaCa;
+	}
+
+	public void setMaCa(int maCa) {
+		MaCa = maCa;
+	}
+
+	public String getMaNV() {
+		return MaNV;
+	}
+
+	public void setMaNV(String maNV) {
+		MaNV = maNV;
+	}
+
 	
-	public int getMaCC(){
-		return this.MaCC;
-	}
-	public void setMaCC(int MaCC){
-		this.MaCC = MaCC;
-	}
-	public String getNgay(){
-		return this.Ngay;
-	}
-	public void setNgay(String Ngay){
-		this.Ngay = Ngay;
-	}
-	public Time getGioBD(){
-		return this.GioBD;
-	}
-	public void setGioBD(Time GioBD){
-		this.GioBD = GioBD;
-	}
-	public Time getGioKT(){
-		return this.GioKT;
-	}
-	public void setGioKT(Time GioKT){
-		this.GioKT = GioKT;
-	}
-	public int getTienPhat(){
-		return this.TienPhat;
-	}
-	public void setTienPhat(int TienPhat){
-		this.TienPhat = TienPhat;
-	}
-	public int getPhucap(){
-		return this.Phucap;
-	}
-	public void setPhucap(int Phucap){
-		this.Phucap = Phucap;
-	}
-	public int getTamung(){
-		return this.Tamung;
-	}
-	public void setTamung(int Tamung){
-		this.Tamung = Tamung;
-	}
-	public int getMaCa(){
-		return this.MaCa;
-	}
-	public void setMaca(int Maca){
-		this.MaCa = Maca;
-	}
-	public String getMaNV(){
-		return this.MaNV;
-	}
-	public void setMaNV(String MaNV){
-		this.MaNV = MaNV;
-	}
-	public String getTenNV(){
-		return this.TenNV;
-	}
-	public void setTenNV(String TenNV){
-		this.TenNV = TenNV;
-	}
+	
+	
+	
 }

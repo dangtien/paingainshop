@@ -22,16 +22,18 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li><a href="dsdondathang.jsp">Danh sách đơn đặt hàng</li></a>
+            <li><a href="danhsach">Danh sách đơn đặt hàng</li></a>
             <li class="active">Chi tiết đơn đặt hàng</li>
         </ol>
     </section>
     <section class="content">
         <!-- Small boxes (Stat box) -->
+        
+           
         <div class="box box-default">
             <div class="box-header with-border">
                 <h3 class="box-title">Thông tin đơn đặt hàng</h3>
-
+                    <span style="color:red">${msg1}</span>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 </div>
@@ -45,6 +47,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Mã đơn đặt hàng</label>
+                             <input type="hidden" name="MaDDH" value="<%= dh.getMaDDH()%>" size="0" />
                             <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= dh.getMaDDH()%></h3>
                         </div>
                         <div class="form-group">
@@ -64,7 +67,7 @@
                             <h3 class="text-muted" style=" margin: 0px;margin-left: 20px;"><%= request.getAttribute("total")%></h3>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-primary" style="float:right">Cập nhật trạng thái</button>
+                            <button type="button" onclick="capnhatDonHang('<%=dh.getMaDDH() %>')" class="btn btn-primary" style="float:right"> Cập nhật trạng thái</button>
                         </div>
                         <!-- /.form-group -->
                     </div>
@@ -73,6 +76,7 @@
                 <!-- /.row -->
             </div>
         </div>
+        
         <div class="box">
             <!-- /.box-header -->
             <div class="box-body">

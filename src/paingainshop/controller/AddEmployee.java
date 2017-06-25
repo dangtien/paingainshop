@@ -1,6 +1,8 @@
 package paingainshop.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -45,43 +47,61 @@ public class AddEmployee extends HttpServlet {
 			String DiaChi = request.getParameter("Diachi");
 			String SDT = request.getParameter("Sodt");
 			String gc= request.getParameter("Ghichu");
-			String tt= "";
+			String tt= "clv";
 			NhanVien nv = new NhanVien(MaNV,TenNV,Luong,Email,DiaChi,SDT,Username,Pass,gc,tt);
 			NhanVienDAO db = new NhanVienDAO();
 			String message ="";
+			
+			// thÃªm nháº­t kÃ­
+            String MaNK = PainAndGainService.CreatePKey("NK", new NhatKiDAO().getLastPkey());
+            
+            Date date = new Date();
+            SimpleDateFormat datefrmat = new SimpleDateFormat("yyyy-MM-dd");
+            String Ngay = datefrmat.format(date);
+            
+            SimpleDateFormat timefrmat = new SimpleDateFormat("HH:mm:ss");
+            String Gio = timefrmat.format(date);
+            String ND = " ThÃªm cÃ¡i gÃ¬ Ä‘áº¥y"; 
+            NhatKi nk = new NhatKi(MaNK,Ngay,Gio,ND);
+            NhatKiDAO db5 = new NhatKiDAO();
+            
+			
 			try 
 			{
 				if (TenNV!= "" && Username!= "" && Pass != ""  && DiaChi!= "" && SDT!= "" ) 
 				{
 					db.insertNhanVien(nv);
-					message = "Thêm nhân viên thành công.";
+					db5.insertNhatKi(nk);
+					message = "ThÃªm nhÃ¢n viÃªn thÃ nh cÃ´ng.";
 					RequestDispatcher xxx = request.getRequestDispatcher("employee.jsp");
 					request.setAttribute("msg2", message );
 					xxx.forward(request, response);
 				}
 				else
 				{
-					message = "Thêm nhân viên không thành công.";
+					message = "ThÃªm nhÃ¢n viÃªn khÃ´ng thÃ nh cÃ´ng.";
 					RequestDispatcher xxx = request.getRequestDispatcher("editEmployee.jsp?MaNV="+MaNV);
 					request.setAttribute("msg", message );
 					xxx.forward(request, response);
+					System.out.println("loi 1");
 				}
 			}
 			catch (Exception e)
 			{
-				message = "Thêm nhân viên không thành công.";
+				message = "ThÃªm nhÃ¢n viÃªn khÃ´ng thÃ nh cÃ´ng.";
 				RequestDispatcher xxx = request.getRequestDispatcher("employee.jsp");
 				request.setAttribute("msg2", message );
 				xxx.forward(request, response);
+				System.out.println("loi 2");
 				
 			}
 		} catch (Exception e) {
 			
-			String message = "Thêm nhân viên không thành công.";
+			String message = "ThÃªm nhÃ¢n viÃªn khÃ´ng thÃ nh cÃ´ng.";
 			RequestDispatcher xxx = request.getRequestDispatcher("employee.jsp");
 			request.setAttribute("msg2", message );
 			xxx.forward(request, response);
-			
+			System.out.println("loi 3");
 		}
 	}
 

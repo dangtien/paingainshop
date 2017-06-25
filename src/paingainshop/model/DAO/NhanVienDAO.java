@@ -39,7 +39,7 @@ public class NhanVienDAO {
     
     public ArrayList<NhanVien> getAll() throws Exception{
 		 ArrayList<NhanVien> lst = new ArrayList<NhanVien>();
-		 String strSQL = "select * from NhanVien where TrangThai='' order by MaNV  ";
+		 String strSQL = "select * from NhanVien where TrangThai='clv' order by MaNV  ";
 		 
 		 try {
 			 rs = db.getStatement().executeQuery(strSQL);

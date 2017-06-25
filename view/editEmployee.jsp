@@ -63,8 +63,9 @@
                             <label for="inputText4" class="col-sm-2 control-label">Trạng thái</label>
                             <div class="col-sm-10">
                                 <select class="form-control" id="inputText4" name="TrangThai" >
-                                <option value="<%=nv.getTrangThai() %>" selected><%=nv.getTrangThai() %></option>
-								<option value="" >Còn làm việc</option>
+                                <% String tt; %>
+                                <option value="<%=nv.getTrangThai() %>" selected><% if(nv.getTrangThai().equals("clv")) {tt ="Còn làm việc";} else { tt="Nghỉ";} %> <%=tt %></option>
+								<option value="clv" >Còn làm việc</option>
 								<option value="Nghỉ">Nghỉ</option>
 							</select>
                             </div>

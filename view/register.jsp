@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="paingainshop.model.BangChamCong" %>
 <%@ page import="paingainshop.model.NhanVien" %>
+<%@ page import="paingainshop.model.DAO.*" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import=" java.util.Date" %>
 <%@ page import=" java.text.*" %>
@@ -20,31 +21,46 @@
         <li class="active">Chấm công</li>
       </ol>
     </section>
-
+	
     <!-- Main content -->
     <section class="content">
     <span style="color:red"><i id="msg"></i></span>
-    <form action="addcustomer" method="post">
+    <form action="addregister" method="post">
       <div class="row">
         <div class="col-md-3">
           <!-- /. box -->
           <div class="box box-solid">
             <div class="box-header with-border">
               <h3 class="box-title">Thêm chấm công</h3>
+              
             </div>
+            <span style="color:red"><i>${msg}</i></span>
             <div class="box-body">
               <!-- /btn-group -->
               <div class="input-group">
               	<input class="form-control" id="nowdate" name="Ngay" type="text" style="margin-bottom: 7px" placeholder="Ngày hiện tại" disabled value=<%= (new SimpleDateFormat("yyyy-MM-dd").format(new Date()) )%>>
                 <div class="form-group" >
+<<<<<<< HEAD
 		                <select class="form-control select2" onchange="ShowEmployee(this);" id="MaNV"  style="margin-bottom: 7px; "  data-placeholder="Chọn mã nhân viên" style="width: 100%;" name="MaNV" required>
 		                 <option value="" disabled selected>Chọn nhân viên</option>
 		                  <% ArrayList<NhanVien> list2 = (ArrayList<NhanVien>)request.getAttribute("result");%>
+=======
+		                <select class="form-control select2" onchange="ShowEmployee(this);" id="MaNV"  style="margin-bottom: 7px; "  data-placeholder="Chọn nhân viên" style="width: 100%;" name="MaNV" required>
+		                 <option value="" disabled selected>Chọn nhân viên</option>
+		                  <% ArrayList<NhanVien> list2 = new ArrayList<NhanVien>(); 
+		                  list2 = new NhanVienDAO().getAll();
+		                  %>
+		                  
+>>>>>>> ed911b3134a17777843f28599681125affd451e8
 	                <%
 	                	if(list2!=null){
 	                		for(NhanVien nv : list2){
 	                %>
+<<<<<<< HEAD
 		                  <option value ="<%=nv.getMaNV() %>"><%=nv.getHoTen() %></option>
+=======
+		                 <option value ="<%=nv.getMaNV() %>"><%=nv.getHoTen() %></option>
+>>>>>>> ed911b3134a17777843f28599681125affd451e8
 		             <%
 	                		}
 	                	}
@@ -85,7 +101,11 @@
 				  <div class="form-group">
 				    <label class="sr-only" for="exampleInputAmount">Tiền Phạt</label>
 				    <div class="input-group">
+<<<<<<< HEAD
 				      <div class="input-group-addon">-</div>
+=======
+				      <div class="input-group-addon">--</div>
+>>>>>>> ed911b3134a17777843f28599681125affd451e8
 				      <input type="text" class="form-control" id="exampleInputAmount1" placeholder="Tiền Phạt" name="TienPhat">
 				      <div class="input-group-addon">VND</div>
 				    </div>
@@ -102,7 +122,11 @@
 				  <div class="form-group">
 				    <label class="sr-only" for="exampleInputAmount">Tạm ứng</label>
 				    <div class="input-group">
+<<<<<<< HEAD
 				      <div class="input-group-addon">-</div>
+=======
+				      <div class="input-group-addon">--</div>
+>>>>>>> ed911b3134a17777843f28599681125affd451e8
 				      <input type="text" class="form-control" id="exampleInputAmount3" placeholder="Tạm ứng" name="TamUng">
 				      <div class="input-group-addon">VND</div>
 				    </div>
@@ -111,7 +135,7 @@
                 <!-- /btn-group -->
               </div>
              <div class="input-group-btn">
-                  <button id="add-new-event" type="button" onclick="addregister();" style="float: right; margin-right: 20px; " class="btn btn-primary btn-flat">Thêm</button>
+                  <button id="add-new-event" type="submit"  style="float: right; margin-right: 20px; " class="btn btn-primary btn-flat">Thêm</button>
                 </div>
                
               <!-- /input-group -->

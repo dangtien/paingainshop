@@ -72,7 +72,7 @@ public class DonDatHangDAO {
     
     public ArrayList<DonDatHang> getOnDay() throws Exception {
         ArrayList<DonDatHang> lst = new ArrayList<DonDatHang>();
-        String strSQL = "select * from dondathang order by MaDDH where Ngay = curdate() ";
+        String strSQL = "select * from dondathang  where Ngay = curdate() order by MaDDH";
 
         try {
             rs = db.getStatement().executeQuery(strSQL);
@@ -122,7 +122,19 @@ public class DonDatHangDAO {
         return pst.executeUpdate() > 0;
 
     }
+    
+    public boolean updateTTDonDatHang(int tt,String maddh) throws Exception {
+        String sql = "update dondathang set TrangThai=? where MaDDH =? ";
+        PreparedStatement pst = db.openConnect().prepareStatement(sql);
 
+        pst.setInt(1, tt);
+        
+        pst.setString(2,maddh );
+
+        return pst.executeUpdate() > 0;
+
+    }
+    
     public ArrayList<CountDDH> CoutDDH() throws Exception {
         ArrayList<CountDDH> lstt = new ArrayList<CountDDH>();
         String sql = "select count(MaDDH) as tongDDH from dondathang where Ngay = curdate()";

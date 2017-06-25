@@ -263,3 +263,11 @@ function saveDonDatHang() {
                 }
             });
 }
+function capnhatDonHang(madh){
+    $.get("/donhang/updatettdondathang",
+    {MaDDH:madh},
+    function(data){
+        alert(data);
+    }
+    );
+}

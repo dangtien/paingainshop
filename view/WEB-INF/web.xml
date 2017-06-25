@@ -77,6 +77,10 @@
         <servlet-name>ChiTietDonDatHang</servlet-name>
         <servlet-class>paingainshop.controller.donhang.ChiTietDonDatHang</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateTTDonDatHang</servlet-name>
+        <servlet-class>paingainshop.controller.donhang.UpdateTTDonDatHang</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoadDSPhieuChi</servlet-name>
         <url-pattern>/loaddsphieuchi</url-pattern>
@@ -168,6 +172,10 @@
     <servlet-mapping>
         <servlet-name>ChiTietDonDatHang</servlet-name>
         <url-pattern>/donhang/chitiet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateTTDonDatHang</servlet-name>
+        <url-pattern>/donhang/updatettdondathang</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
