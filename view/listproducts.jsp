@@ -28,6 +28,7 @@
                             <th>Tên hàng</th>
                             <th>số lượng</th>
                             <th>Giá bán</th>
+                            <th>Giá nhập</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -41,6 +42,7 @@
                             <td><%= h.getTenHH()%></td>
                             <td><%= h.getSoLuong()%></td>
                             <td><%= h.getGiaBan()%></td>
+                            <td><%= h.getGiaNhap() %></td>
                             <td>
                                 <a href="hanghoa/edit?mahh=<%=h.getMaHH()%>"><span class="fa fa-edit">Sửa</span></a>
                                 <span class="fa" style="margin: 0px 5px;"></span>
@@ -56,6 +58,7 @@
                             <th>Tên hàng</th>
                             <th>số lượng</th>
                             <th>Giá bán</th>
+                            <th>Giá nhập</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
